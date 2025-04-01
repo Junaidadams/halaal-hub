@@ -4,6 +4,13 @@ import {
   BsInstagram,
   BsTwitterX,
 } from "react-icons/bs";
+import {
+  FaUserPlus,
+  FaSignInAlt,
+  FaInfoCircle,
+  FaEnvelope,
+  FaUtensils,
+} from "react-icons/fa";
 
 export const websiteInformation = [
   {
@@ -45,5 +52,45 @@ export const navigationLinks = [
     key: 5,
     name: "contact",
     link: "/contact",
+  },
+];
+
+export const getStartedOptions = [
+  {
+    key: 1,
+    name: "Sign Up",
+    link: "/sign-up",
+    description:
+      "Create an account to list your Halaal business on the directory.",
+    icon: FaUserPlus,
+  },
+  {
+    key: 2,
+    name: "Sign In",
+    link: "/sign-in",
+    description: "Log into your account to manage your listings and reviews.",
+    icon: FaSignInAlt,
+  },
+  {
+    key: 3,
+    name: "Learn More",
+    link: "/about",
+    description:
+      "Discover how Halaal Hub helps you find the best Halaal food spots.",
+    icon: FaInfoCircle,
+  },
+  {
+    key: 4,
+    name: "Contact Us",
+    link: "/contact",
+    description: "Have questions? Get in touch with our team for assistance.",
+    icon: FaEnvelope,
+  },
+  {
+    key: 5,
+    name: "Explore Listings",
+    link: "/listings",
+    description: "Browse Halaal restaurants, cafés, and food spots near you.",
+    icon: FaUtensils,
   },
 ];
