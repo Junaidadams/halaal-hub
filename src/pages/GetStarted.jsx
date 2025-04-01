@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const GetStarted = () => {
   return (
     <div className="min-h-screen bg-eggshell flex">
-      <div className="m-auto grid gap-6 p-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="m-auto grid gap-6 w-[95%] md:grid-cols-2 lg:grid-cols-3">
         {getStartedOptions.map(
           ({ key, name, link, description, icon: Icon }) => (
             <Link
