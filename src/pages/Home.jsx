@@ -2,11 +2,11 @@ const Home = () => {
   return (
     <div className="min-h-screen -mt-[56px] bg-eggshell flex">
       <div className="m-auto w-[95%] flex flex-col space-y-4 font-poppins">
-        <h1 className="m-auto text-center text-richBlack tracking-widest text-3xl sm:text-4xl font-black">
+        <h1 className="m-auto text-center text-richBlack tracking-widest text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black">
           Welcome to
           <br /> Halaal Hub
         </h1>
-        <p className="tracking-wider sm:tracking-widest md:tracking-[0.3em] sm:text-lg text-center font-light mx-auto w-fit">
+        <p className="tracking-wider sm:tracking-widest md:tracking-[0.3em] sm:text-lg lg:text-xl text-center font-light mx-auto w-fit">
           The Halaal food directory.
         </p>
         <a
