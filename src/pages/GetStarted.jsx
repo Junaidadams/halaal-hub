@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const GetStarted = () => {
   return (
-    <div className="min-h-screen bg-eggshell flex">
-      <div className="m-auto grid gap-6 w-[95%] md:grid-cols-2 lg:grid-cols-3">
+    <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+      <div className="mx-auto my-20 grid gap-6 w-[95%] sm:grid-cols-2 md:grid-cols-3 font-poppins">
         {getStartedOptions.map(
           ({ key, name, link, description, icon: Icon }) => (
             <Link
@@ -15,7 +15,7 @@ const GetStarted = () => {
               <div className="text-prussianBlue text-4xl mb-4 group-hover:text-white">
                 <Icon /> {/* Render the icon correctly */}
               </div>
-              <h2 className="text-richBlack font-semibold text-lg group-hover:text-white">
+              <h2 className="text-richBlack font-semibold sm:font-bold md:font-black tracking-wider  text-lg group-hover:text-white">
                 {name}
               </h2>
               <p className="text-paynesGrey text-sm text-center group-hover:text-white">
