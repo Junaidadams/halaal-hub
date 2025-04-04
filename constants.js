@@ -11,6 +11,7 @@ import {
   FaEnvelope,
   FaUtensils,
 } from "react-icons/fa";
+import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 
 export const websiteInformation = [
   {
@@ -40,16 +41,11 @@ export const navigationLinks = [
   },
   {
     key: 3,
-    name: "services",
-    link: "/services",
-  },
-  {
-    key: 4,
     name: "FAQ",
     link: "/faq",
   },
   {
-    key: 5,
+    key: 4,
     name: "contact",
     link: "/contact",
   },
@@ -93,4 +89,14 @@ export const getStartedOptions = [
     description: "Browse Halaal restaurants, cafés, and food spots near you.",
     icon: FaUtensils,
   },
+];
+
+export const contactInformation = [
+  {
+    key: 1,
+    name: "E-mail",
+    address: "hello@nooks.co.za",
+    icon: AiOutlineMail,
+  },
+  { key: 2, name: "Call", address: "0826756350", icon: AiOutlinePhone },
 ];

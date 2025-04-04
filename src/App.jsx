@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Faq from "./pages/Faq";
 import About from "./pages/About";
-import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import GetStarted from "./pages/GetStarted";
 
@@ -18,7 +17,6 @@ const App = () => {
       <Route path="/faq" element={<Faq />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/services" element={<Services />} />
       <Route path="*" element={<NoPage />} />
     </Routes>
   );
