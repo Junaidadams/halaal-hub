@@ -100,3 +100,31 @@ export const contactInformation = [
   },
   { key: 2, name: "Call", address: "0826756350", icon: AiOutlinePhone },
 ];
+
+export const faqData = [
+  {
+    question: "What is Halaal Hub?",
+    answer:
+      "Halaal Hub is a directory website dedicated to showcasing Halaal-certified eateries and food vendors in Cape Town. We help locals and visitors find delicious Halaal meals easily.",
+  },
+  {
+    question: "Is every establishment verified?",
+    answer:
+      "Yes. All listed establishments are required to submit their Halaal certification before being approved and published on our platform.",
+  },
+  {
+    question: "How do I get my business listed?",
+    answer:
+      "You can fill out our establishment submission form with your business details and upload your Halaal certificate. Once verified, your listing will go live.",
+  },
+  {
+    question: "Is it free to use?",
+    answer:
+      "Yes! Browsing listings and using Halaal Hub is completely free. Businesses can also list for free, subject to verification.",
+  },
+  {
+    question: "Can I suggest a business?",
+    answer:
+      "Absolutely. If you know of a Halaal place that isn’t listed, use the contact form to suggest it and we’ll reach out to verify and add them.",
+  },
+];
