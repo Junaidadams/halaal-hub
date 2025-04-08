@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "Bo-Kaap Bites",
+    "description": "Authentic Cape Malay cuisine in the heart of Bo-Kaap.",
+    "lat": -33.922,
+    "lng": 18.417,
+    "address": "89 Wale Street, Bo-Kaap, Cape Town",
+    "googlePlaceLink": "https://goo.gl/maps/xyz123",
+    "imageUrl": "/public/halal.jpg",
+    "category": "restaurant",
+    "certifiedBy": "MJC",
+    "isCertified": true
+  },
+  {
+    "id": 2,
+    "name": "Café Nur",
+    "description": "Trendy Halaal coffee shop with fresh bakes and smoothies.",
+    "lat": -33.912,
+    "lng": 18.403,
+    "address": "12 Kloof Street, Gardens, Cape Town",
+    "googlePlaceLink": "https://goo.gl/maps/abc456",
+    "imageUrl": "/public/halal.jpg",
+    "category": "café",
+    "certifiedBy": "SANHA",
+    "isCertified": true
+  },
+  {
+    "id": 3,
+    "name": "Spice Route Takeaway",
+    "description": "Grab-and-go meals inspired by Cape Malay flavours.",
+    "lat": -33.935,
+    "lng": 18.468,
+    "address": "34 Imam Haron Rd, Claremont, Cape Town",
+    "googlePlaceLink": "https://goo.gl/maps/def789",
+    "imageUrl": "/public/halal.jpg",
+    "category": "takeaway",
+    "certifiedBy": "None",
+    "isCertified": false
+  },
+  {
+    "id": 4,
+    "name": "The Gatsby Spot",
+    "description": "Classic Halaal Gatsby with massive portions.",
+    "lat": -33.970,
+    "lng": 18.498,
+    "address": "105 Landsdowne Rd, Rondebosch East, Cape Town",
+    "googlePlaceLink": "https://goo.gl/maps/ghi101",
+    "imageUrl": "/public/halal.jpg",
+    "category": "restaurant",
+    "certifiedBy": "MJC",
+    "isCertified": true
+  },
+  {
+    "id": 5,
+    "name": "Saffron Street",
+    "description": "Modern eatery with a mix of Indian and Cape Malay dishes.",
+    "lat": -33.920,
+    "lng": 18.460,
+    "address": "Corner Street & Loop, Cape Town CBD",
+    "googlePlaceLink": "https://goo.gl/maps/jkl112",
+    "imageUrl": "/public/halal.jpg",
+    "category": "restaurant",
+    "certifiedBy": "SANHA",
+    "isCertified": true
+  }
+]

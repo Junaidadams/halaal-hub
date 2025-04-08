@@ -36,16 +36,21 @@ export const navigationLinks = [
   },
   {
     key: 2,
+    name: "hub",
+    link: "/hub",
+  },
+  {
+    key: 3,
     name: "about",
     link: "/about",
   },
   {
-    key: 3,
+    key: 5,
     name: "FAQ",
     link: "/faq",
   },
   {
-    key: 4,
+    key: 6,
     name: "contact",
     link: "/contact",
   },
