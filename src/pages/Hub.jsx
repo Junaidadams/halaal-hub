@@ -1,6 +1,7 @@
 import axios from "axios";
 import MapView from "../components/MapView";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 import ListingTile from "../components/ListingTile";
 
@@ -10,6 +11,7 @@ const fetchListings = async () => {
 };
 
 const Hub = () => {
+  const [toggleMapView, setToggleMapView] = useState(true);
   const {
     data: listings,
     isLoading,
@@ -19,22 +21,59 @@ const Hub = () => {
     queryFn: fetchListings,
   });
 
-  if (isLoading) return <div className="p-6">Loading listings...</div>;
-  if (error) return <div className="p-6">Error fetching listings!</div>;
+  if (isLoading)
+    return (
+      <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+        <div className="mx-auto my-20 min-h-screen w-[95%]">
+          Loading listings...
+        </div>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+        <div className="mx-auto my-20 min-h-screen w-[95%]">
+          Error fetching listings!
+        </div>
+      </div>
+    );
 
   return (
     <div className="flex min-h-screen -mt-[56px] bg-eggshell">
       {/* Listings Section */}
-      <div className="w-full my-20 lg:w-2/5 overflow-y-auto p-6">
-        {listings.map((listing) => (
-          <ListingTile key={listing.id} listing={listing} />
-        ))}
+      <div
+        className={`w-full my-20 ${
+          toggleMapView ? "lg:w-3/5 xl:w-7/12" : "w-full"
+        }  overflow-y-auto p-6`}
+      >
+        <div className="flex justify-end items-center mb-4 mr-2">
+          <button
+            onClick={() => setToggleMapView((prev) => !prev)}
+            className="bg-prussianBlue text-white px-4 py-2 text-sm rounded-md shadow hover:bg-opacity-90 transition"
+          >
+            {toggleMapView ? "Hide Map" : "Show Map"}
+          </button>
+        </div>
+
+        <div
+          className={`grid gap-4 grid-cols-1 sm:grid-cols-2 ${
+            toggleMapView
+              ? "2xl:grid-cols-3"
+              : "md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
+          }`}
+        >
+          {listings.map((listing) => (
+            <ListingTile key={listing.id} listing={listing} />
+          ))}
+        </div>
       </div>
 
       {/* Map Section */}
-      <div className="hidden lg:block lg:w-3/5 sticky top-0 h-screen">
-        <MapView listings={listings} />
-      </div>
+      {toggleMapView && (
+        <div className="hidden mt-20 lg:block lg:w-2/5 xl:w-5/12 sticky top-0 h-screen">
+          <MapView listings={listings} />
+        </div>
+      )}
     </div>
   );
 };

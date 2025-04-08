@@ -1,5 +1,8 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import PropTypes from "prop-types";
+
+import ListingTile from "./ListingTile";
 
 const MapView = ({ listings }) => (
   <MapContainer
@@ -13,10 +16,16 @@ const MapView = ({ listings }) => (
     />
     {listings.map((item) => (
       <Marker key={item.id} position={[item.lat, item.lng]}>
-        <Popup>{item.name}</Popup>
+        <Popup>
+          <ListingTile listing={item} />
+        </Popup>
       </Marker>
     ))}
   </MapContainer>
 );
+
+MapView.propTypes = {
+  listings: PropTypes.array.isRequired,
+};
 
 export default MapView;
