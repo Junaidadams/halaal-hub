@@ -63,5 +63,138 @@
     "category": "restaurant",
     "certifiedBy": "SANHA",
     "isCertified": true
-  }
+  },
+  
+    {
+      "id": 6,
+      "name": "Medina Market Café",
+      "description": "Cozy café with halal brunch options and artisan coffee.",
+      "lat": -33.912,
+      "lng": 18.451,
+      "address": "123 Greenpoint Road, Cape Town",
+      "googlePlaceLink": "https://goo.gl/maps/medina123",
+      "imageUrl": "halal.jpg",
+      "category": "cafe",
+      "certifiedBy": "MJC",
+      "isCertified": true
+    },
+    {
+      "id": 7,
+      "name": "The Halal Grill",
+      "description": "Casual grill spot offering burgers, steaks, and wings.",
+      "lat": -33.918,
+      "lng": 18.426,
+      "address": "45 Kloof Street, Gardens",
+      "googlePlaceLink": "https://goo.gl/maps/grill456",
+      "imageUrl": "halal.jpg",
+      "category": "restaurant",
+      "certifiedBy": "Self-Certified",
+      "isCertified": false
+    },
+    {
+      "id": 8,
+      "name": "Spice Route Lounge",
+      "description": "Upscale dining with North African and Middle Eastern flavors.",
+      "lat": -33.915,
+      "lng": 18.432,
+      "address": "78 Bree Street, Cape Town",
+      "googlePlaceLink": "https://goo.gl/maps/spiceroute",
+      "imageUrl": "halal.jpg",
+      "category": "restaurant",
+      "certifiedBy": "SANHA",
+      "isCertified": true
+    },
+    {
+      "id": 9,
+      "name": "Nura Bakes",
+      "description": "Homemade halal treats, cakes, and pastries.",
+      "lat": -33.930,
+      "lng": 18.409,
+      "address": "12 Salt River Road, Salt River",
+      "googlePlaceLink": "https://goo.gl/maps/nurabakes",
+      "imageUrl": "halal.jpg",
+      "category": "bakery",
+      "certifiedBy": "None",
+      "isCertified": false
+    },
+    {
+      "id": 10,
+      "name": "Tandoori Junction",
+      "description": "Affordable Indian food with vegetarian and meat options.",
+      "lat": -33.925,
+      "lng": 18.443,
+      "address": "34 Main Road, Observatory",
+      "googlePlaceLink": "https://goo.gl/maps/tandoori123",
+      "imageUrl": "halal.jpg",
+      "category": "restaurant",
+      "certifiedBy": "MJC",
+      "isCertified": true
+    },
+    {
+      "id": 11,
+      "name": "Karoo Kitchen",
+      "description": "Cape-style homestyle dishes in a warm setting.",
+      "lat": -33.936,
+      "lng": 18.419,
+      "address": "7 Victoria Road, Woodstock",
+      "googlePlaceLink": "https://goo.gl/maps/karoo789",
+      "imageUrl": "halal.jpg",
+      "category": "restaurant",
+      "certifiedBy": "Self-Certified",
+      "isCertified": false
+    },
+    {
+      "id": 12,
+      "name": "Baba Falafel",
+      "description": "Vegan-friendly Middle Eastern takeaway.",
+      "lat": -33.914,
+      "lng": 18.427,
+      "address": "19 Long Street, Cape Town CBD",
+      "googlePlaceLink": "https://goo.gl/maps/babafalafel",
+      "imageUrl": "halal.jpg",
+      "category": "takeaway",
+      "certifiedBy": "None",
+      "isCertified": false
+    },
+    {
+      "id": 13,
+      "name": "Taste of Istanbul",
+      "description": "Authentic Turkish cuisine with generous portions.",
+      "lat": -33.919,
+      "lng": 18.435,
+      "address": "90 Loop Street, Cape Town",
+      "googlePlaceLink": "https://goo.gl/maps/istanbultaste",
+      "imageUrl": "halal.jpg",
+      "category": "restaurant",
+      "certifiedBy": "SANHA",
+      "isCertified": true
+    },
+    {
+      "id": 14,
+      "name": "Halal Bros Pizza",
+      "description": "Pizza and pastas made with halal ingredients.",
+      "lat": -33.917,
+      "lng": 18.423,
+      "address": "22 Regent Road, Sea Point",
+      "googlePlaceLink": "https://goo.gl/maps/halalbros",
+      "imageUrl": "halal.jpg",
+      "category": "fast food",
+      "certifiedBy": "MJC",
+      "isCertified": true
+    },
+    {
+      "id": 15,
+      "name": "Casablanca Delights",
+      "description": "North African deli and bakery with sweet and savory goods.",
+      "lat": -33.927,
+      "lng": 18.416,
+      "address": "5 Harrington Street, Zonnebloem",
+      "googlePlaceLink": "https://goo.gl/maps/casablanca",
+      "imageUrl": "halal.jpg",
+      "category": "deli",
+      "certifiedBy": "None",
+      "isCertified": false
+    }
+  
+  
 ]

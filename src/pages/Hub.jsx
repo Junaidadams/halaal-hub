@@ -70,7 +70,7 @@ const Hub = () => {
 
       {/* Map Section */}
       {toggleMapView && (
-        <div className="hidden mt-20 lg:block lg:w-2/5 xl:w-5/12 sticky top-0 h-screen">
+        <div className="hidden lg:block lg:w-2/5 xl:w-5/12 sticky top-[56px] h-[calc(100vh-56px)]">
           <MapView listings={listings} />
         </div>
       )}
