@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
+import { SiGooglemaps } from "react-icons/si";
+import Stars from "./Stars";
 
 const ListingTile = ({ listing }) => {
   return (
@@ -16,9 +18,11 @@ const ListingTile = ({ listing }) => {
         className="w-full h-40 object-cover "
       />
       <div className="p-4">
-        <h2 className="text-lg font-bold mt-2 font-poppins">{listing.name}</h2>
+        <h2 className="text-lg font-bold mt-2 font-poppins">
+          {listing.name} <Stars starsNumber={listing.stars} />
+        </h2>
         <p className="text-sm text-paynesGrey">{listing.description}</p>
-        <p className="text-xs text-prussianBlue">📍 {listing.address}</p>
+        <p className="text-xs text-prussianBlue mt-4">📍 {listing.address}</p>
         {/* Google Maps Link */}
         <a
           href={`https://www.google.com/maps?q=${encodeURIComponent(
@@ -26,9 +30,12 @@ const ListingTile = ({ listing }) => {
           )}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-500 text-xs mt-2 inline-block"
+          className="text-eggshell text-xs mt-2 inline-block bg-prussianBlue p-2 rounded-md"
         >
-          View on Google Maps
+          <button className="flex flex-row">
+            <SiGooglemaps className="my-auto mr-2" />
+            <span className="m-auto">Google maps</span>
+          </button>
         </a>
       </div>
     </motion.div>
@@ -43,6 +50,7 @@ ListingTile.propTypes = {
     description: PropTypes.string.isRequired,
     address: PropTypes.string.isRequired,
     imageUrl: PropTypes.string.isRequired,
+    stars: PropTypes.number.isRequired,
   }).isRequired,
 };
 

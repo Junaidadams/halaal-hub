@@ -46,7 +46,7 @@ const Hub = () => {
           toggleMapView ? "lg:w-3/5 xl:w-7/12" : "w-full"
         }  overflow-y-auto p-6`}
       >
-        <div className="flex justify-end items-center mb-4 mr-2">
+        <div className=" justify-end items-center mb-4 mr-2 hidden lg:flex">
           <button
             onClick={() => setToggleMapView((prev) => !prev)}
             className="bg-prussianBlue text-white px-4 py-2 text-sm rounded-md shadow hover:bg-opacity-90 transition"

@@ -10,7 +10,8 @@
     "imageUrl": "/public/halal.jpg",
     "category": "restaurant",
     "certifiedBy": "MJC",
-    "isCertified": true
+    "isCertified": true,
+    "stars": 5
   },
   {
     "id": 2,
@@ -23,7 +24,8 @@
     "imageUrl": "/public/halal.jpg",
     "category": "café",
     "certifiedBy": "SANHA",
-    "isCertified": true
+    "isCertified": true,
+    "stars": 5
   },
   {
     "id": 3,
@@ -49,7 +51,8 @@
     "imageUrl": "/public/halal.jpg",
     "category": "restaurant",
     "certifiedBy": "MJC",
-    "isCertified": true
+    "isCertified": true,
+    "stars": 5
   },
   {
     "id": 5,
@@ -62,7 +65,8 @@
     "imageUrl": "/public/halal.jpg",
     "category": "restaurant",
     "certifiedBy": "SANHA",
-    "isCertified": true
+    "isCertified": true,
+    "stars": 5
   },
   
     {
@@ -76,7 +80,8 @@
       "imageUrl": "halal.jpg",
       "category": "cafe",
       "certifiedBy": "MJC",
-      "isCertified": true
+      "isCertified": true,
+      "stars": 5
     },
     {
       "id": 7,
@@ -89,7 +94,8 @@
       "imageUrl": "halal.jpg",
       "category": "restaurant",
       "certifiedBy": "Self-Certified",
-      "isCertified": false
+      "isCertified": true,
+      "stars": 5
     },
     {
       "id": 8,
@@ -102,7 +108,8 @@
       "imageUrl": "halal.jpg",
       "category": "restaurant",
       "certifiedBy": "SANHA",
-      "isCertified": true
+      "isCertified": true,
+      "stars": 5
     },
     {
       "id": 9,
@@ -115,7 +122,8 @@
       "imageUrl": "halal.jpg",
       "category": "bakery",
       "certifiedBy": "None",
-      "isCertified": false
+      "isCertified": true,
+      "stars": 3.5
     },
     {
       "id": 10,
@@ -128,7 +136,8 @@
       "imageUrl": "halal.jpg",
       "category": "restaurant",
       "certifiedBy": "MJC",
-      "isCertified": true
+      "isCertified": true,
+      "stars": 5
     },
     {
       "id": 11,
@@ -141,7 +150,8 @@
       "imageUrl": "halal.jpg",
       "category": "restaurant",
       "certifiedBy": "Self-Certified",
-      "isCertified": false
+      "isCertified": true,
+      "stars": 3.5
     },
     {
       "id": 12,
@@ -154,7 +164,8 @@
       "imageUrl": "halal.jpg",
       "category": "takeaway",
       "certifiedBy": "None",
-      "isCertified": false
+      "isCertified": true,
+      "stars": 3.5
     },
     {
       "id": 13,
@@ -167,7 +178,8 @@
       "imageUrl": "halal.jpg",
       "category": "restaurant",
       "certifiedBy": "SANHA",
-      "isCertified": true
+      "isCertified": true,
+      "stars": 5
     },
     {
       "id": 14,
@@ -180,7 +192,8 @@
       "imageUrl": "halal.jpg",
       "category": "fast food",
       "certifiedBy": "MJC",
-      "isCertified": true
+      "isCertified": true,
+      "stars": 5
     },
     {
       "id": 15,
@@ -193,7 +206,8 @@
       "imageUrl": "halal.jpg",
       "category": "deli",
       "certifiedBy": "None",
-      "isCertified": false
+      "isCertified": true,
+      "stars": 3.5
     }
   
   
