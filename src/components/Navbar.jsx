@@ -30,8 +30,11 @@ const Navbar = () => {
   return (
     <div className="z-20 flex justify-between items-center min-w-screen sticky top-0 min-h-[56px] px-4 backdrop-blur-lg">
       {/* Navigation Links */}
-
-      <ul className="space-x-8 capitalize hidden md:flex flex-row p-2 mx-auto bg-periwinkle rounded-full">
+      <a href="/">
+        {/* <img src="/halal.jpg" /> */}
+        <h1>Halal Hub</h1>
+      </a>
+      <ul className="space-x-8 capitalize hidden md:flex flex-row p-2 ml-auto bg-periwinkle rounded-full">
         {navigationLinks.map((link) => (
           <li key={link.key} className="">
             <a
@@ -69,9 +72,7 @@ const Navbar = () => {
           ""
         )} */}
       </ul>
-
       {/* Signed in menu desktop */}
-
       {/* {currentUser ? (
         <div className="z-20 hidden md:flex fixed flex-col mt-2">
           <button
@@ -120,15 +121,11 @@ const Navbar = () => {
       ) : (
         ""
       )} */}
-
       {/* Toggle Button */}
-
       <div className="md:hidden ">
         <Toggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
       </div>
-
       {/* Mobile Menu */}
-
       <AnimatePresence>
         {isOpen && (
           <motion.div
