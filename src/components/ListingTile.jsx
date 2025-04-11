@@ -1,16 +1,14 @@
-import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { SiGooglemaps } from "react-icons/si";
 import Stars from "./Stars";
 
+import { Link } from "react-router-dom";
+
 const ListingTile = ({ listing }) => {
   return (
-    <motion.div
-      key={listing.id}
+    <Link
+      to={`/listing/${listing.id}`}
       className="bg-white shadow-md mb-4 mx-2"
-      initial={{ opacity: 0, scale: 0.9 }} // Start state
-      animate={{ opacity: 1, scale: 1 }} // Final state
-      transition={{ duration: 0.5 }} // Animation speed
     >
       <img
         src={listing.imageUrl}
@@ -40,7 +38,7 @@ const ListingTile = ({ listing }) => {
           </button>
         </a>
       </div>
-    </motion.div>
+    </Link>
   );
 };
 
