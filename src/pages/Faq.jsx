@@ -18,10 +18,7 @@ const Faq = () => {
 
         <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 sm:w-2/3 xl:w-1/2 flex-col gap-6 font-poppins">
           {faqData.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-md p-6 transition-all"
-            >
+            <div key={index} className="bg-white shadow-md p-6 transition-all">
               <button
                 onClick={() => toggleAccordion(index)}
                 className="w-full text-left flex justify-between items-center"
@@ -29,7 +26,7 @@ const Faq = () => {
                 <span className="text-lg font-semibold text-paynesGrey tracking-wider">
                   {faq.question}
                 </span>
-                <span className="text-prussianBlue text-xl">
+                <span className="text-white bg-prussianBlue py-0 px-1 rounded-sm text-xl">
                   {activeIndex === index ? "−" : "+"}
                 </span>
               </button>

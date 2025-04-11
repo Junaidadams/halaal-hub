@@ -7,7 +7,7 @@ const Toggle = ({ isOpen, onClick }) => {
     <button
       onClick={onClick}
       className={`p-2 rounded-full shadow-lg ${
-        !isOpen ? "bg-paynesGrey" : "bg-prussianBlue"
+        !isOpen ? "bg-richBlack" : "bg-prussianBlue"
       }`}
       aria-label="Toggle menu"
     >

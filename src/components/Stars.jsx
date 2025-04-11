@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { FaStar, FaStarHalf, FaRegStar } from "react-icons/fa6";
+import { FaStar, FaStarHalfStroke, FaRegStar } from "react-icons/fa6";
 
 const Stars = ({ starsNumber }) => {
   const fullStars = Math.floor(starsNumber);
@@ -8,13 +8,13 @@ const Stars = ({ starsNumber }) => {
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
   return (
-    <div className="flex flex-row text-yellow-400">
+    <div className="flex flex-row text-[#333]">
       {[...Array(fullStars)].map((_, i) => (
-        <FaStar key={`full-${i}`} />
+        <FaStar size={15} key={`full-${i}`} />
       ))}
-      {hasHalfStar && <FaStarHalf key="half" />}
+      {hasHalfStar && <FaStarHalfStroke size={15} key="half" />}
       {[...Array(emptyStars)].map((_, i) => (
-        <FaRegStar key={`empty-${i}`} />
+        <FaRegStar size={15} key={`empty-${i}`} />
       ))}
     </div>
   );

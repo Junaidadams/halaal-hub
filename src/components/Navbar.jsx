@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigationLinks } from "../../constants";
 import Toggle from "./Toggle";
+import { PiBowlFoodFill } from "react-icons/pi";
 
 const variants = {
   open: (height = 1000) => ({
@@ -28,18 +29,21 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="z-20 flex justify-between items-center min-w-screen sticky top-0 min-h-[56px] px-4 backdrop-blur-lg">
+    <div className="z-20 flex justify-between items-center min-w-screen sticky top-0 min-h-[56px] px-2 md:px-4 backdrop-blur-lg">
       {/* Navigation Links */}
-      <a href="/">
-        {/* <img src="/halal.jpg" /> */}
-        <h1>Halal Hub</h1>
+      <a
+        href="/"
+        className="flex text-richBlack font-bold tracking-widest font-poppins"
+      >
+        <PiBowlFoodFill className="my-auto" size={29} />
+        <h1 className="mx-1">Halaal Hub</h1>
       </a>
-      <ul className="space-x-8 capitalize hidden md:flex flex-row p-2 ml-auto bg-periwinkle rounded-full">
+      <ul className="space-x-8 capitalize hidden md:flex flex-row p-2 ml-auto  rounded-full">
         {navigationLinks.map((link) => (
           <li key={link.key} className="">
             <a
               href={link.link}
-              className="text-space-cadet  py-2 px-3 rounded-full hover:text-prussianBlue font-semibold"
+              className="text-space-cadet py-2 px-3 rounded-full hover:text-prussianBlue font-semibold"
             >
               {link.name}
             </a>
@@ -134,7 +138,7 @@ const Navbar = () => {
             exit="closed"
             variants={variants}
             transition={{ duration: 0.5 }}
-            className="absolute top-0 left-0 w-full bg-delft-blue shadow-lg flex flex-col space-y-6 px-4 pt-2 pb-10 capitalize md:hidden"
+            className="absolute top-0 left-0 w-full bg-delft-blue shadow-lg flex flex-col space-y-6 px-4 pt-2 pb-10 capitalize md:hidden bg-white"
           >
             <div className="md:hidden ">
               <Toggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />

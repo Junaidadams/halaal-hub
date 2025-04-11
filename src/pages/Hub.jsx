@@ -46,7 +46,10 @@ const Hub = () => {
           toggleMapView ? "lg:w-3/5 xl:w-7/12" : "w-full"
         }  overflow-y-auto p-6`}
       >
-        <div className=" justify-end items-center mb-4 mr-2 hidden lg:flex">
+        <div className=" justify-between items-center mb-4 mr-2 hidden lg:flex">
+          <form>
+            <input></input>
+          </form>
           <button
             onClick={() => setToggleMapView((prev) => !prev)}
             className="bg-prussianBlue text-white px-4 py-2 text-sm rounded-md shadow hover:bg-opacity-90 transition"

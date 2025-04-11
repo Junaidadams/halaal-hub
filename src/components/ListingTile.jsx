@@ -21,7 +21,9 @@ const ListingTile = ({ listing }) => {
         <h2 className="text-lg font-bold mt-2 font-poppins">
           {listing.name} <Stars starsNumber={listing.stars} />
         </h2>
-        <p className="text-sm text-paynesGrey">{listing.description}</p>
+        <p className="text-sm text-richBlack font-semibold my-3">
+          {listing.description}
+        </p>
         <p className="text-xs text-prussianBlue mt-4">📍 {listing.address}</p>
         {/* Google Maps Link */}
         <a
@@ -30,10 +32,10 @@ const ListingTile = ({ listing }) => {
           )}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-eggshell text-xs mt-2 inline-block bg-prussianBlue p-2 rounded-md"
+          className="text-eggshell text-xs mt-2 inline-block bg-prussianBlue p-2 "
         >
           <button className="flex flex-row">
-            <SiGooglemaps className="my-auto mr-2" />
+            <SiGooglemaps className="my-auto mr-1" />
             <span className="m-auto">Google maps</span>
           </button>
         </a>
