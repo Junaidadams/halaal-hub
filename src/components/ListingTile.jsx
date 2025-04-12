@@ -10,33 +10,44 @@ const ListingTile = ({ listing }) => {
       to={`/listing/${listing.id}`}
       className="bg-white shadow-md mb-4 mx-2"
     >
-      <img
-        src={listing.imageUrl}
-        alt={listing.name}
-        className="w-full h-40 object-cover "
-      />
+      <div className="relative">
+        <img
+          src={listing.imageUrl}
+          alt={listing.name}
+          className="w-full h-40 object-cover rounded"
+        />
+        <p className="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded capitalize">
+          {listing.category}
+        </p>
+      </div>
+
       <div className="p-4">
         <h2 className="text-lg font-bold mt-2 font-poppins">
-          {listing.name} <Stars starsNumber={listing.stars} />
+          {listing.name}
+          <span className="text-base font-normal w-fit p-1 rounded-full flex capitalize">
+            <Stars starsNumber={listing.stars} />
+          </span>
         </h2>
-        <p className="text-sm text-richBlack font-semibold my-3">
+        <p className="text-base text-richBlack font-semibold my-3">
           {listing.description}
         </p>
         <p className="text-xs text-prussianBlue mt-4">📍 {listing.address}</p>
         {/* Google Maps Link */}
-        <a
-          href={`https://www.google.com/maps?q=${encodeURIComponent(
-            listing.address
-          )}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-eggshell text-xs mt-2 inline-block bg-prussianBlue p-2 "
-        >
-          <button className="flex flex-row">
-            <SiGooglemaps className="my-auto mr-1" />
-            <span className="m-auto">Google maps</span>
-          </button>
-        </a>
+        <div className="justify-between flex">
+          <a
+            href={`https://www.google.com/maps?q=${encodeURIComponent(
+              listing.address
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-eggshell text-xs mt-2 inline-block bg-prussianBlue p-2 "
+          >
+            <button className="flex flex-row">
+              <SiGooglemaps className="my-auto mr-1" />
+              <span className="m-auto">Google maps</span>
+            </button>
+          </a>
+        </div>
       </div>
     </Link>
   );
@@ -51,6 +62,7 @@ ListingTile.propTypes = {
     address: PropTypes.string.isRequired,
     imageUrl: PropTypes.string.isRequired,
     stars: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
   }).isRequired,
 };
 

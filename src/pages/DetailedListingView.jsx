@@ -29,15 +29,23 @@ const DetailedListingView = () => {
   if (!listing) return <div className="p-6">Listing not found</div>;
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-2">{listing.name}</h1>
-      <p className="mb-2 text-sm text-paynesGrey">{listing.description}</p>
-      <p className="mb-4 text-xs text-prussianBlue">📍 {listing.address}</p>
-      <img
-        src={listing.imageUrl}
-        alt={listing.name}
-        className="w-full max-w-xl mt-4 rounded shadow"
-      />
+    <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+      <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
+        <h1 className="text-2xl font-bold capitalize mb-2">
+          {listing.name} - {listing.category}
+        </h1>
+        <img
+          src={listing.imageUrl}
+          alt={listing.name}
+          className="w-full max-w-xl mt-4 rounded shadow"
+        />
+        <h1 className="text-2xl font-bold  mt-8">
+          <span className="capitalize">{listing.category}</span> at{" "}
+          {listing.address}
+        </h1>
+        <p className="mb-2 text-base text-paynesGrey">{listing.description}</p>
+        <p className="mb-4 text-xs text-prussianBlue">📍 {listing.address}</p>
+      </div>
     </div>
   );
 };
