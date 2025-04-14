@@ -2,6 +2,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { SiGooglemaps } from "react-icons/si";
+import Stars from "../components/Stars";
+import { AiOutlineSafetyCertificate } from "react-icons/ai";
+import { MdOutlineCategory } from "react-icons/md";
+import { FaStar } from "react-icons/fa6";
 
 const fetchListings = async () => {
   const res = await axios.get("/data/listings.json");
@@ -44,6 +48,13 @@ const DetailedListingView = () => {
           <span className="capitalize">{listing.category}</span> at{" "}
           {listing.address}
         </h1>
+        <div className="font-semibold flex p-1 mt-2">
+          <span className="mr-2 text-[#333]">Reviews</span>
+          <span className="my-auto flex text-xs">
+            <Stars starsNumber={listing.stars} className="my-auto" />(
+            {listing.stars})
+          </span>
+        </div>
         <div className="flex flex-col px-1 py-4">
           <p className="mb-2 text-base text-richBlack">{listing.description}</p>
           <div>
@@ -63,6 +74,24 @@ const DetailedListingView = () => {
                 </button>
               </a>
             </div>
+          </div>
+        </div>
+        <div className="flex justify-evenly my-4">
+          <div className="w-[30%] text-center text-sm border-r">
+            <AiOutlineSafetyCertificate size={30} className="mx-auto mb-2" />
+            <h1 className="font-bold">Certification</h1>
+            <p className="">{listing.certifiedBy}</p>
+          </div>
+          <div className="w-[30%] text-center text-sm">
+            <MdOutlineCategory size={30} className="mx-auto mb-2" />
+            <h1 className="font-bold">Category</h1>
+            <p className="capitalize">{listing.category}</p>
+          </div>
+          <div className="w-[30%] text-center text-sm">
+            {" "}
+            <FaStar size={30} className="mx-auto mb-2" />
+            <h1 className="font-bold">Rating</h1>
+            <p className="capitalize">{listing.stars}</p>
           </div>
         </div>
       </div>
