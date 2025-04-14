@@ -6,13 +6,11 @@ const Toggle = ({ isOpen, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={`p-2 rounded-full shadow-lg ${
-        !isOpen ? "bg-richBlack" : "bg-prussianBlue"
-      }`}
+      className="p-2 rounded-full shadow-lg  bg-richBlack"
       aria-label="Toggle menu"
     >
       {isOpen ? (
-        <LuX className="h-6 w-6 " color="#1e2749" />
+        <LuX className="h-6 w-6 " color="#F0EBD8" />
       ) : (
         <LuAlignLeft className="h-6 w-6" color="#F0EBD8" />
       )}
