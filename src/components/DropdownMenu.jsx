@@ -18,7 +18,7 @@ const DropdownMenu = ({ buttonContent, children, className = "" }) => {
 
   return (
     <div
-      className={`relative ${className} bg-white  border-black px-1 md:px-4 md:py-2 flex items-center `}
+      className={`relative ${className} bg-white  border-black px-1 md:px-4 md:py-1 flex items-center `}
       ref={dropdownRef}
     >
       <button

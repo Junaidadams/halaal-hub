@@ -101,7 +101,7 @@ const Hub = () => {
             </DropdownMenu>
 
             <input
-              className="border border-black border-x-0 py-2 px-4 focus:outline-none text-sm md:text-base"
+              className="border border-black border-x-0 px-4 focus:outline-none text-sm md:text-base"
               placeholder="Search listings..."
             />
             <button

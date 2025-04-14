@@ -90,7 +90,7 @@ export const getStartedOptions = [
   {
     key: 5,
     name: "Explore Listings",
-    link: "/listings",
+    link: "/hub",
     description: "Browse Halaal restaurants, cafés, and food spots near you.",
     icon: FaUtensils,
   },

@@ -30,9 +30,9 @@ const DetailedListingView = () => {
 
   return (
     <div className="min-h-screen -mt-[56px] bg-eggshell flex">
-      <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
+      <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col font-poppins">
         <h1 className="text-2xl font-bold capitalize mb-2">
-          {listing.name} - {listing.category}
+          {listing.name} - ({listing.category})
         </h1>
         <img
           src={listing.imageUrl}
