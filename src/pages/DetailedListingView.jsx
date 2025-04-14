@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { SiGooglemaps } from "react-icons/si";
 
 const fetchListings = async () => {
   const res = await axios.get("/data/listings.json");
@@ -43,8 +44,27 @@ const DetailedListingView = () => {
           <span className="capitalize">{listing.category}</span> at{" "}
           {listing.address}
         </h1>
-        <p className="mb-2 text-base text-paynesGrey">{listing.description}</p>
-        <p className="mb-4 text-xs text-prussianBlue">📍 {listing.address}</p>
+        <div className="flex flex-col px-1 py-4">
+          <p className="mb-2 text-base text-richBlack">{listing.description}</p>
+          <div>
+            {" "}
+            <div className="justify-between flex">
+              <a
+                href={`https://www.google.com/maps?q=${encodeURIComponent(
+                  listing.address
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-eggshell text-xs mt-2 inline-block bg-prussianBlue p-2 "
+              >
+                <button className="flex flex-row">
+                  <SiGooglemaps className="my-auto mr-1" />
+                  <span className="m-auto">Google maps</span>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
