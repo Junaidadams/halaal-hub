@@ -56,10 +56,10 @@ const DetailedListingView = () => {
           </span>
         </div>
         <div className="flex flex-col px-1 py-4">
-          <p className="mb-2 text-base text-richBlack">{listing.description}</p>
+          <p className=" text-base text-richBlack">{listing.description}</p>
           <div>
             {" "}
-            <div className="justify-between flex">
+            {/* <div className="justify-between flex">
               <a
                 href={`https://www.google.com/maps?q=${encodeURIComponent(
                   listing.address
@@ -73,7 +73,7 @@ const DetailedListingView = () => {
                   <span className="m-auto">Google maps</span>
                 </button>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="flex justify-evenly my-4">
@@ -93,6 +93,35 @@ const DetailedListingView = () => {
             <h1 className="font-bold">Rating</h1>
             <p className="capitalize">{listing.stars}</p>
           </div>
+        </div>
+        <div className=" p-4">
+          <p className="mb-2 text-base text-richBlack">
+            {listing.detailedDescription}
+          </p>
+        </div>
+        <div className=" p-4">
+          <h1>Contact Information</h1>
+          {listing.phone ? (
+            <p className="mb-2 text-base text-richBlack">
+              Phone - {listing.phone}
+            </p>
+          ) : (
+            ""
+          )}
+          {listing.email ? (
+            <p className="mb-2 text-base text-richBlack">
+              Email - {listing.email}
+            </p>
+          ) : (
+            ""
+          )}
+          {listing.website ? (
+            <a href={listing.website} className="mb-2 text-base">
+              Phone - {listing.website}
+            </a>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>
