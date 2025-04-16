@@ -7,11 +7,11 @@ const AboutText = ({ heading, text, imgUrl, reversed }) => {
         !reversed ? "md:flex-row-reverse" : "md:flex-row"
       }`}
     >
-      <div className="w-[95%] m-auto md:w-1/2 p-4">
-        <img src={imgUrl} className="bg-white p-1 shadow-xl" />
+      <div className="w-[95%] mb-6 mx-auto sm:m-auto md:w-1/2 sm:p-5">
+        <img src={imgUrl} className="bg-white  shadow-xl" />
       </div>
-      <div className="w-[95%] m-auto md:w-1/2 p-4">
-        <h3 className="font-poppins font-semibold text-lg p-1 tracking-widest">
+      <div className="w-[95%] mb-6 mx-auto sm:m-auto md:w-1/2 sm:p-5">
+        <h3 className="font-poppins font-semibold text-lg  tracking-widest">
           {heading}
         </h3>
         <p className="p-1">{text}</p>

@@ -6,6 +6,7 @@ import Stars from "../components/Stars";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { MdOutlineCategory } from "react-icons/md";
 import { FaStar } from "react-icons/fa6";
+import ShareButton from "../components/ShareButton";
 
 const fetchListings = async () => {
   const res = await axios.get("/data/listings.json");
@@ -35,25 +36,28 @@ const DetailedListingView = () => {
 
   return (
     <div className="min-h-screen -mt-[56px] bg-eggshell flex">
-      <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col font-poppins">
+      <div className="mx-auto my-20 min-h-screen w-[95%] sm:w-2/3 xl:w-1/2 flex flex-col font-poppins sm:p-5">
         <h1 className="text-2xl font-bold capitalize mb-2">
           {listing.name} - ({listing.category})
         </h1>
         <img
           src={listing.imageUrl}
           alt={listing.name}
-          className="w-full max-w-xl mt-4 rounded shadow"
+          className="w-full mt-4 rounded shadow"
         />
         <h1 className="text-2xl font-bold  mt-8">
           <span className="capitalize">{listing.category}</span> at{" "}
           {listing.address}
         </h1>
         <div className="font-semibold flex p-1 mt-2">
-          <span className="mr-2 text-[#333]">Reviews</span>
-          <span className="my-auto flex text-xs">
-            <Stars starsNumber={listing.stars} className="my-auto" />(
-            {listing.stars})
-          </span>
+          <div className="flex">
+            <span className="mr-2 my-auto text-[#333]">Reviews</span>
+            <span className="my-auto flex text-xs">
+              <Stars starsNumber={listing.stars} className="my-auto" />(
+              {listing.stars})
+            </span>
+          </div>
+          <ShareButton url={window.location.href} title={listing.name} />
         </div>
         <div className="flex flex-col px-1 py-4">
           <p className=" text-base text-richBlack">{listing.description}</p>
@@ -77,19 +81,25 @@ const DetailedListingView = () => {
           </div>
         </div>
         <div className="flex justify-evenly my-4">
-          <div className="w-[30%] text-center text-sm border-r">
-            <AiOutlineSafetyCertificate size={30} className="mx-auto mb-2" />
+          <div className="w-[30%] text-center text-sm lg:text-base border-r">
+            <AiOutlineSafetyCertificate
+              size={30}
+              className="mx-auto mb-2 lg:w-11 lg:h-11"
+            />
             <h1 className="font-bold">Certification</h1>
             <p className="">{listing.certifiedBy}</p>
           </div>
-          <div className="w-[30%] text-center text-sm">
-            <MdOutlineCategory size={30} className="mx-auto mb-2" />
+          <div className="w-[30%] text-center text-sm lg:text-base border-r">
+            <MdOutlineCategory
+              size={30}
+              className="mx-auto mb-2 lg:w-11 lg:h-11"
+            />
             <h1 className="font-bold">Category</h1>
             <p className="capitalize">{listing.category}</p>
           </div>
-          <div className="w-[30%] text-center text-sm">
+          <div className="w-[30%] text-center text-sm lg:text-base border-r">
             {" "}
-            <FaStar size={30} className="mx-auto mb-2" />
+            <FaStar size={30} className="mx-auto mb-2 lg:w-11 lg:h-11" />
             <h1 className="font-bold">Rating</h1>
             <p className="capitalize">{listing.stars}</p>
           </div>
@@ -100,7 +110,9 @@ const DetailedListingView = () => {
           </p>
         </div>
         <div className=" p-4">
-          <h1>Contact Information</h1>
+          <h3 className="font-poppins font-semibold text-lg p-1 tracking-widest">
+            Contact Information
+          </h3>
           {listing.phone ? (
             <p className="mb-2 text-base text-richBlack">
               Phone - {listing.phone}

@@ -7,7 +7,7 @@ const About = () => {
         {/* <h1 className="text-4xl font-black text-prussianBlue w-fit mx-auto py-6">
           About Us
         </h1> */}
-        <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 sm:w-2/3 xl:w-1/2 border-b border-black border-dashed pb-20">
+        <div className="flex mx-auto  sm:w-2/3 xl:w-1/2 border-b border-black border-dashed pb-20">
           <AboutText
             text="Food brings people of all cultures together. This is especially true in the Cape Malay community, where sharing a meal is more than just eating—it’s about heritage, connection, and tradition. From the aroma of freshly baked koesisters on a Sunday morning to the warmth of a hearty akhni shared with family, Halaal food is at the heart of Cape Town’s vibrant culture."
             imgUrl="food.jpg"
@@ -15,7 +15,7 @@ const About = () => {
             heading="About us"
           />
         </div>
-        <div className="flex mx-auto pb-20 sm:w-2/3 xl:w-1/2 border-b border-black border-dashed">
+        <div className="flex mx-auto py-20 sm:w-2/3 xl:w-1/2 border-b border-black border-dashed">
           <AboutText
             text="At Halaal Hub, we celebrate this rich tradition by making it easier for locals and visitors alike to discover the best Halaal eateries in Cape Town. Whether you're craving a classic Gatsby, a comforting plate of biryani, or a modern take on traditional flavors, our directory connects you to restaurants, cafés, and food vendors that serve delicious, fully Halaal meals."
             imgUrl="family.jpg"
