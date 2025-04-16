@@ -31,7 +31,7 @@ const ShareButton = ({ url, title }) => {
     <div className="relative ml-auto" ref={menuRef}>
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="bg-[#333] text-white rounded-full p-1 shadow hover:text-blue-600 flex items-center gap-1"
+        className=" rounded-full p-1 shadow hover:text-blue-600 flex items-center gap-1"
         aria-label="Share"
       >
         <RiShare2Line size={20} />

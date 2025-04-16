@@ -40,11 +40,16 @@ const DetailedListingView = () => {
         <h1 className="text-2xl font-bold capitalize mb-2">
           {listing.name} - ({listing.category})
         </h1>
-        <img
-          src={listing.imageUrl}
-          alt={listing.name}
-          className="w-full mt-4 rounded shadow"
-        />
+        <div className="relative">
+          <img
+            src={listing.imageUrl}
+            alt={listing.name}
+            className="w-full mt-4 rounded shadow"
+          />{" "}
+          <div className="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded capitalize">
+            <ShareButton url={window.location.href} title={listing.name} />
+          </div>
+        </div>
         <h1 className="text-2xl font-bold  mt-8">
           <span className="capitalize">{listing.category}</span> at{" "}
           {listing.address}
@@ -57,7 +62,6 @@ const DetailedListingView = () => {
               {listing.stars})
             </span>
           </div>
-          <ShareButton url={window.location.href} title={listing.name} />
         </div>
         <div className="flex flex-col px-1 py-4">
           <p className=" text-base text-richBlack">{listing.description}</p>
@@ -105,12 +109,12 @@ const DetailedListingView = () => {
           </div>
         </div>
         <div className=" p-4">
-          <p className="mb-2 text-base text-richBlack">
+          <p className="mb-2 text-base font-pop text-richBlack">
             {listing.detailedDescription}
           </p>
         </div>
         <div className=" p-4">
-          <h3 className="font-poppins font-semibold text-lg p-1 tracking-widest">
+          <h3 className="font-poppins font-semibold text-lg py-2 tracking-widest">
             Contact Information
           </h3>
           {listing.phone ? (

@@ -1,4 +1,5 @@
 import { navigationLinks, websiteInformation } from "../../constants";
+import Logo from "./Logo";
 
 // Destructure the first item from websiteInformation
 const { socials } = websiteInformation[0];
@@ -7,6 +8,7 @@ const Footer = () => {
   return (
     <div className="bg-richBlack text-slate-200 capitalize flex flex-col">
       <div className="flex flex-row my-16 mx-auto space-x-10">
+        <Logo color="white" />
         <ul className="">
           {navigationLinks.map((link) => (
             <li key={link.key}>

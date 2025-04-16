@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigationLinks } from "../../constants";
 import Toggle from "./Toggle";
-import { PiBowlFoodFill } from "react-icons/pi";
+import Logo from "./Logo";
 
 const variants = {
   open: (height = 1000) => ({
@@ -31,13 +31,7 @@ const Navbar = () => {
   return (
     <div className="z-20 flex justify-between items-center min-w-screen sticky top-0 min-h-[56px] px-2 md:px-4 backdrop-blur-lg">
       {/* Navigation Links */}
-      <a
-        href="/"
-        className="flex text-richBlack font-bold tracking-widest font-poppins"
-      >
-        <PiBowlFoodFill className="my-auto" size={29} />
-        <h1 className="mx-1">Halaal Hub</h1>
-      </a>
+      <Logo />
       <ul className="space-x-8 capitalize hidden md:flex flex-row p-2 ml-auto  rounded-full">
         {navigationLinks.map((link) => (
           <li key={link.key} className="">
