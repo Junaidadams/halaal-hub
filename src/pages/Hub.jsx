@@ -50,7 +50,7 @@ const Hub = () => {
         }  overflow-y-auto p-6`}
       >
         <div className=" justify-between  flex items-center mb-4 mr-2">
-          <form className="flex mx-auto relative">
+          <form className="flex mx-auto mb-4 relative">
             <DropdownMenu
               className="border-black border border-r-0"
               buttonContent={

@@ -19,7 +19,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+    <div className="min-h-screen -mt-[56px] bg-eggshell flex font font-poppins">
       <div className="mx-auto my-20 min-h-screen w-[95%]">
         <h1 className="text-4xl font-black text-prussianBlue text-center py-6">
           Contact Us
@@ -30,7 +30,7 @@ const Contact = () => {
           {contactInformation.map(({ key, name, address, icon: Icon }) => (
             <div
               key={key}
-              className="flex items-center gap-4 bg-white shadow-md p-4 rounded-xl text-paynesGrey"
+              className="flex items-center gap-4 bg-white shadow-md p-4 rounded-sm text-paynesGrey"
             >
               <Icon className="text-2xl text-prussianBlue" />
               <div className="tracking-wider">
@@ -45,7 +45,7 @@ const Contact = () => {
         <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 sm:w-2/3 xl:w-1/2">
           <form
             onSubmit={handleSubmit}
-            className="bg-white p-8 rounded-xl shadow-lg w-full space-y-6"
+            className="bg-white p-8 rounded-sm shadow-lg w-full space-y-6"
           >
             <div>
               <label className="block text-paynesGrey font-medium tracking-wider mb-1">
@@ -57,7 +57,7 @@ const Contact = () => {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded-md"
+                className="w-full p-2 border border-gray-300 rounded-sm"
               />
             </div>
 
@@ -71,7 +71,7 @@ const Contact = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded-md"
+                className="w-full p-2 border border-gray-300 rounded-sm"
               />
             </div>
 
@@ -85,13 +85,13 @@ const Contact = () => {
                 required
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded-md"
+                className="w-full p-2 border border-gray-300 rounded-sm"
               />
             </div>
 
             <button
               type="submit"
-              className="bg-prussianBlue text-white py-2 px-6 rounded-md hover:bg-paynesGrey transition"
+              className="bg-prussianBlue text-white py-2 px-6 rounded-sm hover:bg-paynesGrey transition"
             >
               Send Message
             </button>
