@@ -11,6 +11,10 @@ import {
   FaEnvelope,
   FaUtensils,
 } from "react-icons/fa";
+import { MdBakeryDining, MdRestaurant } from "react-icons/md";
+import { IoMdCafe } from "react-icons/io";
+import { RiTakeawayFill } from "react-icons/ri";
+
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 
 export const websiteInformation = [
@@ -132,4 +136,11 @@ export const faqData = [
     answer:
       "Absolutely. If you know of a Halaal place that isn’t listed, use the contact form to suggest it and we’ll reach out to verify and add them.",
   },
+];
+
+export const categories = [
+  { label: "Cafe", value: "cafe", icon: IoMdCafe },
+  { label: "Restaurant", value: "restaurant", icon: MdRestaurant },
+  { label: "Bakery", value: "bakery", icon: MdBakeryDining },
+  { label: "Takeaway", value: "takeaway", icon: RiTakeawayFill },
 ];
