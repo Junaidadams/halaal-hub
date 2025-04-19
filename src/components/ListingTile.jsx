@@ -8,7 +8,7 @@ const ListingTile = ({ listing }) => {
   return (
     <Link
       to={`/listing/${listing.id}`}
-      className="bg-white shadow-md mb-4 mx-2"
+      className="bg-white shadow-md mb-4 md:mx-2"
     >
       <div className="relative">
         <img
@@ -16,7 +16,7 @@ const ListingTile = ({ listing }) => {
           alt={listing.name}
           className="w-full h-40 object-cover rounded"
         />
-        <p className="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded capitalize">
+        <p className="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded ">
           {listing.category}
         </p>
       </div>

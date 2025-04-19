@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { BiArrowBack } from "react-icons/bi";
 import { categories } from "../../constants";
 
 const CreateListing = () => {
@@ -11,10 +11,22 @@ const CreateListing = () => {
     setTimeout(() => setStep(2), 300); // slight delay for smoother UX
   };
 
+  const stepMinusOne = () => {
+    step > 1 && setStep((prev) => prev - 1);
+  };
+
   return (
     <div className="min-h-screen -mt-[56px] bg-eggshell flex">
       <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
         <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 sm:w-2/3 xl:w-1/2 flex-col font-poppins bg-white p-8">
+          <div>
+            <button onClick={stepMinusOne} className="flex my-auto">
+              <BiArrowBack className="my-auto" />
+              <span className="my-auto ml-1 font-semibold font-poppins">
+                Back
+              </span>
+            </button>
+          </div>
           {step === 1 && (
             <div>
               <h2 className="text-xl font-bold mb-4">

@@ -52,10 +52,10 @@ const Hub = () => {
         <div className=" justify-between  flex items-center mb-4 mr-2">
           <form className="flex mx-auto mb-4 relative">
             <DropdownMenu
-              className="border-black border border-r-0"
+              className="border-black border border-r-0 rounded-l-xl"
               buttonContent={
                 <div className="py-2 flex">
-                  <FaFilter className="mr-1 my-auto" />
+                  <FaFilter className="mx-1 my-auto" />
                   <span className="hidden md:block my-auto">Filter</span>
                 </div>
               }
@@ -74,7 +74,7 @@ const Hub = () => {
             <DropdownMenu
               buttonContent={
                 <div className="py-2 flex">
-                  <FaSort className="mr-1 my-auto" />
+                  <FaSort className="mx-1 my-auto" />
                   <span className="hidden md:block my-auto">Sort</span>
                 </div>
               }
@@ -106,7 +106,7 @@ const Hub = () => {
             />
             <button
               type="submit"
-              className="bg-white border border-black px-1 md:px-4 flex items-center rounded-r"
+              className="bg-white border border-black px-2 md:px-4 flex items-center rounded-r-xl"
             >
               <FaSearch />
             </button>

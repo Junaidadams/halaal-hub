@@ -31,6 +31,9 @@ const Navbar = () => {
   return (
     <div className="z-20 flex justify-between items-center min-w-screen sticky top-0 min-h-[56px] px-2 md:px-4 backdrop-blur-lg">
       {/* Navigation Links */}
+      <div className="md:hidden ">
+        <Toggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+      </div>
       <Logo />
       <ul className="space-x-8 capitalize hidden md:flex flex-row p-2 ml-auto  rounded-full">
         {navigationLinks.map((link) => (
@@ -120,9 +123,7 @@ const Navbar = () => {
         ""
       )} */}
       {/* Toggle Button */}
-      <div className="md:hidden ">
-        <Toggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
-      </div>
+
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
