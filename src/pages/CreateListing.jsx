@@ -4,7 +4,7 @@ import { categories } from "../../constants";
 
 const CreateListing = () => {
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({ category: "" });
+  const [formData, setFormData] = useState({ businessName: "", category: "" });
 
   const handleCategorySelect = (value) => {
     setFormData({ ...formData, category: value });
@@ -15,19 +15,63 @@ const CreateListing = () => {
     step > 1 && setStep((prev) => prev - 1);
   };
 
+  const totalSteps = 5;
+
   return (
     <div className="min-h-screen -mt-[56px] bg-eggshell flex">
       <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
         <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 sm:w-2/3 xl:w-1/2 flex-col font-poppins bg-white p-8">
-          <div>
-            <button onClick={stepMinusOne} className="flex my-auto">
-              <BiArrowBack className="my-auto" />
-              <span className="my-auto ml-1 font-semibold font-poppins">
-                Back
-              </span>
-            </button>
+          <div className="flex">
+            {step > 1 && (
+              <div>
+                <button onClick={stepMinusOne} className="flex my-auto">
+                  <BiArrowBack className="my-auto" />
+                </button>
+              </div>
+            )}
+            <div className="flex gap-2">
+              {Array.from({ length: totalSteps }, (_, index) => (
+                <div
+                  key={index}
+                  className={`w-6 h-6  flex items-center justify-center text-sm font-bold ${
+                    step === index + 1 ? "bg-black text-white" : "text-black"
+                  }`}
+                >
+                  {index + 1}
+                </div>
+              ))}
+            </div>
           </div>
+
           {step === 1 && (
+            <div className="space-y-4">
+              <label className="block font-medium">Business Name</label>
+              <input
+                type="text"
+                value={formData.businessName}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    businessName: e.target.value,
+                  }))
+                }
+                placeholder="Enter business name"
+                className="w-full px-4 py-2 border rounded-md"
+              />
+              <button
+                onClick={() => {
+                  if (formData.businessName.trim()) {
+                    setStep(step + 1);
+                  }
+                }}
+                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+              >
+                Next
+              </button>
+            </div>
+          )}
+
+          {step === 2 && (
             <div>
               <h2 className="text-xl font-bold mb-4">
                 What type of place are you listing?
@@ -37,7 +81,10 @@ const CreateListing = () => {
                   <button
                     key={value}
                     onClick={() => handleCategorySelect(value)}
-                    className="border p-4 rounded-xl hover:shadow-md hover:bg-gray-50 transition flex flex-col items-center text-center"
+                    className={`${
+                      formData.category === value &&
+                      "bg-richBlack text-white hover:text-black"
+                    } border p-4 rounded-xl hover:shadow-md hover:bg-gray-50 transition flex flex-col items-center text-center`}
                   >
                     <Icon />{" "}
                     <span className="text-sm font-medium capitalize">
@@ -46,22 +93,6 @@ const CreateListing = () => {
                   </button>
                 ))}
               </div>
-            </div>
-          )}
-          {step === 2 && (
-            <div>
-              <h2 className="text-xl font-bold mb-4">
-                Great! Let's add more details.
-              </h2>
-              <p className="mb-2 text-sm text-gray-600">
-                You selected: <strong>{formData.category}</strong>
-              </p>
-              {/* Additional form fields go here */}
-              <input
-                type="text"
-                placeholder="Business name"
-                className="border rounded p-2 w-full"
-              />
             </div>
           )}
         </div>
