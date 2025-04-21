@@ -20,7 +20,7 @@ const CreateListing = () => {
   return (
     <div className="min-h-screen -mt-[56px] bg-eggshell flex">
       <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
-        <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 sm:w-2/3 xl:w-1/2 flex-col font-poppins bg-white p-8">
+        <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 w-full sm:w-2/3 xl:w-1/2 flex-col font-poppins bg-white p-5">
           <div className="flex">
             {step > 1 && (
               <div>
@@ -29,11 +29,11 @@ const CreateListing = () => {
                 </button>
               </div>
             )}
-            <div className="flex gap-2">
+            <div className="flex gap-1 ml-auto">
               {Array.from({ length: totalSteps }, (_, index) => (
                 <div
                   key={index}
-                  className={`w-6 h-6  flex items-center justify-center text-sm font-bold ${
+                  className={`w-4 h-4  flex items-center justify-center text-xs font-bold ${
                     step === index + 1 ? "bg-black text-white" : "text-black"
                   }`}
                 >
@@ -44,8 +44,8 @@ const CreateListing = () => {
           </div>
 
           {step === 1 && (
-            <div className="space-y-4">
-              <label className="block font-medium">Business Name</label>
+            <div className=" flex flex-col space-y-4 w-full">
+              <label className="text-xl font-bold mb-4">Business Name</label>
               <input
                 type="text"
                 value={formData.businessName}
@@ -64,7 +64,7 @@ const CreateListing = () => {
                     setStep(step + 1);
                   }
                 }}
-                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
               >
                 Next
               </button>
