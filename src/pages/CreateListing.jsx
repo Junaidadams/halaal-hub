@@ -8,7 +8,7 @@ const CreateListing = () => {
 
   const handleCategorySelect = (value) => {
     setFormData({ ...formData, category: value });
-    setTimeout(() => setStep(2), 300); // slight delay for smoother UX
+    setTimeout(() => setStep(2), 300);
   };
 
   const stepMinusOne = () => {

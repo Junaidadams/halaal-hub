@@ -1,0 +1,80 @@
+import { useState } from "react";
+import { accountTypes } from "../../constants";
+
+const Signup = () => {
+  const [formData, setFormData] = useState({
+    username: "",
+    accountType: "",
+    password: "",
+  });
+  const handleAccountTypeSelect = (value) => {
+    setFormData({ ...formData, accountType: value });
+  };
+  return (
+    <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+      <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
+        <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 w-full sm:w-2/3 xl:w-1/2 flex-col font-poppins bg-white p-5">
+          <form className="space-y-4">
+            <div className="space-y-2">
+              <label className="text-xl font-bold mb-4">Display Name</label>
+              <input
+                className="w-full px-4 py-2 border rounded-md"
+                type="text"
+                value={formData.username}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    username: e.target.value,
+                  }))
+                }
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-xl font-bold ">Password</label>
+              <input
+                className="w-full px-4 py-2 border rounded-md"
+                type="text"
+                value={formData.password}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    password: e.target.value,
+                  }))
+                }
+              />
+            </div>
+            <h2 className="text-xl font-bold mb-4">
+              What type of account are you making?
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {accountTypes.map(({ value, icon: Icon }) => (
+                <button
+                  type="button"
+                  key={value}
+                  onClick={() => handleAccountTypeSelect(value)}
+                  className={`${
+                    formData.accountType === value &&
+                    "bg-richBlack text-white hover:text-black"
+                  } border p-4 rounded-xl hover:shadow-md hover:bg-gray-50 transition flex flex-col items-center text-center`}
+                >
+                  <Icon />{" "}
+                  <span className="text-sm font-medium capitalize">
+                    {value}
+                  </span>
+                </button>
+              ))}
+            </div>
+            <button
+              type="submit"
+              className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Signup;

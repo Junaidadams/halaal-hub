@@ -10,6 +10,8 @@ import {
   FaInfoCircle,
   FaEnvelope,
   FaUtensils,
+  FaHouseUser,
+  FaRegUser,
 } from "react-icons/fa";
 import { MdBakeryDining, MdRestaurant } from "react-icons/md";
 import { IoMdCafe } from "react-icons/io";
@@ -143,4 +145,8 @@ export const categories = [
   { label: "Restaurant", value: "restaurant", icon: MdRestaurant },
   { label: "Bakery", value: "bakery", icon: MdBakeryDining },
   { label: "Takeaway", value: "takeaway", icon: RiTakeawayFill },
+];
+export const accountTypes = [
+  { label: "User", value: "user", icon: FaRegUser },
+  { label: "Establishment", value: "establishment", icon: FaHouseUser },
 ];
