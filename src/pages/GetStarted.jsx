@@ -11,12 +11,12 @@ const GetStarted = () => {
               <Link
                 key={key}
                 to={link}
-                className="flex flex-col items-center bg-white shadow-lg p-6 rounded-xl hover:bg-lakeBlue transition duration-300 group"
+                className="flex flex-col items-center bg-white shadow-lg p-6 rounded-sm hover:bg-lakeBlue transition duration-300 group"
               >
                 <div className="text-prussianBlue text-4xl mb-4 group-hover:text-white">
                   <Icon /> {/* Render the icon correctly */}
                 </div>
-                <h2 className="text-richBlack font-semibold sm:font-bold md:font-black tracking-wider  text-lg group-hover:text-white">
+                <h2 className="text-prussianBlue font-semibold sm:font-bold md:font-black tracking-wider  text-lg group-hover:text-white">
                   {name}
                 </h2>
                 <p className="text-paynesGrey text-sm text-center group-hover:text-white">

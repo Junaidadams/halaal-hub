@@ -14,7 +14,7 @@ const ListingTile = ({ listing }) => {
         <img
           src={listing.imageUrl}
           alt={listing.name}
-          className="w-full h-40 object-cover rounded"
+          className="w-full h-40 object-cover rounded-t-sm"
         />
         <p className="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded ">
           {listing.category}

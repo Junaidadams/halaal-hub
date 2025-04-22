@@ -11,7 +11,7 @@ const Home = () => {
         </p>
         <a
           href="/get-started"
-          className="bg-prussianBlue text-white px-4 py-2 rounded-full m-auto w-fit "
+          className="bg-richBlack text-white hover:bg-prussianBlue px-4 py-2 rounded-sm m-auto w-fit "
         >
           <button className="">Get Started!</button>
         </a>
