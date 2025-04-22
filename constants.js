@@ -18,6 +18,7 @@ import { IoMdCafe } from "react-icons/io";
 import { RiTakeawayFill } from "react-icons/ri";
 
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
+import { label } from "framer-motion/client";
 
 export const websiteInformation = [
   {
@@ -140,6 +141,12 @@ export const faqData = [
     answer:
       "Absolutely. If you know of a Halaal place that isn’t listed, use the contact form to suggest it and we’ll reach out to verify and add them.",
   },
+  {
+    question:
+      "How does Halaal Hub operate around establishments on boycott lists.",
+    answer:
+      "We currently do not have the man-power to review which establishments listed on Halaal Hub form part of the most current rendition of each boycott list. We do urge users to do their own research on this as to which companies to support/boycott and will revisit this matter at a later time.",
+  },
 ];
 
 export const categories = [
@@ -148,6 +155,60 @@ export const categories = [
   { label: "Bakery", value: "bakery", icon: MdBakeryDining },
   { label: "Takeaway", value: "takeaway", icon: RiTakeawayFill },
 ];
+
+export const certification = [
+  {
+    shortName: "MJC",
+    name: "MJC Halaal Trust (Muslim Judicial Council)",
+    url: "https://www.mjc.org.za",
+  },
+  {
+    shortName: "SANHA",
+    name: "South African National Halaal Authority",
+    url: "https://www.sanha.org.za",
+  },
+  {
+    shortName: "NIHT",
+    name: "National Independent Halaal Trust",
+    url: "https://www.niht.co.za",
+  },
+  {
+    shortName: "ICSA",
+    name: "Islamic Council of South Africa",
+    url: "http://www.icsa.co.za",
+  },
+  {
+    shortName: "HFSA",
+    name: "Halaal Foundation of South Africa",
+    url: "https://hfsa.co.za",
+  },
+  {
+    shortName: "HAOSA",
+    name: "Halaal Authority of South Africa",
+    url: "https://www.haosa.org.za",
+  },
+  {
+    shortName: "SAIH",
+    name: "South African Islamic Halaal Authority",
+    url: "https://saih.co.za",
+  },
+  {
+    shortName: "MAC",
+    name: "Muslim Assembly Cape",
+    url: "https://www.muslimassembly.co.za",
+  },
+  {
+    shortName: "IHA",
+    name: "Islamic Halaal Authority",
+    url: "https://www.ihahalal.co.za",
+  },
+  {
+    shortName: "JUSA",
+    name: "Jamiatul Ulama South Africa",
+    url: "https://www.jus.org.za",
+  },
+];
+
 export const accountTypes = [
   { label: "User", value: "user", icon: FaRegUser },
   { label: "Establishment", value: "establishment", icon: FaHouseUser },

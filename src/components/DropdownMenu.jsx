@@ -18,18 +18,18 @@ const DropdownMenu = ({ buttonContent, children, className = "" }) => {
 
   return (
     <div
-      className={`relative ${className} bg-white  border-black px-1 md:px-4 md:py-1 flex items-center `}
+      className={`relative ${className} bg-white border-black md:py-1 flex items-center `}
       ref={dropdownRef}
     >
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="b"
+        className="mx-4"
         type="button"
       >
         {buttonContent}
       </button>
       {isOpen && (
-        <div className="absolute z-20 mt-2 w-48 bg-white shadow-md rounded p-2 text-sm">
+        <div className="absolute translate-y-[105px] h-40 z-20 w-48 bg-white shadow-md rounded p-2 text-sm">
           {children}
         </div>
       )}

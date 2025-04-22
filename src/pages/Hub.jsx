@@ -5,8 +5,34 @@ import { useState } from "react";
 import { FaSort, FaSearch } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa6";
 
+import { categories, certification } from "../../constants";
+import { motion } from "framer-motion";
+
+import { AnimatePresence } from "framer-motion";
+
 import DropdownMenu from "../components/DropdownMenu";
 import ListingTile from "../components/ListingTile";
+
+const variants = {
+  open: {
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 18,
+      mass: 0.5,
+    },
+  },
+  closed: {
+    x: 100,
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 18,
+      mass: 0.5,
+    },
+  },
+};
 
 const fetchListings = async () => {
   const res = await axios.get("/data/listings.json");
@@ -60,15 +86,21 @@ const Hub = () => {
                 </div>
               }
             >
-              <label className="block mb-2">
-                <input type="checkbox" className="mr-2" /> Restaurants
-              </label>
-              <label className="block mb-2">
+              <h1>Categories</h1>
+              {categories.map((category, index) => (
+                <div key={index}>
+                  <label className="block mb-2">
+                    <input type="checkbox" className="mr-2" /> {category.label}
+                  </label>
+                </div>
+              ))}
+
+              {/* <label className="block mb-2">
                 <input type="checkbox" className="mr-2" /> Cafes
               </label>
               <label className="block">
                 <input type="checkbox" className="mr-2" /> Markets
-              </label>
+              </label> */}
             </DropdownMenu>
 
             <DropdownMenu
@@ -134,11 +166,20 @@ const Hub = () => {
       </div>
 
       {/* Map Section */}
-      {toggleMapView && (
-        <div className="hidden lg:block lg:w-2/5 xl:w-5/12 sticky top-[56px] h-[calc(100vh-56px)]">
-          <MapView listings={listings} />
-        </div>
-      )}
+      <AnimatePresence>
+        {" "}
+        {toggleMapView && (
+          <motion.div
+            initial="closed"
+            animate="open"
+            variants={variants}
+            transition={{ duration: 0.1 }}
+            className="hidden lg:block lg:w-2/5 xl:w-5/12 sticky top-[56px] h-[calc(100vh-56px)]"
+          >
+            <MapView listings={listings} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
