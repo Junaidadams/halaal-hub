@@ -64,6 +64,12 @@ const Signup = () => {
                 </button>
               ))}
             </div>
+            <p>
+              Already have an account?{" "}
+              <a className="" href="/login">
+                Login here.
+              </a>
+            </p>
             <button
               type="submit"
               className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"

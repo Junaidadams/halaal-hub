@@ -5,6 +5,33 @@ import { faqData } from "../../constants";
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
+  const containerVariants = {
+    open: {
+      height: "auto",
+      transition: {
+        duration: 0.3,
+      },
+    },
+    closed: {
+      height: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
+  const textVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.3, // match container animation duration
+        duration: 0.2,
+      },
+    },
+  };
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
@@ -30,17 +57,25 @@ const Faq = () => {
                   {activeIndex === index ? "−" : "+"}
                 </span>
               </button>
-
               <AnimatePresence>
                 {activeIndex === index && (
                   <motion.div
                     key="content"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                    variants={containerVariants}
+                    style={{ overflow: "hidden" }} // prevents weird jumpiness
                   >
-                    <p className="mt-4 text-gray-700">{faq.answer}</p>
+                    <motion.p
+                      initial="hidden"
+                      animate="visible"
+                      exit="hidden"
+                      variants={textVariants}
+                      className="mt-4 text-gray-700"
+                    >
+                      {faq.answer}
+                    </motion.p>
                   </motion.div>
                 )}
               </AnimatePresence>

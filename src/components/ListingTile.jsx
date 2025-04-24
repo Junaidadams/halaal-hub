@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { SiGooglemaps } from "react-icons/si";
+import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
 import Stars from "./Stars";
 
 import { Link } from "react-router-dom";
@@ -46,6 +47,10 @@ const ListingTile = ({ listing }) => {
             <span className="m-auto">Google maps</span>
           </button>
         </a>
+        {c}
+        <button>
+          <FaBookmark />
+        </button>
       </div>
     </div>
   );

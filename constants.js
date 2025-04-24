@@ -98,8 +98,8 @@ export const getStartedOptions = [
   },
   {
     key: 5,
-    name: "Sign In",
-    link: "/sign-in",
+    name: "Login",
+    link: "/login",
     description: "Log into your account to manage your listings and reviews.",
     icon: FaSignInAlt,
   },
