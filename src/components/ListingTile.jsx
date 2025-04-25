@@ -47,7 +47,7 @@ const ListingTile = ({ listing }) => {
             <span className="m-auto">Google maps</span>
           </button>
         </a>
-        {c}
+
         <button>
           <FaBookmark />
         </button>

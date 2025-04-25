@@ -115,7 +115,7 @@ const DetailedListingView = () => {
           )}
           {listing.website ? (
             <a href={listing.website} className="mb-2 text-base">
-              Phone - {listing.website}
+              Website - {listing.website}
             </a>
           ) : (
             ""
@@ -129,7 +129,7 @@ const DetailedListingView = () => {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-eggshell text-xs mt-4 inline-block bg-prussianBlue p-2 "
+                className="text-white text-xs mt-4 inline-block bg-prussianBlue p-2 "
               >
                 <button className="flex flex-row">
                   <SiGooglemaps className="my-auto mr-1" />

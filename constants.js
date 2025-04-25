@@ -18,7 +18,6 @@ import { IoMdCafe } from "react-icons/io";
 import { RiTakeawayFill } from "react-icons/ri";
 
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
-import { label } from "framer-motion/client";
 
 export const websiteInformation = [
   {
