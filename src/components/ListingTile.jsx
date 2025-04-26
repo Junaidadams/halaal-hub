@@ -3,9 +3,13 @@ import { SiGooglemaps } from "react-icons/si";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
 import Stars from "./Stars";
 
+import { AuthContext } from "../context/AuthContext";
+
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 
 const ListingTile = ({ listing }) => {
+  const { currentUser } = useContext(AuthContext);
   return (
     <div className="bg-white shadow-md mb-4 md:mx-2">
       <Link to={`/listing/${listing.id}`}>
