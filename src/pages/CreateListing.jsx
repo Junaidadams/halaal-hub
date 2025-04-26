@@ -20,8 +20,8 @@ const CreateListing = () => {
   return (
     <div className="min-h-screen -mt-[56px] bg-eggshell flex">
       <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
-        <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 w-full sm:w-2/3 xl:w-1/2 flex-col font-poppins bg-white p-5">
-          <div className="flex">
+        <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 w-full sm:w-2/3 md:w-1/2 xl:w-1/3 flex-col font-poppins bg-white p-5">
+          <div className="flex mb-4">
             {step > 1 && (
               <div>
                 <button onClick={stepMinusOne} className="flex my-auto">
