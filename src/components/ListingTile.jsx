@@ -10,6 +10,10 @@ import { useContext } from "react";
 
 const ListingTile = ({ listing }) => {
   const { currentUser } = useContext(AuthContext);
+  const userFavourites = currentUser?.favourites || [];
+  const favouriteId = listing.id;
+  const favourited = userFavourites.includes(favouriteId);
+
   return (
     <div className="bg-white shadow-md mb-4 md:mx-2 hover:shadow-lg">
       <Link to={`/listing/${listing.id}`}>
@@ -51,10 +55,16 @@ const ListingTile = ({ listing }) => {
             <span className="m-auto">Google maps</span>
           </button>
         </a>
-
-        <button>
-          <FaBookmark />
-        </button>
+        {currentUser &&
+          (favourited ? (
+            <div>
+              <FaBookmark />
+            </div>
+          ) : (
+            <div>
+              <FaRegBookmark />
+            </div>
+          ))}
       </div>
     </div>
   );
