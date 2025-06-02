@@ -34,35 +34,38 @@ export const websiteInformation = [
   },
 ];
 
-export const navigationLinks = [
-  {
-    key: 1,
-    name: "home",
-    link: "/",
-  },
-  {
-    key: 2,
-    name: "hub",
-    link: "/hub",
-  },
-  {
-    key: 3,
-    name: "about",
-    link: "/about",
-  },
-  {
-    key: 5,
-    name: "FAQ",
-    link: "/faq",
-  },
-  {
-    key: 6,
-    name: "contact",
-    link: "/contact",
-  },
-];
-
-export const signedInLinks = [];
+export const navigationLinks = {
+  main: [
+    {
+      key: 1,
+      name: "home",
+      link: "/",
+    },
+    {
+      key: 2,
+      name: "hub",
+      link: "/hub",
+    },
+    {
+      key: 3,
+      name: "about",
+      link: "/about",
+    },
+  ],
+  extra: [
+    {
+      key: 5,
+      name: "FAQ",
+      link: "/faq",
+    },
+    {
+      key: 6,
+      name: "contact",
+      link: "/contact",
+    },
+  ],
+  signedInLinks: [],
+};
 
 export const getStartedOptions = [
   {

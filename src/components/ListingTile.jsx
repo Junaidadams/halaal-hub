@@ -11,7 +11,7 @@ import { useContext } from "react";
 const ListingTile = ({ listing }) => {
   const { currentUser } = useContext(AuthContext);
   return (
-    <div className="bg-white shadow-md mb-4 md:mx-2">
+    <div className="bg-white shadow-md mb-4 md:mx-2 hover:shadow-lg">
       <Link to={`/listing/${listing.id}`}>
         <div className="relative">
           <img

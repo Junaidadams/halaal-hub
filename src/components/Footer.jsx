@@ -1,8 +1,8 @@
 import { navigationLinks, websiteInformation } from "../../constants";
 import Logo from "./Logo";
 
-// Destructure the first item from websiteInformation
 const { socials } = websiteInformation[0];
+const fullNavLinks = navigationLinks.main.concat(navigationLinks.extra);
 
 const Footer = () => {
   return (
@@ -11,7 +11,7 @@ const Footer = () => {
         <Logo color="white" className="mx" margin="mx-auto" />
         <div className="flex space-x-4">
           <ul className="">
-            {navigationLinks.map((link) => (
+            {fullNavLinks.map((link) => (
               <li key={link.key}>
                 <a href={link.link}>{link.name}</a>
               </li>
