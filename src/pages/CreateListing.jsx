@@ -83,7 +83,7 @@ const CreateListing = () => {
                     onClick={() => handleCategorySelect(value)}
                     className={`${
                       formData.category === value &&
-                      "bg-richBlack text-white hover:text-black"
+                      "bg-richBlack text-white hover:bg-richBlack hover:bg-opacity-95"
                     } border p-4 rounded-xl hover:shadow-md hover:bg-gray-50 transition flex flex-col items-center text-center`}
                   >
                     <Icon />{" "}

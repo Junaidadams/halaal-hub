@@ -51,6 +51,11 @@ export const navigationLinks = {
       name: "about",
       link: "/about",
     },
+    {
+      key: 4,
+      name: "get started",
+      link: "/get-started",
+    },
   ],
   extra: [
     {
