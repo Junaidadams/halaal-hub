@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { categories } from "../../constants";
+import { certification } from "../../constants";
 
 const CreateListing = () => {
   const [step, setStep] = useState(1);
@@ -92,6 +93,31 @@ const CreateListing = () => {
                     </span>
                   </button>
                 ))}
+              </div>
+              <button
+                onClick={() => {
+                  if (formData.businessName.trim()) {
+                    setStep(step + 1);
+                  }
+                }}
+                className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
+              >
+                Next
+              </button>
+            </div>
+          )}
+
+          {step === 3 && (
+            <div>
+              <h2 className="text-xl font-bold mb-4">Your certification</h2>
+              <div>
+                <label className="text-xl font-bold mb-4">Business Name</label>
+                <select>
+                  <option>- Select - </option>
+                  {certification.map((body, index) => (
+                    <option key={index}>{body.shortName}</option>
+                  ))}
+                </select>
               </div>
             </div>
           )}
