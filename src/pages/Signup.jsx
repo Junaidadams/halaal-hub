@@ -4,12 +4,15 @@ import { accountTypes } from "../../constants";
 const Signup = () => {
   const [formData, setFormData] = useState({
     username: "",
-    accountType: "",
+    role: "",
     password: "",
+    email: "",
   });
+
   const handleAccountTypeSelect = (value) => {
-    setFormData({ ...formData, accountType: value });
+    setFormData({ ...formData, role: value });
   };
+
   return (
     <div className="min-h-screen -mt-[56px] bg-eggshell flex">
       <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
@@ -20,16 +23,17 @@ const Signup = () => {
                 Create Account
               </h1>
             </div>
+
             <div className="space-y-2">
-              <label className="text-xl font-bold mb-4">Display Name</label>
+              <label className="text-xl font-bold mb-4">Email</label>
               <input
                 className="w-full px-4 py-2 border rounded-md"
                 type="text"
-                value={formData.username}
+                value={formData.email}
                 onChange={(e) =>
                   setFormData((prev) => ({
                     ...prev,
-                    username: e.target.value,
+                    email: e.target.value,
                   }))
                 }
               />
@@ -48,26 +52,54 @@ const Signup = () => {
                 }
               />
             </div>
-            <h2 className="text-xl font-bold mb-4">
-              What type of account are you making?
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {accountTypes.map(({ value, icon: Icon }) => (
-                <button
-                  type="button"
-                  key={value}
-                  onClick={() => handleAccountTypeSelect(value)}
-                  className={`${
-                    formData.accountType === value &&
-                    "bg-richBlack text-white hover:text-black"
-                  } border p-4 rounded-xl hover:shadow-md hover:bg-gray-50 transition flex flex-col items-center text-center`}
-                >
-                  <Icon />{" "}
-                  <span className="text-sm font-medium capitalize">
-                    {value}
-                  </span>
-                </button>
-              ))}
+            <div className="space-y-2">
+              <h2 className="text-xl font-bold ">Which are you?</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {accountTypes.map(({ value, icon: Icon }) => (
+                  <button
+                    type="button"
+                    key={value}
+                    onClick={() => handleAccountTypeSelect(value)}
+                    className={`${
+                      formData.role === value &&
+                      "bg-richBlack text-white hover:text-black"
+                    } border p-4 rounded-xl hover:shadow-md hover:bg-gray-50 transition flex flex-col items-center text-center`}
+                  >
+                    <Icon />{" "}
+                    <span className="text-sm font-medium capitalize">
+                      {value}
+                    </span>
+                  </button>
+                ))}
+              </div>
+              {formData.role === "business" && (
+                <p className="py-4">
+                  Note: You will be able to set up your listing after your
+                  account has been created.
+                </p>
+              )}
+              {formData.role === "user" && (
+                <p className="py-4">
+                  Note: You will be able to change to a business account if you
+                  need to later.
+                </p>
+              )}
+            </div>
+            <div className="space-y-2">
+              <label className="text-xl font-bold mb-4">
+                Username (optional)
+              </label>
+              <input
+                className="w-full px-4 py-2 border rounded-md"
+                type="text"
+                value={formData.username || ""}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    username: e.target.value,
+                  }))
+                }
+              />
             </div>
             <p>
               Already have an account?{" "}

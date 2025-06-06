@@ -74,6 +74,21 @@ export const navigationLinks = {
 
 export const getStartedOptions = [
   {
+    key: 4,
+    name: "Sign Up",
+    link: "/sign-up",
+    description:
+      "Create an account to list your Halaal business on the directory.",
+    icon: FaUserPlus,
+  },
+  {
+    key: 5,
+    name: "Login",
+    link: "/login",
+    description: "Log into your account to manage your listings and reviews.",
+    icon: FaSignInAlt,
+  },
+  {
     key: 1,
     name: "Learn More",
     link: "/about",
@@ -94,21 +109,6 @@ export const getStartedOptions = [
     link: "/hub",
     description: "Browse Halaal restaurants, cafés, and food spots near you.",
     icon: FaUtensils,
-  },
-  {
-    key: 4,
-    name: "Sign Up",
-    link: "/sign-up",
-    description:
-      "Create an account to list your Halaal business on the directory.",
-    icon: FaUserPlus,
-  },
-  {
-    key: 5,
-    name: "Login",
-    link: "/login",
-    description: "Log into your account to manage your listings and reviews.",
-    icon: FaSignInAlt,
   },
 ];
 
@@ -218,5 +218,5 @@ export const certification = [
 
 export const accountTypes = [
   { label: "User", value: "user", icon: FaRegUser },
-  { label: "Establishment", value: "establishment", icon: FaHouseUser },
+  { label: "Business", value: "business", icon: FaHouseUser },
 ];

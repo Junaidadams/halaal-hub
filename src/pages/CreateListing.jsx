@@ -20,7 +20,7 @@ const CreateListing = () => {
 
   return (
     <div className="min-h-screen -mt-[56px] bg-eggshell flex">
-      <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
+      <div className="mx-auto my-20 min-h-sceen w-[95%] flex flex-col">
         <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 w-full sm:w-2/3 md:w-1/2 xl:w-1/3 flex-col font-poppins bg-white p-5">
           <div className="flex mb-4">
             {step > 1 && (
@@ -73,8 +73,8 @@ const CreateListing = () => {
           )}
 
           {step === 2 && (
-            <div>
-              <h2 className="text-xl font-bold mb-4">
+            <div className=" flex flex-col space-y-4 w-full">
+              <h2 className="text-xl font-bold">
                 What type of place are you listing?
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -108,16 +108,34 @@ const CreateListing = () => {
           )}
 
           {step === 3 && (
-            <div>
-              <h2 className="text-xl font-bold mb-4">Your certification</h2>
-              <div>
-                <label className="text-xl font-bold mb-4">Business Name</label>
-                <select>
+            <div className=" flex flex-col space-y-4 w-full">
+              <h2 className="text-xl font-bold ">Your certification</h2>
+              <div className="flex flex-col">
+                <label className="text-xl font-bold ">Certifying body</label>
+                <select className="w-fit">
                   <option>- Select - </option>
                   {certification.map((body, index) => (
                     <option key={index}>{body.shortName}</option>
                   ))}
                 </select>
+              </div>
+              <div className="flex flex-col ">
+                {" "}
+                <label className="text-xl font-bold ">Certificate</label>
+                <input type="file" />
+                <button type="button">Add later</button>
+              </div>
+              <div className="flex flex-col">
+                <button
+                  onClick={() => {
+                    if (formData.businessName.trim()) {
+                      setStep(step + 1);
+                    }
+                  }}
+                  className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
+                >
+                  Next
+                </button>
               </div>
             </div>
           )}
