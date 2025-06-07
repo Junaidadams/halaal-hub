@@ -6,13 +6,31 @@ import Stars from "./Stars";
 import { AuthContext } from "../context/AuthContext";
 
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const ListingTile = ({ listing }) => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, updateUserFavourites } = useContext(AuthContext); // Ensure this method exists
   const userFavourites = currentUser?.favourites || [];
   const favouriteId = listing.id;
-  const favourited = userFavourites.includes(favouriteId);
+  const [favourited, setFavourited] = useState(
+    userFavourites.includes(favouriteId)
+  );
+
+  const handleSetFavourite = async () => {
+    try {
+      const updatedFavourites = favourited
+        ? userFavourites.filter((id) => id !== favouriteId)
+        : [...userFavourites, favouriteId];
+
+      setFavourited(!favourited);
+
+      // Call to update user's favourites (assumed to be defined in AuthContext)
+      await updateUserFavourites(updatedFavourites);
+    } catch (error) {
+      console.error("Failed to update favourites:", error);
+      setFavourited(favourited); // Revert UI on failure
+    }
+  };
 
   return (
     <div className="bg-white shadow-md mb-4 md:mx-2 hover:shadow-lg">
@@ -23,7 +41,7 @@ const ListingTile = ({ listing }) => {
             alt={listing.name}
             className="w-full h-40 object-cover rounded-t-sm"
           />
-          <p className="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded ">
+          <p className="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">
             {listing.category}
           </p>
         </div>
@@ -38,7 +56,6 @@ const ListingTile = ({ listing }) => {
             {listing.description}
           </p>
           <p className="text-xs text-prussianBlue mt-4">📍 {listing.address}</p>
-          {/* Google Maps Link */}
         </div>
       </Link>
       <div className="justify-between flex p-4">
@@ -55,22 +72,16 @@ const ListingTile = ({ listing }) => {
             <span className="m-auto">Google maps</span>
           </button>
         </a>
-        {currentUser &&
-          (favourited ? (
-            <div>
-              <FaBookmark />
-            </div>
-          ) : (
-            <div>
-              <FaRegBookmark />
-            </div>
-          ))}
+        {currentUser && (
+          <button onClick={handleSetFavourite} className="text-xl">
+            {favourited ? <FaBookmark /> : <FaRegBookmark />}
+          </button>
+        )}
       </div>
     </div>
   );
 };
 
-// Prop validation
 ListingTile.propTypes = {
   listing: PropTypes.shape({
     id: PropTypes.number.isRequired,

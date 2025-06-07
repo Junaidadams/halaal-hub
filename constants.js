@@ -76,7 +76,7 @@ export const getStartedOptions = [
   {
     key: 4,
     name: "Sign Up",
-    link: "/sign-up",
+    link: "/register",
     description:
       "Create an account to list your Halaal business on the directory.",
     icon: FaUserPlus,

@@ -10,7 +10,7 @@ import Hub from "./pages/Hub";
 import DetailedListingView from "./pages/DetailedListingView";
 
 import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Register from "./pages/Register";
 import CreateListing from "./pages/CreateListing";
 
 import NoPage from "./pages/NoPage";
@@ -20,7 +20,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/sign-up" element={<Signup />} />
+      <Route path="/register" element={<Register />} />
       <Route path="/create-listing" element={<CreateListing />} />
       <Route path="/get-started" element={<GetStarted />} />
       <Route path="/faq" element={<Faq />} />
