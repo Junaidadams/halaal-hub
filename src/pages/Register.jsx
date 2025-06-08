@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { accountTypes } from "../../constants";
 import apiRequest from "../../lib/apiRequest";
+import SubmitButton from "../components/SubmitButton";
 
 const Register = () => {
-  const [isLoading, setIsloading] = useState({
+  const [submissionState, setSubmissionState] = useState({
     formSubmit: false,
     error: "",
     success: false,
     complete: false,
   });
+
+  useEffect(() => {
+    console.log("isLoading state changed", setSubmissionState);
+  }, [setSubmissionState]);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -24,36 +29,37 @@ const Register = () => {
   const handleSubmit = async (e) => {
     // console.log(formData);
     e.preventDefault();
-    setIsloading((prev) => ({
+    setSubmissionState((prev) => ({
       ...prev,
       formSubmit: true,
       success: false,
+      error: "",
     }));
 
     try {
       const res = await apiRequest.post("/auth/register", {
         ...formData,
       });
-      setIsloading((prev) => ({
+      setSubmissionState((prev) => ({
         ...prev,
         success: true,
-      }));
-    } catch (err) {
-      console.error(err.response?.data?.message || "An error occured.");
-
-      setIsloading((prev) => ({
-        ...prev,
-        error:
-          "Failed to send registration request." +
-          " " +
-          err.response?.data?.message,
-      }));
-    } finally {
-      setIsloading((prev) => ({
-        ...prev,
         formSubmit: false,
         complete: true,
+        error: "",
       }));
+    } catch (err) {
+      console.error(err.response?.data?.message || "An error occurred.");
+      setSubmissionState((prev) => ({
+        ...prev,
+        formSubmit: false,
+        success: false,
+        error:
+          "Failed to send registration request. " +
+          (err.response?.data?.message || ""),
+        complete: true,
+      }));
+    } finally {
+      // Nothing here needed for now
     }
   };
 
@@ -151,12 +157,15 @@ const Register = () => {
                 Login here.
               </a>
             </p>
-            <button
-              type="submit"
-              className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
-            >
-              Submit
-            </button>
+            <SubmitButton
+              complete={submissionState.complete}
+              success={submissionState.success}
+              isLoading={submissionState.formSubmit}
+              error={submissionState.error}
+              preSubmissionText="Register"
+              postSubmissionText="Submitted"
+              reattempt={true}
+            />
           </form>
         </div>
       </div>
