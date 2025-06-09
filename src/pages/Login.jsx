@@ -44,7 +44,7 @@ const Signup = () => {
             </div>
             <p>
               Don't have an account?{" "}
-              <a className="" href="/sign-up">
+              <a className="" href="/register">
                 Create one here.
               </a>
             </p>
