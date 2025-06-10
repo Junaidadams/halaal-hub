@@ -122,7 +122,15 @@ const CreateListing = () => {
               <div className="flex flex-col ">
                 {" "}
                 <label className="text-xl font-bold ">Certificate</label>
-                <input type="file" />
+                <input
+                  type="file"
+                  className="block w-full text-sm text-gray-700
+               file:mr-4 file:py-2 file:px-4
+               file:rounded-md file:border-0
+               file:text-sm file:font-semibold
+               file:bg-richBlack file:text-white
+               hover:file:bg-gray-800"
+                />
                 <button type="button">Add later</button>
               </div>
               <div className="flex flex-col">
