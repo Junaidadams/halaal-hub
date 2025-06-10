@@ -1,24 +1,64 @@
 import { useState } from "react";
+import apiRequest from "../../lib/apiRequest";
 
 const Signup = () => {
+  const [submissionState, setSubmissionState] = useState({
+    formSubmit: false,
+    error: "",
+    success: false,
+    complete: false,
+  });
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmissionState((prev) => ({
+      ...prev,
+      formSubmit: true,
+      success: false,
+      error: "",
+    }));
+
+    try {
+      const res = apiRequest.post("/auth/login", { ...formData });
+      setSubmissionState((prev) => ({
+        ...prev,
+        success: true,
+        formSubmit: false,
+        complete: true,
+        error: "",
+      }));
+    } catch (err) {
+      console.error(err.response?.data?.message || "An error occurred.");
+      setSubmissionState((prev) => ({
+        ...prev,
+        formSubmit: false,
+        success: false,
+        error:
+          "Failed to send registration request. " +
+          (err.response?.data?.message || ""),
+        complete: true,
+      }));
+    }
+  };
+
   return (
     <div className="min-h-screen -mt-[56px] bg-eggshell flex">
       <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
         <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 w-full sm:w-2/3 md:w-1/2 xl:w-1/3 flex-col font-poppins bg-white p-5">
-          <form className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <h1 className="text-2xl font-black tracking-wider mb-4">Login</h1>
             </div>
             <div className="space-y-2">
-              <label className="text-xl font-bold mb-4">Display Name</label>
+              <label className="text-xl font-bold mb-4">Email</label>
               <input
                 className="w-full px-4 py-2 border rounded-md"
-                type="text"
+                type="email"
                 value={formData.email}
                 onChange={(e) =>
                   setFormData((prev) => ({
