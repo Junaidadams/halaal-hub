@@ -83,7 +83,7 @@ const Signup = () => {
               />
             </div>
             <p>
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <a className="" href="/register">
                 Create one here.
               </a>
