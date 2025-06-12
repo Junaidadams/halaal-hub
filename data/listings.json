@@ -1,21 +1,5 @@
 [
   {
-    "place_id": 73116484,
-    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
-    "osm_type": "node",
-    "osm_id": 6548818541,
-    "lat": "41.9084893",
-    "lon": "12.5198436",
-    "class": "amenity",
-    "type": "cafe",
-    "place_rank": 30,
-    "importance": 0.00008896238651097914,
-    "addresstype": "amenity",
-    "name": "Food",
-    "display_name": "Food, Viale Ippocrate, Nomentano, Municipio Roma II, Roma, Roma Capitale, Lazio, 00161, Italia",
-    "boundingbox": ["41.9084393", "41.9085393", "12.5197936", "12.5198936"]
-  },
-  {
     "id": 1,
     "name": "Bo-Kaap Bites",
     "detailedDescription": "This is a detailed description of this establishment. We have been cooking delicious food for a very long time, no complaints. Any bad reviews are straight up talking trash because our food is the best and our service even better. Please come through and taste our delicious meals, we'll be waiting!",
