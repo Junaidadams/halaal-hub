@@ -2,60 +2,18 @@ import { useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { categories } from "../../constants";
 import { certification } from "../../constants";
-import apiRequest from "../../lib/apiRequest";
 
 const CreateListing = () => {
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
-    businessName: "",
-    category: "",
-    lat: 0,
-    lon: 0,
-    googlePlaceId: 0,
-  });
-  const [businessSearchName, setBusinessSearchName] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [formData, setFormData] = useState({ businessName: "", category: "" });
 
   const handleCategorySelect = (value) => {
     setFormData({ ...formData, category: value });
     setTimeout(() => setStep(2), 300);
   };
 
-  const handlePrefill = (listing) => {
-    setFormData((prev) => ({
-      ...prev,
-      businessName: listing.display_name,
-      category: listing.type,
-      lat: listing.lat,
-      lon: listing.lon,
-      googlePlaceId: listing.place_id,
-    }));
-    console.log(formData);
-  };
-
-  const prefillTest = () => {
-    console.log(formData);
-  };
-
   const stepMinusOne = () => {
     step > 1 && setStep((prev) => prev - 1);
-  };
-
-  const handleSearchBusiness = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await apiRequest.get(`/util/search-business`, {
-        params: {
-          q: businessSearchName,
-        },
-      });
-      setSearchResults(res.data);
-      console.log(res.data);
-    } catch (error) {
-      console.error(
-        "Failed to find any businesses under the text entered." + error
-      );
-    }
   };
 
   const totalSteps = 5;
@@ -88,54 +46,25 @@ const CreateListing = () => {
 
           {step === 1 && (
             <div className=" flex flex-col space-y-4 w-full">
-              <div>
-                <label className="text-xl font-bold">Business Name</label>
-                <input
-                  type="text"
-                  value={formData.businessName}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      businessName: e.target.value,
-                    }))
-                  }
-                  placeholder="Enter business name"
-                  className="w-full px-4 py-2 border rounded-md"
-                />
-              </div>
-              <p>Or</p>
-              <div>
-                <label className="text-xl font-bold ">Search Business</label>
-                <input
-                  type="text"
-                  value={businessSearchName}
-                  onChange={(e) => setBusinessSearchName(e.target.value)}
-                  placeholder="Enter business name"
-                  className="w-full px-4 py-2 border rounded-md"
-                />
-                {searchResults.length > 0 && (
-                  <select
-                    onChange={(e) =>
-                      handlePrefill(searchResults[e.target.value])
-                    }
-                    className="w-full px-4 py-2 mt-2 border rounded-md"
-                  >
-                    <option value="">Select a business</option>
-                    {searchResults.map((result, index) => (
-                      <option key={index} value={index}>
-                        {result.display_name}
-                      </option>
-                    ))}
-                  </select>
-                )}
-
-                <button type="button" onClick={handleSearchBusiness}>
-                  Search
-                </button>
-              </div>
-              <button onClick={prefillTest}>Clicki</button>
+              <label className="text-xl font-bold mb-4">Business Name</label>
+              <input
+                type="text"
+                value={formData.businessName}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    businessName: e.target.value,
+                  }))
+                }
+                placeholder="Enter business name"
+                className="w-full px-4 py-2 border rounded-md"
+              />
               <button
-                onClick={() => setStep(step + 1)}
+                onClick={() => {
+                  if (formData.businessName.trim()) {
+                    setStep(step + 1);
+                  }
+                }}
                 className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
               >
                 Next
