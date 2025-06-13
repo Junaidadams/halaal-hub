@@ -52,7 +52,7 @@ const Hub = () => {
 
   if (isLoading)
     return (
-      <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+      <div className="min-h-screen -mt-[56px] bg-eggshell dark:bg-eerieBlack flex">
         <div className="mx-auto my-20 min-h-screen w-[95%]">
           Loading listings...
         </div>
@@ -60,7 +60,7 @@ const Hub = () => {
     );
   if (error)
     return (
-      <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+      <div className="min-h-screen -mt-[56px] bg-eggshell dark:bg-eerieBlack flex">
         <div className="mx-auto my-20 min-h-screen w-[95%]">
           Error fetching listings!
         </div>
@@ -68,7 +68,7 @@ const Hub = () => {
     );
 
   return (
-    <div className="flex min-h-screen -mt-[56px] bg-eggshell">
+    <div className="flex min-h-screen -mt-[56px] bg-eggshell dark:bg-eerieBlack">
       {/* Listings Section */}
       <div
         className={`w-full my-20 ${

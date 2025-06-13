@@ -12,6 +12,7 @@ export default {
         lakeBlue: "#748CAB",
         prussianBlue: "#1D2D44",
         paynesGrey: "#3E5C76",
+        eerieBlack: "#1F201D",
       },
     },
   },
