@@ -1,8 +1,9 @@
 import AboutText from "../components/AboutText";
+import Wrapper from "../components/util/Wrapper";
 
 const About = () => {
   return (
-    <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+    <Wrapper>
       <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
         {/* <h1 className="text-4xl font-black text-prussianBlue w-fit mx-auto py-6">
           About Us
@@ -32,7 +33,7 @@ const About = () => {
           />
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 

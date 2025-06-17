@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const AboutText = ({ heading, text, imgUrl, reversed }) => {
   return (
     <div
-      className={`flex flex-col ${
+      className={`flex flex-col dark:text-slate-300 ${
         !reversed ? "md:flex-row-reverse" : "md:flex-row"
       }`}
     >

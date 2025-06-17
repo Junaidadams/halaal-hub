@@ -8,7 +8,7 @@ const Stars = ({ starsNumber }) => {
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
   return (
-    <div className="flex flex-row text-[#333] my-auto">
+    <div className="flex flex-row text-[#333] dark:text-slate-950 my-auto">
       {[...Array(fullStars)].map((_, i) => (
         <FaStar size={15} key={`full-${i} `} />
       ))}

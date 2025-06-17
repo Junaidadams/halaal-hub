@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { accountTypes } from "../../constants";
 import apiRequest from "../../lib/apiRequest";
 import SubmitButton from "../components/SubmitButton";
+import Wrapper from "../components/util/Wrapper";
 
 const Register = () => {
   const [submissionState, setSubmissionState] = useState({
@@ -64,7 +65,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+    <Wrapper>
       <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
         <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 w-full sm:w-2/3 md:w-1/2 xl:w-1/3 flex-col font-poppins bg-white p-5">
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -112,7 +113,7 @@ const Register = () => {
                     onClick={() => handleAccountTypeSelect(value)}
                     className={`${
                       formData.role === value &&
-                      "bg-richBlack text-white hover:text-black"
+                      "bg-richBlack text-white hover:bg-richBlack hover:bg-opacity-95"
                     } border p-4 rounded-xl hover:shadow-md hover:bg-gray-50 transition flex flex-col items-center text-center`}
                   >
                     <Icon />{" "}
@@ -169,7 +170,7 @@ const Register = () => {
           </form>
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 

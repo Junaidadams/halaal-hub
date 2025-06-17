@@ -12,6 +12,7 @@ import { AnimatePresence } from "framer-motion";
 
 import DropdownMenu from "../components/DropdownMenu";
 import ListingTile from "../components/ListingTile";
+import Wrapper from "../components/util/Wrapper";
 
 const variants = {
   open: {
@@ -52,23 +53,25 @@ const Hub = () => {
 
   if (isLoading)
     return (
-      <div className="min-h-screen -mt-[56px] bg-eggshell dark:bg-eerieBlack flex">
+      <Wrapper>
+        {" "}
         <div className="mx-auto my-20 min-h-screen w-[95%]">
           Loading listings...
         </div>
-      </div>
+      </Wrapper>
     );
   if (error)
     return (
-      <div className="min-h-screen -mt-[56px] bg-eggshell dark:bg-eerieBlack flex">
+      <Wrapper>
+        {" "}
         <div className="mx-auto my-20 min-h-screen w-[95%]">
           Error fetching listings!
         </div>
-      </div>
+      </Wrapper>
     );
 
   return (
-    <div className="flex min-h-screen -mt-[56px] bg-eggshell dark:bg-eerieBlack">
+    <Wrapper>
       {/* Listings Section */}
       <div
         className={`w-full my-20 ${
@@ -180,7 +183,7 @@ const Hub = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </Wrapper>
   );
 };
 

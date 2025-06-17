@@ -31,18 +31,18 @@ const Navbar = () => {
   const mainNavLinks = navigationLinks.main;
 
   return (
-    <div className="z-20 flex justify-between items-center min-w-screen sticky top-0 min-h-[56px] px-2 md:px-4 bg-eggshell backdrop-blur-lg">
+    <div className="z-20 flex justify-between items-center min-w-screen sticky top-0 min-h-[56px] px-2 md:px-4 bg-eggshell dark:bg-richBlack backdrop-blur-lg">
       {/* Navigation Links */}
       <div className="md:hidden ">
         <Toggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
       </div>
       <Logo />
-      <ul className="space-x-8 capitalize hidden md:flex flex-row p-2 ml-auto  rounded-full">
+      <ul className="space-x-8 capitalize hidden md:flex flex-row p-2 ml-auto  rounded-full dark:text-eggshell">
         {mainNavLinks.map((link) => (
           <li key={link.key} className="">
             <a
               href={link.link}
-              className="text-space-cadet py-2 px-3 rounded-full hover:text-prussianBlue font-semibold"
+              className="text-space-cadet py-2 px-3 rounded-full hover:text-prussianBlue dark:hover:text-white font-semibold"
             >
               {link.name}
             </a>
@@ -135,7 +135,7 @@ const Navbar = () => {
             exit="closed"
             variants={variants}
             transition={{ duration: 0.5 }}
-            className="absolute top-0 left-0 w-full shadow-lg flex flex-col space-y-6 px-4 pt-2 pb-10 capitalize md:hidden bg-white"
+            className="absolute top-0 left-0 w-full shadow-lg flex flex-col space-y-6 px-4 pt-2 pb-10 capitalize md:hidden bg-white dark:bg-slate-800"
           >
             <div className="md:hidden ">
               <Toggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
@@ -144,7 +144,7 @@ const Navbar = () => {
               <a
                 key={link.key}
                 href={link.link}
-                className="text-ghost-white hover:text-periwinkle m-auto "
+                className="text-richBlack dark:text-eggshell m-auto "
                 onClick={() => setIsOpen(false)} // Close menu on link click
               >
                 {link.name}

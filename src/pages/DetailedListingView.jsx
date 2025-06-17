@@ -7,6 +7,7 @@ import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { MdOutlineCategory } from "react-icons/md";
 import { FaStar } from "react-icons/fa6";
 import ShareButton from "../components/ShareButton";
+import Wrapper from "../components/util/Wrapper";
 
 const fetchListings = async () => {
   const res = await axios.get("/data/listings.json");
@@ -35,7 +36,7 @@ const DetailedListingView = () => {
   if (!listing) return <div className="p-6">Listing not found</div>;
 
   return (
-    <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+    <Wrapper>
       <div className="mx-auto my-20 min-h-screen w-[95%] sm:w-2/3 xl:w-1/2 flex flex-col font-poppins sm:p-5">
         <h1 className="text-2xl font-bold capitalize mb-2">
           {listing.name} - ({listing.category})
@@ -140,7 +141,7 @@ const DetailedListingView = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 

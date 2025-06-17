@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import apiRequest from "../../lib/apiRequest";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const { updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const [submissionState, setSubmissionState] = useState({
     formSubmit: false,
     error: "",
@@ -24,7 +29,14 @@ const Signup = () => {
     }));
 
     try {
-      const res = apiRequest.post("/auth/login", { ...formData });
+      const res = await apiRequest.post("/auth/login", { ...formData });
+
+      const { token, ...userData } = res.data;
+
+      localStorage.setItem("authToken", token);
+
+      updateUser(userData);
+
       setSubmissionState((prev) => ({
         ...prev,
         success: true,
@@ -32,6 +44,8 @@ const Signup = () => {
         complete: true,
         error: "",
       }));
+
+      navigate("/hub");
     } catch (err) {
       console.error(err.response?.data?.message || "An error occurred.");
       setSubmissionState((prev) => ({

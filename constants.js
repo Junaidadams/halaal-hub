@@ -165,51 +165,61 @@ export const categories = [
 
 export const certification = [
   {
+    key: 1,
     shortName: "MJC",
     name: "MJC Halaal Trust (Muslim Judicial Council)",
     url: "https://www.mjc.org.za",
   },
   {
+    key: 2,
     shortName: "SANHA",
     name: "South African National Halaal Authority",
     url: "https://www.sanha.org.za",
   },
   {
+    key: 3,
     shortName: "NIHT",
     name: "National Independent Halaal Trust",
     url: "https://www.niht.co.za",
   },
   {
+    key: 4,
     shortName: "ICSA",
     name: "Islamic Council of South Africa",
     url: "http://www.icsa.co.za",
   },
   {
+    key: 5,
     shortName: "HFSA",
     name: "Halaal Foundation of South Africa",
     url: "https://hfsa.co.za",
   },
   {
+    key: 6,
     shortName: "HAOSA",
     name: "Halaal Authority of South Africa",
     url: "https://www.haosa.org.za",
   },
   {
+    key: 7,
     shortName: "SAIH",
     name: "South African Islamic Halaal Authority",
     url: "https://saih.co.za",
   },
   {
+    key: 8,
     shortName: "MAC",
     name: "Muslim Assembly Cape",
     url: "https://www.muslimassembly.co.za",
   },
   {
+    key: 9,
     shortName: "IHA",
     name: "Islamic Halaal Authority",
     url: "https://www.ihahalal.co.za",
   },
   {
+    key: 10,
     shortName: "JUSA",
     name: "Jamiatul Ulama South Africa",
     url: "https://www.jus.org.za",

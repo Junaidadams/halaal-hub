@@ -33,7 +33,7 @@ const ListingTile = ({ listing }) => {
   };
 
   return (
-    <div className="bg-white shadow-md mb-4 md:mx-2 hover:shadow-lg">
+    <div className="bg-white dark:bg-eggshell shadow-md rounded-t-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-lg">
       <Link to={`/listing/${listing.id}`}>
         <div className="relative">
           <img
@@ -46,7 +46,7 @@ const ListingTile = ({ listing }) => {
           </p>
         </div>
         <div className="p-4">
-          <h2 className="text-lg font-bold mt-2 font-poppins">
+          <h2 className="text-lg dark:text-richBlack font-bold mt-2 font-poppins">
             {listing.name}
             <span className="text-base font-normal w-fit p-1 rounded-full flex capitalize">
               <Stars starsNumber={listing.stars} />
