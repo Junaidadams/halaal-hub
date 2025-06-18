@@ -1,14 +1,18 @@
 import PropTypes from "prop-types";
 import { FaStar, FaStarHalfStroke, FaRegStar } from "react-icons/fa6";
 
-const Stars = ({ starsNumber }) => {
+const Stars = ({ starsNumber, altColourClass }) => {
   const fullStars = Math.floor(starsNumber);
   const hasHalfStar =
     starsNumber - fullStars >= 0.25 && starsNumber - fullStars < 0.75;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
   return (
-    <div className="flex flex-row text-[#333] dark:text-slate-500 my-auto">
+    <div
+      className={`flex flex-row ${
+        !altColourClass ? "text-[#333] dark:text-slate-500" : altColourClass
+      } my-auto`}
+    >
       {[...Array(fullStars)].map((_, i) => (
         <FaStar size={15} key={`full-${i} `} />
       ))}
@@ -22,6 +26,7 @@ const Stars = ({ starsNumber }) => {
 
 Stars.propTypes = {
   starsNumber: PropTypes.number.isRequired,
+  altColourClass: PropTypes.string,
 };
 
 export default Stars;

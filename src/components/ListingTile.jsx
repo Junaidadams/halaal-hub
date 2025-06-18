@@ -49,7 +49,10 @@ const ListingTile = ({ listing }) => {
           <h2 className="text-lg dark:text-richBlack font-bold mt-2 font-poppins">
             {listing.name}
             <span className="text-base font-normal w-fit p-1 rounded-full flex capitalize">
-              <Stars starsNumber={listing.stars} />
+              <Stars
+                starsNumber={listing.stars}
+                altColourClass="dark:text-black"
+              />
             </span>
           </h2>
           <p className="text-base text-richBlack font-semibold my-3">

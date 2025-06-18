@@ -37,7 +37,7 @@ const DetailedListingView = () => {
 
   return (
     <Wrapper>
-      <div className="mx-auto my-20 min-h-screen w-[95%] sm:w-2/3 xl:w-1/2 flex flex-col font-poppins sm:p-5 dark:text-slate-200">
+      <div className="mx-auto my-20 min-h-screen w-[95%] sm:w-2/3 xl:w-1/2 flex flex-col font-poppins sm:p-5 dark:text-slate-50">
         <h1 className="text-2xl font-bold capitalize mb-2">
           {listing.name} - ({listing.category})
         </h1>
@@ -45,13 +45,13 @@ const DetailedListingView = () => {
           <img
             src={listing.imageUrl}
             alt={listing.name}
-            className="w-full mt-4 rounded shadow"
+            className="w-full mt-4 dark:p-1 dark:bg-slate-200 rounded shadow"
           />{" "}
           <div className="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded capitalize">
             <ShareButton url={window.location.href} title={listing.name} />
           </div>
         </div>
-        <h1 className="text-2xl font-bold  mt-8">
+        <h1 className="text-2xl dark:text-slate-50 font-bold  mt-8">
           <span className="capitalize">{listing.category}</span> at{" "}
           {listing.address}
         </h1>
@@ -60,14 +60,14 @@ const DetailedListingView = () => {
             <span className="mr-2 my-auto text-[#333] dark:text-slate-200">
               Reviews
             </span>
-            <span className="my-auto flex text-xs">
-              <Stars starsNumber={listing.stars} className="my-auto" />(
-              {listing.stars})
+            <span className="my-auto flex text-xs space-x-1">
+              <Stars starsNumber={listing.stars} className="my-auto " />{" "}
+              <p>({listing.stars})</p>
             </span>
           </div>
         </div>
         <div className="flex flex-col px-1 py-4">
-          <p className=" text-base text-richBlack dark:text-slate-200 dark:text-slate-200">
+          <p className=" text-base text-richBlack dark:text-slate-200 ">
             {listing.description}
           </p>
         </div>
