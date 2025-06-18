@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import Wrapper from "../components/util/Wrapper.jsx";
 import { AuthContext } from "../context/AuthContext.jsx";
-import ShareButton from "../components/ShareButton.jsx";
 import { certification } from "../../constants.js";
 
 const Profile = () => {
@@ -105,7 +104,9 @@ const Profile = () => {
         </div>
 
         <div className="mb-4">
-          <label className="block mb-1 font-semibold text-sm">Location</label>
+          <label className="block mb-1 font-semibold text-sm">
+            Location Preference
+          </label>
           <input
             name="location"
             value={formData.location}

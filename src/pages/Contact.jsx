@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Wrapper from "../components/util/Wrapper.jsx";
 import { contactInformation } from "../../constants.js";
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +20,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen -mt-[56px] bg-eggshell flex font font-poppins">
+    <Wrapper>
       <div className="mx-auto my-20 min-h-screen w-[95%]">
         <h1 className="text-4xl font-black text-prussianBlue text-center py-6">
           Contact Us
@@ -98,7 +99,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 

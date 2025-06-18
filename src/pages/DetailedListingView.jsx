@@ -37,7 +37,7 @@ const DetailedListingView = () => {
 
   return (
     <Wrapper>
-      <div className="mx-auto my-20 min-h-screen w-[95%] sm:w-2/3 xl:w-1/2 flex flex-col font-poppins sm:p-5">
+      <div className="mx-auto my-20 min-h-screen w-[95%] sm:w-2/3 xl:w-1/2 flex flex-col font-poppins sm:p-5 dark:text-slate-200">
         <h1 className="text-2xl font-bold capitalize mb-2">
           {listing.name} - ({listing.category})
         </h1>
@@ -57,7 +57,9 @@ const DetailedListingView = () => {
         </h1>
         <div className="font-semibold flex p-1 mt-2">
           <div className="flex">
-            <span className="mr-2 my-auto text-[#333]">Reviews</span>
+            <span className="mr-2 my-auto text-[#333] dark:text-slate-200">
+              Reviews
+            </span>
             <span className="my-auto flex text-xs">
               <Stars starsNumber={listing.stars} className="my-auto" />(
               {listing.stars})
@@ -65,7 +67,9 @@ const DetailedListingView = () => {
           </div>
         </div>
         <div className="flex flex-col px-1 py-4">
-          <p className=" text-base text-richBlack">{listing.description}</p>
+          <p className=" text-base text-richBlack dark:text-slate-200 dark:text-slate-200">
+            {listing.description}
+          </p>
         </div>
         <div className="flex justify-evenly my-4">
           <div className="w-[30%] text-center text-sm lg:text-base border-r">
@@ -92,7 +96,7 @@ const DetailedListingView = () => {
           </div>
         </div>
         <div className=" p-4">
-          <p className="mb-2 text-base font-pop text-richBlack">
+          <p className="mb-2 text-base font-pop text-richBlack dark:text-slate-200">
             {listing.detailedDescription}
           </p>
         </div>
@@ -101,14 +105,14 @@ const DetailedListingView = () => {
             Contact Information
           </h3>
           {listing.phone ? (
-            <p className="mb-2 text-base text-richBlack">
+            <p className="mb-2 text-base text-richBlack dark:text-slate-200">
               Phone - {listing.phone}
             </p>
           ) : (
             ""
           )}
           {listing.email ? (
-            <p className="mb-2 text-base text-richBlack">
+            <p className="mb-2 text-base text-richBlack dark:text-slate-200">
               Email - {listing.email}
             </p>
           ) : (
