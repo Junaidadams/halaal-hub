@@ -41,7 +41,7 @@ const Profile = () => {
         onSubmit={handleSubmit}
         className="mx-auto my-20 min-h-screen w-[95%] sm:w-2/3 xl:w-1/2 flex flex-col font-poppins sm:p-5"
       >
-        <div className="mb-4 md:p-4 p-2 sm:p-3 flex bg-black bg-opacity-10 rounded-sm">
+        <div className="mb-4 md:p-4 p-2 sm:p-3 flex bg-black dark:bg-white dark:bg-opacity-20 bg-opacity-10 rounded-sm">
           <img
             src={formData.avatarUrl || "/food.jpg"}
             alt={formData.username}
@@ -58,66 +58,72 @@ const Profile = () => {
           </button>
         </div>
         <div className="mb-4 space-y-2">
-          <label className="block mb-1 font-semibold text-sm">Username</label>
+          <label className="block mb-1 font-semibold dark:text-slate-200 text-sm">
+            Username
+          </label>
           <input
             name="username"
             value={formData.username}
             onChange={handleChange}
-            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2"
+            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2 dark:bg-white dark:bg-opacity-10 dark:text-slate-300"
             required
           />
         </div>
 
         <div className="mb-4">
-          <label className="block mb-1 font-semibold text-sm">Email</label>
+          <label className="block mb-1 font-semibold dark:text-slate-200 text-sm">
+            Email
+          </label>
           <input
             disabled={true}
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2"
+            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2 dark:bg-white dark:bg-opacity-10 dark:text-slate-300"
             type="email"
             required
           />
         </div>
         {/* 
         <div className="mb-4">
-          <label className="block mb-1 font-semibold text-sm">Avatar URL</label>
+          <label className="block mb-1 font-semibold dark:text-slate-200 text-sm">Avatar URL</label>
           <input
             name="avatarUrl"
             value={formData.avatarUrl}
             onChange={handleChange}
-            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2"
+            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2 dark:bg-white dark:bg-opacity-10 dark:text-slate-300"
             type="url"
           />
         </div> */}
 
         <div className="mb-4">
-          <label className="block mb-1 font-semibold text-sm">Bio</label>
+          <label className="block mb-1 font-semibold dark:text-slate-200 text-sm">
+            Bio
+          </label>
           <textarea
             name="bio"
             value={formData.bio}
             onChange={handleChange}
-            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2"
+            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2 dark:bg-white dark:bg-opacity-10 dark:text-slate-300"
             rows={3}
           />
         </div>
 
         <div className="mb-4">
-          <label className="block mb-1 font-semibold text-sm">
+          <label className="block mb-1 font-semibold dark:text-slate-200 text-sm">
             Location Preference
           </label>
           <input
             name="location"
             value={formData.location}
             onChange={handleChange}
-            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2"
+            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2 dark:bg-white dark:bg-opacity-10 dark:text-slate-300"
           />
         </div>
 
         {/* Example handling for certificationPreferences — simple comma-separated text input for now */}
         <div className="mb-4">
-          <label className="block mb-1 font-semibold text-sm">
+          <label className="block mb-1 font-semibold dark:text-slate-200 text-sm">
             Certification Preferences
           </label>
           <select
@@ -131,7 +137,7 @@ const Profile = () => {
                   .map((s) => s.trim()),
               }))
             }
-            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2"
+            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2 dark:bg-white dark:bg-opacity-10 dark:text-slate-300"
             placeholder="e.g., SANHA, NIHT"
           >
             <option value="">Select</option>
@@ -145,7 +151,7 @@ const Profile = () => {
 
         <button
           type="submit"
-          className="bg-richBlack text-white px-2 sm:px-4 py-1 mr-auto rounded-sm"
+          className="bg-richBlack dark:bg-white dark:text-richBlack text-white px-2 sm:px-4 py-1 mr-auto rounded-sm"
         >
           Save Changes
         </button>
