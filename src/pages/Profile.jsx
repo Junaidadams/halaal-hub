@@ -48,8 +48,10 @@ const Profile = () => {
             className="w-11 h-11 sm:w-12 sm:h-12 rounded-full shadow"
           />
           <div className="my-auto mx-2">
-            <h1 className="font-semibold">{currentUser.username}</h1>
-            <p className="sm:text-xs text-[10px] text-prussianBlue">
+            <h1 className="font-semibold dark:text-slate-300">
+              {currentUser.username}
+            </h1>
+            <p className="sm:text-xs text-[10px] text-prussianBlue dark:text-slate-400">
               {currentUser.email}
             </p>
           </div>

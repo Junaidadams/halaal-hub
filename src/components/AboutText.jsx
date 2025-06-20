@@ -8,7 +8,7 @@ const AboutText = ({ heading, text, imgUrl, reversed }) => {
       }`}
     >
       <div className="w-[95%] mb-6 mx-auto sm:m-auto md:w-1/2 sm:p-5">
-        <img src={imgUrl} className="bg-white  shadow-xl" />
+        <img src={imgUrl} className="bg-slate-200 dark:p-1 shadow-xl" />
       </div>
       <div className="w-[95%] mb-6 mx-auto sm:m-auto md:w-1/2 sm:p-5">
         <h3 className="font-poppins font-semibold text-lg dark:text-eggshell tracking-widest">
