@@ -41,25 +41,32 @@ const Profile = () => {
         onSubmit={handleSubmit}
         className="mx-auto my-20 min-h-screen w-[95%] sm:w-2/3 xl:w-1/2 flex flex-col font-poppins sm:p-5"
       >
-        <div className="mb-4 md:p-4 p-2 sm:p-3 flex bg-black dark:bg-white dark:bg-opacity-20 bg-opacity-10 rounded-sm">
-          <img
-            src={formData.avatarUrl || "/food.jpg"}
-            alt={formData.username}
-            className="w-11 h-11 sm:w-12 sm:h-12 rounded-full shadow"
-          />
-          <div className="my-auto mx-2">
-            <h1 className="font-semibold dark:text-slate-300">
-              {currentUser.username}
-            </h1>
-            <p className="sm:text-xs text-[10px] text-prussianBlue dark:text-slate-400">
-              {currentUser.email}
-            </p>
+        <div className="mb-4 md:p-4 p-2 sm:p-3 flex bg-black dark:bg-white dark:bg-opacity-20 bg-opacity-10  flex-col rounded-sm">
+          <div className="flex">
+            <img
+              src={formData.avatarUrl || "/food.jpg"}
+              alt={formData.username}
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full shadow"
+            />
+            <div className="my-auto mx-2">
+              <h1 className="font-semibold dark:text-slate-300">
+                {currentUser.username}
+              </h1>
+              <p className="sm:text-xs text-[10px] text-prussianBlue dark:text-slate-400">
+                {currentUser.email}
+              </p>
+            </div>
+            <button className="bg-richBlack text-xs rounded-sm my-auto ml-auto text-eggshell p-2 h-fit ">
+              Change photo
+            </button>
           </div>
-          <button className="bg-richBlack text-xs rounded-sm my-auto ml-auto text-eggshell p-2 h-fit ">
-            Change photo
-          </button>
+          <div className="justify-evenly flex flex-row">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+          </div>
         </div>
-        <div className="mb-4 space-y-2">
+        <div className="mb-4">
           <label className="block mb-1 font-semibold dark:text-slate-200 text-sm">
             Username
           </label>
@@ -153,7 +160,7 @@ const Profile = () => {
 
         <button
           type="submit"
-          className="bg-richBlack dark:bg-white dark:text-richBlack text-white px-2 sm:px-4 py-1 mr-auto rounded-sm"
+          className="bg-richBlack dark:bg-white dark:text-richBlack text-white px-2 sm:px-4 py-1 mr-auto mt-4 rounded-sm"
         >
           Save Changes
         </button>
