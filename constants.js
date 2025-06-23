@@ -13,6 +13,7 @@ import {
   FaHouseUser,
   FaRegUser,
 } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
 import { MdBakeryDining, MdRestaurant } from "react-icons/md";
 import { IoMdCafe } from "react-icons/io";
 import { RiTakeawayFill } from "react-icons/ri";
@@ -72,45 +73,59 @@ export const navigationLinks = {
   signedInLinks: [],
 };
 
-export const getStartedOptions = [
-  {
-    key: 4,
-    name: "Sign Up",
-    link: "/register",
-    description:
-      "Create an account to list your Halaal business on the directory.",
-    icon: FaUserPlus,
-  },
-  {
-    key: 5,
-    name: "Login",
-    link: "/login",
-    description: "Log into your account to manage your listings and reviews.",
-    icon: FaSignInAlt,
-  },
-  {
-    key: 1,
-    name: "Learn More",
-    link: "/about",
-    description:
-      "Discover how Halaal Hub helps you find the best Halaal food spots.",
-    icon: FaInfoCircle,
-  },
-  {
-    key: 2,
-    name: "Contact Us",
-    link: "/contact",
-    description: "Have questions? Get in touch with our team for assistance.",
-    icon: FaEnvelope,
-  },
-  {
-    key: 3,
-    name: "Explore Listings",
-    link: "/hub",
-    description: "Browse Halaal restaurants, cafés, and food spots near you.",
-    icon: FaUtensils,
-  },
-];
+export const getStartedOptions = {
+  notSignedIn: [
+    {
+      key: 4,
+      name: "Sign Up",
+      link: "/register",
+      description:
+        "Create an account to list your Halaal business on the directory.",
+      icon: FaUserPlus,
+    },
+    {
+      key: 5,
+      name: "Login",
+      link: "/login",
+      description: "Log into your account to manage your listings and reviews.",
+      icon: FaSignInAlt,
+    },
+  ],
+
+  main: [
+    {
+      key: 1,
+      name: "Learn More",
+      link: "/about",
+      description:
+        "Discover how Halaal Hub helps you find the best Halaal food spots.",
+      icon: FaInfoCircle,
+    },
+    {
+      key: 2,
+      name: "Contact Us",
+      link: "/contact",
+      description: "Have questions? Get in touch with our team for assistance.",
+      icon: FaEnvelope,
+    },
+    {
+      key: 3,
+      name: "Explore Listings",
+      link: "/hub",
+      description: "Browse Halaal restaurants, cafés, and food spots near you.",
+      icon: FaUtensils,
+    },
+  ],
+  signedInLinks: [
+    {
+      key: 6,
+      name: "Profile",
+      link: "/profile",
+      description: "Change preferences and view account settings.",
+      icon: CgProfile,
+    },
+  ],
+};
 
 export const contactInformation = [
   {
