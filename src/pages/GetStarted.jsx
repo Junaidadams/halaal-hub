@@ -8,6 +8,13 @@ const GetStarted = () => {
   const { currentUser } = useContext(AuthContext);
 
   var fullLinks = getStartedOptions.main;
+  currentUser
+    ? (fullLinks = getStartedOptions.main.concat(
+        getStartedOptions.signedInLinks
+      ))
+    : (fullLinks = getStartedOptions.main.concat(
+        getStartedOptions.notSignedIn
+      ));
   return (
     <Wrapper>
       <div className="mx-auto my-20  w-[95%]  font-poppins">
