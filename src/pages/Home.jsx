@@ -4,20 +4,24 @@ const Home = () => {
   return (
     <Wrapper>
       {" "}
-      <div className="m-auto w-[95%] flex flex-col space-y-4 font-poppins">
-        <h1 className="m-auto text-center text-richBlack dark:text-eggshell tracking-widest text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black">
-          Welcome to
-          <br /> Halaal Hub
-        </h1>
-        <p className="tracking-wider sm:tracking-widest md:tracking-[0.3em] sm:text-lg lg:text-xl text-center font-light mx-auto w-fit dark:text-eggshell">
-          The Halaal food directory.
-        </p>
-        <a
-          href="/get-started"
-          className="bg-richBlack dark:bg-eggshell dark:hover:bg-opacity-80 dark:text-black text-white hover:bg-prussianBlue px-4 py-2 rounded-sm m-auto w-fit "
-        >
-          <button className="">Get Started!</button>
-        </a>
+      <div className="m-auto w-[95%] font-poppins">
+        <div className="w-fit m-auto flex flex-col bg-richBlack dark:bg-eggshell rounded-t-full pt-20 xl:pt-28 xl:pb-16 pb-10 xl:px-10 px-6 shadow-sm">
+          <div className="mb-6 mt-2">
+            <h1 className="m-auto text-center text-eggshell dark:text-richBlack  tracking-widest text-3xl font-black">
+              Welcome to
+              <br /> Halaal Hub
+            </h1>
+            <p className="tracking-wider sm:tracking-widest text-sm  text-center font-light mx-auto w-fit dark:text-richBlack text-eggshell">
+              The Halaal food directory.
+            </p>
+          </div>
+          <a
+            href="/get-started"
+            className="dark:bg-richBlack bg-eggshell dark:hover:bg-opacity-80  dark:text-white text-richBlack hover:bg-prussianBlue px-4 py-2 rounded-sm m-auto w-fit "
+          >
+            <button className="">Get Started!</button>
+          </a>
+        </div>
       </div>
     </Wrapper>
   );

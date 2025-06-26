@@ -2,10 +2,13 @@ import { useContext, useState } from "react";
 import Wrapper from "../components/util/Wrapper.jsx";
 import { AuthContext } from "../context/AuthContext.jsx";
 import { certification } from "../../constants.js";
+import { HiBadgeCheck } from "react-icons/hi";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Profile = () => {
   const { currentUser } = useContext(AuthContext);
 
+  const [isHovered, setIsHovered] = useState(false);
   const [formData, setFormData] = useState({
     username: currentUser?.username || "",
     email: currentUser?.email || "",
@@ -43,11 +46,37 @@ const Profile = () => {
       >
         <div className="mb-4 md:p-4 p-2 sm:p-3 flex bg-black dark:bg-white dark:bg-opacity-20 bg-opacity-10  flex-col rounded-sm">
           <div className="flex">
-            <img
-              src={formData.avatarUrl || "/food.jpg"}
-              alt={formData.username}
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full shadow"
-            />
+            <div
+              className={`relative ${
+                currentUser.premium
+                  ? "bg-gradient-to-tr from-amber-500 to-amber-200"
+                  : "bg-periwinkle"
+              } rounded-full w-11 h-11 sm:w-12 sm:h-12 flex shadow-lg p-1 mr-4`}
+            >
+              <img src="/food.jpg" className=" rounded-full shadow" />
+              <div
+                className="relative"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <HiBadgeCheck
+                  color=""
+                  className="text-richBlack bg-white h-4 w-4 sm:h-8 sm:w-8 z-10 absolute bottom-0 right-0 transform bg-space-cadet p-0 rounded-full"
+                />
+                <AnimatePresence>
+                  {isHovered && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 5 }}
+                      className="absolute bottom-10 right-0 bg-gray-800 text-white text-xs px-2 py-1 rounded-md shadow-md whitespace-nowrap"
+                    >
+                      Verified
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
             <div className="my-auto mx-2">
               <h1 className="font-semibold dark:text-slate-300">
                 {currentUser.username}

@@ -19,46 +19,50 @@ const Signup = () => {
     password: "",
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmissionState((prev) => ({
-      ...prev,
-      formSubmit: true,
-      success: false,
-      error: "",
-    }));
-
-    try {
-      const res = await apiRequest.post("/auth/login", { ...formData });
-
-      const { token, ...userData } = res.data;
-
-      localStorage.setItem("authToken", token);
-
-      updateUser(userData);
-
-      setSubmissionState((prev) => ({
-        ...prev,
-        success: true,
-        formSubmit: false,
-        complete: true,
-        error: "",
-      }));
-
-      navigate("/hub");
-    } catch (err) {
-      console.error(err.response?.data?.message || "An error occurred.");
-      setSubmissionState((prev) => ({
-        ...prev,
-        formSubmit: false,
-        success: false,
-        error:
-          "Failed to send registration request. " +
-          (err.response?.data?.message || ""),
-        complete: true,
-      }));
-    }
+  const handleSubmit = () => {
+    updateUser(formData);
   };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setSubmissionState((prev) => ({
+  //     ...prev,
+  //     formSubmit: true,
+  //     success: false,
+  //     error: "",
+  //   }));
+
+  //   try {
+  //     const res = await apiRequest.post("/auth/login", { ...formData });
+
+  //     const { token, ...userData } = res.data;
+
+  //     localStorage.setItem("authToken", token);
+
+  //     updateUser(userData);
+
+  //     setSubmissionState((prev) => ({
+  //       ...prev,
+  //       success: true,
+  //       formSubmit: false,
+  //       complete: true,
+  //       error: "",
+  //     }));
+
+  //     navigate("/hub");
+  //   } catch (err) {
+  //     console.error(err.response?.data?.message || "An error occurred.");
+  //     setSubmissionState((prev) => ({
+  //       ...prev,
+  //       formSubmit: false,
+  //       success: false,
+  //       error:
+  //         "Failed to send registration request. " +
+  //         (err.response?.data?.message || ""),
+  //       complete: true,
+  //     }));
+  //   }
+  // };
 
   return (
     <div className="min-h-screen -mt-[56px] bg-eggshell flex">

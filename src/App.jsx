@@ -11,10 +11,12 @@ import Profile from "./pages/Profile";
 import DetailedListingView from "./pages/DetailedListingView";
 
 import Login from "./pages/Login";
+
 import Register from "./pages/Register";
 import CreateListing from "./pages/CreateListing";
 
 import NoPage from "./pages/NoPage";
+import Logout from "./pages/util/Logout";
 import VerifyingEmail from "./pages/util/VerifyEmail";
 
 const App = () => {
@@ -22,6 +24,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/logout" element={<Logout />} />
       <Route path="/register" element={<Register />} />
       <Route path="/create-listing" element={<CreateListing />} />
       <Route path="/get-started" element={<GetStarted />} />

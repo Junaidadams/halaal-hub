@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import Wrapper from "../components/util/Wrapper";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
+import { IoCreateOutline } from "react-icons/io5";
 
 const GetStarted = () => {
   const { currentUser } = useContext(AuthContext);
 
   var fullLinks = getStartedOptions.main;
   currentUser
-    ? (fullLinks = getStartedOptions.main.concat(
-        getStartedOptions.signedInLinks
+    ? (fullLinks = getStartedOptions.signedInLinks.concat(
+        getStartedOptions.main
       ))
     : (fullLinks = getStartedOptions.main.concat(
         getStartedOptions.notSignedIn
@@ -36,6 +37,22 @@ const GetStarted = () => {
               </p>
             </Link>
           ))}
+          {currentUser && currentUser.role === "user" && (
+            <Link
+              to="/create-listing"
+              className="flex flex-col items-center bg-white shadow-lg p-6 rounded-sm hover:bg-richBlack dark:border-slate-200 dark:border transition duration-300 group"
+            >
+              <div className="text-prussianBlue text-4xl mb-4 group-hover:text-white">
+                <IoCreateOutline />
+              </div>
+              <h2 className="text-prussianBlue font-semibold sm:font-bold md:font-black tracking-wider  text-lg group-hover:text-white">
+                Create listing
+              </h2>
+              <p className="text-paynesGrey text-sm text-center group-hover:text-white">
+                Create a halal hub listing that others can find!
+              </p>
+            </Link>
+          )}
         </div>
       </div>
     </Wrapper>

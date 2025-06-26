@@ -13,6 +13,7 @@ import {
   FaHouseUser,
   FaRegUser,
 } from "react-icons/fa";
+import { CiLogout } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
 import { MdBakeryDining, MdRestaurant } from "react-icons/md";
 import { IoMdCafe } from "react-icons/io";
@@ -123,6 +124,13 @@ export const getStartedOptions = {
       link: "/profile",
       description: "Change preferences and view account settings.",
       icon: CgProfile,
+    },
+    {
+      key: 7,
+      name: "Logout",
+      link: "/logout",
+      description: "Log out of your account for now.",
+      icon: CiLogout,
     },
   ],
 };
