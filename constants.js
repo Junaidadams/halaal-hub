@@ -121,7 +121,7 @@ export const getStartedOptions = {
     {
       key: 6,
       name: "Profile",
-      link: "/profile",
+      link: "/my-profile",
       description: "Change preferences and view account settings.",
       icon: CgProfile,
     },

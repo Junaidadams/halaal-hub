@@ -3,6 +3,9 @@ import Wrapper from "../components/util/Wrapper.jsx";
 import { AuthContext } from "../context/AuthContext.jsx";
 import { certification } from "../../constants.js";
 import { HiBadgeCheck } from "react-icons/hi";
+import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
+import { GoHeartFill } from "react-icons/go";
+
 import { AnimatePresence, motion } from "framer-motion";
 
 const Profile = () => {
@@ -51,7 +54,7 @@ const Profile = () => {
                 currentUser.premium
                   ? "bg-gradient-to-tr from-amber-500 to-amber-200"
                   : "bg-periwinkle"
-              } rounded-full w-11 h-11 sm:w-12 sm:h-12 flex shadow-lg p-1 mr-4`}
+              } rounded-full w-11 h-11 sm:w-14 sm:h-14 flex shadow-lg mr-3`}
             >
               <img src="/food.jpg" className=" rounded-full shadow" />
               <div
@@ -61,7 +64,7 @@ const Profile = () => {
               >
                 <HiBadgeCheck
                   color=""
-                  className="text-richBlack bg-white h-4 w-4 sm:h-8 sm:w-8 z-10 absolute bottom-0 right-0 transform bg-space-cadet p-0 rounded-full"
+                  className="text-richBlack bg-white h-4 w-4 sm:h-5 sm:w-5  z-10 absolute bottom-0 right-0 transform bg-space-cadet p-0 rounded-full"
                 />
                 <AnimatePresence>
                   {isHovered && (
@@ -77,7 +80,7 @@ const Profile = () => {
                 </AnimatePresence>
               </div>
             </div>
-            <div className="my-auto mx-2">
+            <div className="my-auto mx-2 sm:text-lg truncate">
               <h1 className="font-semibold dark:text-slate-300">
                 {currentUser.username}
               </h1>
@@ -85,14 +88,19 @@ const Profile = () => {
                 {currentUser.email}
               </p>
             </div>
-            <button className="bg-richBlack text-xs rounded-sm my-auto ml-auto text-eggshell p-2 h-fit ">
+            {/* <button className="bg-richBlack text-xs rounded-sm my-auto ml-auto text-eggshell p-2 h-fit ">
               Change photo
-            </button>
+            </button> */}
           </div>
-          <div className="justify-evenly flex flex-row">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
+          <div className="justify-evenly flex flex-row text-sm dark:text-slate-300 border-t mt-4 pt-2 border-dashed border-slate-500 font-light">
+            <div className="">
+              <FaBookmark className="mx-auto mt-2 mb-1" />
+              <p className="text-xs md:text-sm">Saved</p>
+            </div>
+            <div className="text-xs md:text-sm">
+              <GoHeartFill className="mx-auto mt-2 mb-1" />
+              <p className="text-xs md:text-sm">Favorites</p>
+            </div>
           </div>
         </div>
         <div className="mb-4">
