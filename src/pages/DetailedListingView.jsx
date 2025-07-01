@@ -88,7 +88,7 @@ const DetailedListingView = () => {
             <h1 className="font-bold">Category</h1>
             <p className="capitalize">{listing.category}</p>
           </div>
-          <div className="w-[30%] text-center text-sm lg:text-base border-r">
+          <div className="w-[30%] text-center text-sm lg:text-base ">
             {" "}
             <FaStar size={30} className="mx-auto mb-2 lg:w-11 lg:h-11" />
             <h1 className="font-bold">Rating</h1>
@@ -105,21 +105,21 @@ const DetailedListingView = () => {
             Contact Information
           </h3>
           {listing.phone ? (
-            <p className="mb-2 text-base text-richBlack dark:text-slate-200">
+            <p className="mb-2 text-sm sm:text-base text-richBlack dark:text-slate-200">
               Phone - {listing.phone}
             </p>
           ) : (
             ""
           )}
           {listing.email ? (
-            <p className="mb-2 text-base text-richBlack dark:text-slate-200">
+            <p className="mb-2 text-sm sm:text-base text-richBlack dark:text-slate-200">
               Email - {listing.email}
             </p>
           ) : (
             ""
           )}
           {listing.website ? (
-            <a href={listing.website} className="mb-2 text-base">
+            <a href={listing.website} className="mb-2 text-sm sm:text-base">
               Website - {listing.website}
             </a>
           ) : (

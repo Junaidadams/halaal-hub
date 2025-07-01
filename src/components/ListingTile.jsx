@@ -48,10 +48,10 @@ const ListingTile = ({ listing }) => {
         <div className="p-4">
           <h2 className="text-lg dark:text-richBlack font-bold mt-2 font-poppins">
             {listing.name}
-            <span className="text-base font-normal w-fit p-1 rounded-full flex capitalize">
+            <span className="text-base font-normal w-fit pb-1 rounded-full flex capitalize">
               <Stars
                 starsNumber={listing.stars}
-                altColourClass="dark:text-black"
+                altColourClass="dark:text-slate-900"
               />
             </span>
           </h2>

@@ -9,9 +9,10 @@ import GetStarted from "./pages/GetStarted";
 import Hub from "./pages/Hub";
 import Profile from "./pages/Profile";
 import DetailedListingView from "./pages/DetailedListingView";
+import SavedListings from "./pages/SavedListings";
+import Favourites from "./pages/Favourites";
 
 import Login from "./pages/Login";
-
 import Register from "./pages/Register";
 import CreateListing from "./pages/CreateListing";
 
@@ -23,6 +24,8 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/saved-listings" element={<SavedListings />} />
+      <Route path="/favourites" element={<Favourites />} />
       <Route path="/login" element={<Login />} />
       <Route path="/logout" element={<Logout />} />
       <Route path="/register" element={<Register />} />

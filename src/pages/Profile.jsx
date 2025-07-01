@@ -7,6 +7,7 @@ import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
 import { GoHeartFill } from "react-icons/go";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const { currentUser } = useContext(AuthContext);
@@ -93,14 +94,14 @@ const Profile = () => {
             </button> */}
           </div>
           <div className="justify-evenly flex flex-row text-sm dark:text-slate-300 border-t mt-4 pt-2 border-dashed border-slate-500 font-light">
-            <div className="">
+            <Link to="/saved-listings" className="">
               <FaBookmark className="mx-auto mt-2 mb-1" />
               <p className="text-xs md:text-sm">Saved</p>
-            </div>
-            <div className="text-xs md:text-sm">
+            </Link>
+            <Link to="/favourites" className="text-xs md:text-sm">
               <GoHeartFill className="mx-auto mt-2 mb-1" />
               <p className="text-xs md:text-sm">Favorites</p>
-            </div>
+            </Link>
           </div>
         </div>
         <div className="mb-4">

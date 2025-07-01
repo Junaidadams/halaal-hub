@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import apiRequest from "../../lib/apiRequest";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import Wrapper from "../components/util/Wrapper";
 
 const Signup = () => {
   const { updateUser } = useContext(AuthContext);
@@ -65,7 +66,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+    <Wrapper>
       <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
         <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 w-full sm:w-2/3 md:w-1/2 xl:w-1/3 flex-col font-poppins bg-white p-5">
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -115,7 +116,7 @@ const Signup = () => {
           </form>
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
