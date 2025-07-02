@@ -1,7 +1,6 @@
-import axios from "axios";
 import MapView from "../components/MapView";
 import { useQuery } from "@tanstack/react-query";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { FaSort, FaSearch } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa6";
 import { categories } from "../../constants";
@@ -11,6 +10,7 @@ import { AuthContext } from "../context/AuthContext";
 import DropdownMenu from "../components/DropdownMenu";
 import ListingTile from "../components/ListingTile";
 import Wrapper from "../components/util/Wrapper";
+import apiRequest from "../../lib/apiRequest";
 
 const variants = {
   open: {
@@ -25,32 +25,38 @@ const variants = {
 
 const Hub = () => {
   const { currentUser } = useContext(AuthContext);
+  const [userCoordinates, setUserCoordinates] = useState(null); // null until geolocation retrieved
   const [toggleMapView, setToggleMapView] = useState(true);
 
-  const fetchListings = async () => {
-    if (currentUser?.location) {
-      const res = await axios.get("/data/listings.json", {
-        params: { location: currentUser.location },
-      });
-      return res.data;
-    }
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        console.log("Accurate position fetched:", lat, lng);
+        console.log("Accuracy (in meters):", position.coords.accuracy);
 
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          try {
-            const coords = `${position.coords.latitude},${position.coords.longitude}`;
-            const res = await axios.get("/api/listings/by-location", {
-              params: { location: coords },
-            });
-            resolve(res.data);
-          } catch (err) {
-            reject(err);
-          }
-        },
-        (err) => reject(err)
-      );
+        setUserCoordinates({ lat, lng });
+      },
+      (err) => {
+        console.error("Geolocation error:", err);
+      },
+      {
+        enableHighAccuracy: true, // 🚀 Requests GPS-level accuracy if available
+        timeout: 10000, // Wait max 10 seconds
+        maximumAge: 0, // Don't use a cached position
+      }
+    );
+  }, []);
+
+  const fetchListings = async () => {
+    if (!userCoordinates) return [];
+
+    const coords = `${userCoordinates.lat},${userCoordinates.lng}`;
+    const res = await apiRequest.get("/listings/by-location", {
+      params: { location: coords },
     });
+    return res.data;
   };
 
   const {
@@ -58,9 +64,9 @@ const Hub = () => {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["listings", currentUser],
+    queryKey: ["listings", userCoordinates],
     queryFn: fetchListings,
-    enabled: !!currentUser,
+    enabled: !!userCoordinates, // only run when coordinates are ready
   });
 
   if (isLoading) {
@@ -85,7 +91,6 @@ const Hub = () => {
 
   return (
     <Wrapper>
-      {/* Listings Section */}
       <div
         className={`w-full my-20 ${
           toggleMapView ? "lg:w-3/5 xl:w-7/12" : "w-full"
@@ -184,7 +189,7 @@ const Hub = () => {
             transition={{ duration: 0.1 }}
             className="hidden lg:block lg:w-2/5 xl:w-5/12 sticky top-[56px] h-[calc(100vh-56px)]"
           >
-            <MapView listings={listings} />
+            <MapView listings={listings} coordinates={userCoordinates} />
           </motion.div>
         )}
       </AnimatePresence>
