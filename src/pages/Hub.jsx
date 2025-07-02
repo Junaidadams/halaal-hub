@@ -1,15 +1,13 @@
 import axios from "axios";
 import MapView from "../components/MapView";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaSort, FaSearch } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa6";
+import { categories } from "../../constants";
+import { motion, AnimatePresence } from "framer-motion";
 
-import { categories, certification } from "../../constants";
-import { motion } from "framer-motion";
-
-import { AnimatePresence } from "framer-motion";
-
+import { AuthContext } from "../context/AuthContext";
 import DropdownMenu from "../components/DropdownMenu";
 import ListingTile from "../components/ListingTile";
 import Wrapper from "../components/util/Wrapper";
@@ -17,58 +15,73 @@ import Wrapper from "../components/util/Wrapper";
 const variants = {
   open: {
     x: 0,
-    transition: {
-      type: "spring",
-      stiffness: 80,
-      damping: 18,
-      mass: 0.5,
-    },
+    transition: { type: "spring", stiffness: 80, damping: 18, mass: 0.5 },
   },
   closed: {
     x: 100,
-    transition: {
-      type: "spring",
-      stiffness: 80,
-      damping: 18,
-      mass: 0.5,
-    },
+    transition: { type: "spring", stiffness: 80, damping: 18, mass: 0.5 },
   },
 };
 
-const fetchListings = async () => {
-  const res = await axios.get("/data/listings.json");
-  return res.data;
-};
-
 const Hub = () => {
+  const { currentUser } = useContext(AuthContext);
   const [toggleMapView, setToggleMapView] = useState(true);
+
+  const fetchListings = async () => {
+    if (currentUser?.location) {
+      const res = await axios.get("/data/listings.json", {
+        params: { location: currentUser.location },
+      });
+      return res.data;
+    }
+
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          try {
+            const coords = `${position.coords.latitude},${position.coords.longitude}`;
+            const res = await axios.get("/api/listings/by-location", {
+              params: { location: coords },
+            });
+            resolve(res.data);
+          } catch (err) {
+            reject(err);
+          }
+        },
+        (err) => reject(err)
+      );
+    });
+  };
+
   const {
-    data: listings,
+    data: listings = [],
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["listings"],
+    queryKey: ["listings", currentUser],
     queryFn: fetchListings,
+    enabled: !!currentUser,
   });
 
-  if (isLoading)
+  if (isLoading) {
     return (
       <Wrapper>
-        {" "}
         <div className="mx-auto my-20 min-h-screen w-[95%]">
           Loading listings...
         </div>
       </Wrapper>
     );
-  if (error)
+  }
+
+  if (error) {
     return (
       <Wrapper>
-        {" "}
         <div className="mx-auto my-20 min-h-screen w-[95%]">
           Error fetching listings!
         </div>
       </Wrapper>
     );
+  }
 
   return (
     <Wrapper>
@@ -78,7 +91,7 @@ const Hub = () => {
           toggleMapView ? "lg:w-3/5 xl:w-7/12" : "w-full"
         }  overflow-y-auto p-6`}
       >
-        <div className=" justify-between  flex items-center mb-4 mr-2">
+        <div className="justify-between flex items-center mb-4 mr-2">
           <form className="flex mx-auto mb-4 relative">
             <DropdownMenu
               className="border-black border border-r-0 rounded-l-xl"
@@ -97,13 +110,6 @@ const Hub = () => {
                   </label>
                 </div>
               ))}
-
-              {/* <label className="block mb-2">
-                <input type="checkbox" className="mr-2" /> Cafes
-              </label>
-              <label className="block">
-                <input type="checkbox" className="mr-2" /> Markets
-              </label> */}
             </DropdownMenu>
 
             <DropdownMenu
@@ -149,7 +155,7 @@ const Hub = () => {
 
           <button
             onClick={() => setToggleMapView((prev) => !prev)}
-            className="bg-prussianBlue  hidden lg:flex text-white px-4 py-2 text-sm rounded-md shadow hover:bg-opacity-90 transition"
+            className="bg-prussianBlue hidden lg:flex text-white px-4 py-2 text-sm rounded-md shadow hover:bg-opacity-90 transition"
           >
             {toggleMapView ? "Hide Map" : "Show Map"}
           </button>
@@ -170,7 +176,6 @@ const Hub = () => {
 
       {/* Map Section */}
       <AnimatePresence>
-        {" "}
         {toggleMapView && (
           <motion.div
             initial="closed"

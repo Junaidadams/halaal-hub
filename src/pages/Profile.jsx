@@ -18,7 +18,7 @@ const Profile = () => {
     email: currentUser?.email || "",
     avatarUrl: currentUser?.avatarUrl || "",
     bio: currentUser?.bio || "",
-    location: currentUser?.location || "",
+    location: currentUser?.location || false,
     certificationPreferences: currentUser?.certificationPreferences || [],
   });
 
@@ -156,18 +156,6 @@ const Profile = () => {
           />
         </div>
 
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold dark:text-slate-200 text-sm">
-            Location Preference
-          </label>
-          <input
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2 dark:bg-white dark:bg-opacity-10 dark:text-slate-300"
-          />
-        </div>
-
         {/* Example handling for certificationPreferences — simple comma-separated text input for now */}
         <div className="mb-4">
           <label className="block mb-1 font-semibold dark:text-slate-200 text-sm">
@@ -195,7 +183,29 @@ const Profile = () => {
             ))}
           </select>
         </div>
-
+        <div className="mb-4">
+          <label
+            htmlFor="location"
+            className="block mb-1 font-semibold dark:text-slate-200 text-sm"
+          >
+            Use My Location to Find Listings?
+          </label>
+          <p className="dark:text-slate-300 text-sm mb-1">
+            {" "}
+            Please note: Your location will only be used to find listing nearby
+            and only while using this webpage.
+          </p>
+          <select
+            id="location"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+            className="bg-eggshell w-full  rounded-sm border border-black border-opacity-30 p-2 dark:bg-white dark:bg-opacity-10 dark:text-slate-300"
+          >
+            <option value={true}>Yes</option>
+            <option value={false}>No</option>
+          </select>
+        </div>
         <button
           type="submit"
           className="bg-richBlack dark:bg-white dark:text-richBlack text-white px-2 sm:px-4 py-1 mr-auto mt-4 rounded-sm"
