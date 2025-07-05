@@ -4,6 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import { FaSort, FaSearch } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa6";
 import { categories } from "../../constants";
+import ListingTileSkeleton from "../components/skeleton/ListingTileSkeleton";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { AuthContext } from "../context/AuthContext";
@@ -72,8 +73,16 @@ const Hub = () => {
   if (isLoading) {
     return (
       <Wrapper>
-        <div className="mx-auto my-20 min-h-screen w-[95%]">
-          Loading listings...
+        <div
+          className={`grid gap-4 grid-cols-1 sm:grid-cols-2 ${
+            toggleMapView
+              ? "2xl:grid-cols-3"
+              : "md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
+          }`}
+        >
+          {Array.from({ length: 9 }).map((_, i) => (
+            <ListingTileSkeleton key={i} />
+          ))}
         </div>
       </Wrapper>
     );
