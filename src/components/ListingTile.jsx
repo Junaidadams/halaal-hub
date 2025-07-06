@@ -2,33 +2,63 @@ import PropTypes from "prop-types";
 import { SiGooglemaps } from "react-icons/si";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
 import Stars from "./Stars";
-
 import { AuthContext } from "../context/AuthContext";
-
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
+import apiRequest from "../../lib/apiRequest";
 
 const ListingTile = ({ listing }) => {
-  const { currentUser, updateUserFavourites } = useContext(AuthContext); // Ensure this method exists
-  const userFavourites = currentUser?.favourites || [];
-  const favouriteId = listing.id;
-  const [favourited, setFavourited] = useState(
-    userFavourites.includes(favouriteId)
+  const { currentUser, updateUser } = useContext(AuthContext);
+
+  const isSaved = currentUser?.savedListings?.some(
+    (saved) => saved.listingId === listing.id
   );
 
-  const handleSetFavourite = async () => {
+  const [saving, setSaving] = useState(false);
+
+  const handleToggleSave = async () => {
+    if (!currentUser) {
+      alert("You must be logged in to save listings.");
+      return;
+    }
+
+    setSaving(true);
+
     try {
-      const updatedFavourites = favourited
-        ? userFavourites.filter((id) => id !== favouriteId)
-        : [...userFavourites, favouriteId];
+      if (isSaved) {
+        // REMOVE saved listing
+        await apiRequest.delete(`/auth/remove-saved`, {
+          data: { listingId: listing.id, userId: currentUser.id },
+        });
 
-      setFavourited(!favourited);
+        // Update local context
+        const updatedSavedListings = currentUser.savedListings.filter(
+          (saved) => saved.listingId !== listing.id
+        );
 
-      // Call to update user's favourites (assumed to be defined in AuthContext)
-      await updateUserFavourites(updatedFavourites);
-    } catch (error) {
-      console.error("Failed to update favourites:", error);
-      setFavourited(favourited); // Revert UI on failure
+        updateUser({
+          ...currentUser,
+          savedListings: updatedSavedListings,
+        });
+      } else {
+        // ADD saved listing
+        const res = await apiRequest.post(`/auth/add-saved`, {
+          listingId: listing.id,
+          userId: currentUser.id,
+        });
+
+        const newSaved = res.data.savedListing;
+
+        updateUser({
+          ...currentUser,
+          savedListings: [...currentUser.savedListings, newSaved],
+        });
+      }
+    } catch (err) {
+      console.error("Failed to toggle saved listing:", err);
+      alert("There was an error saving this listing. Please try again.");
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -76,8 +106,12 @@ const ListingTile = ({ listing }) => {
           </button>
         </a>
         {currentUser && (
-          <button onClick={handleSetFavourite} className="text-xl">
-            {favourited ? <FaBookmark /> : <FaRegBookmark />}
+          <button
+            onClick={handleToggleSave}
+            disabled={saving}
+            className="text-xl dark:text-prussianBlue"
+          >
+            {isSaved ? <FaBookmark /> : <FaRegBookmark />}
           </button>
         )}
       </div>
