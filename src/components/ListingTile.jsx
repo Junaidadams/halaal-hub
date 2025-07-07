@@ -6,9 +6,12 @@ import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import apiRequest from "../../lib/apiRequest";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const ListingTile = ({ listing }) => {
   const { currentUser, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const isSaved = currentUser?.savedListings?.some(
     (saved) => saved.listingId === listing.id
@@ -19,6 +22,7 @@ const ListingTile = ({ listing }) => {
   const handleToggleSave = async () => {
     if (!currentUser) {
       alert("You must be logged in to save listings.");
+      setTimeout(() => navigate("/login"), 1000);
       return;
     }
 
@@ -32,7 +36,7 @@ const ListingTile = ({ listing }) => {
         });
 
         // Update local context
-        const updatedSavedListings = currentUser.savedListings.filter(
+        const updatedSavedListings = (currentUser.savedListings || []).filter(
           (saved) => saved.listingId !== listing.id
         );
 
@@ -51,7 +55,10 @@ const ListingTile = ({ listing }) => {
 
         updateUser({
           ...currentUser,
-          savedListings: [...currentUser.savedListings, newSaved],
+          savedListings: [
+            ...(currentUser.savedListings || []), // ensure it's an array
+            newSaved,
+          ],
         });
       }
     } catch (err) {
@@ -63,7 +70,7 @@ const ListingTile = ({ listing }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-eggshell shadow-md rounded-t-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-lg">
+    <div className="bg-white dark:bg-eggshell flex flex-col shadow-md rounded-t-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-lg">
       <Link to={`/listing/${listing.id}`}>
         <div className="relative">
           <img
@@ -91,7 +98,7 @@ const ListingTile = ({ listing }) => {
           <p className="text-xs text-prussianBlue mt-4">📍 {listing.address}</p>
         </div>
       </Link>
-      <div className="justify-between flex p-4">
+      <div className="justify-between flex p-4 mt-auto">
         <a
           href={`https://www.google.com/maps?q=${encodeURIComponent(
             listing.address
@@ -106,13 +113,15 @@ const ListingTile = ({ listing }) => {
           </button>
         </a>
         {currentUser && (
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             onClick={handleToggleSave}
             disabled={saving}
             className="text-xl dark:text-prussianBlue"
           >
             {isSaved ? <FaBookmark /> : <FaRegBookmark />}
-          </button>
+          </motion.button>
         )}
       </div>
     </div>
