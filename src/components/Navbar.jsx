@@ -40,7 +40,7 @@ const miniMenuVariants = {
     },
   },
   closed: {
-    clipPath: "inset(0% 0% 100% 0%)",
+    clipPath: "inset(0% 0% 100% 100%)",
     transition: {
       delay: 0.01,
       type: "spring",
@@ -84,15 +84,15 @@ const Navbar = () => {
       </ul>
       {/* Signed in menu desktop */}
       {currentUser ? (
-        <div className="z-20 hidden md:flex fixed flex-col mt-2 right-2">
+        <div className="z-20 hidden md:flex fixed flex-col mt-2 right-2 top-0">
           <button
             onClick={() => setMiniMenuIsOpen(!miniMenuIsOpen)}
-            className="shadow-lg bg-space-cadet py-2 px-3 rounded-full flex text-black bg-white z-20"
+            className="shadow-lg bg-space-cadet py-2 px-3 rounded-full flex text-eggshell dark:text-black bg-richBlack dark:bg-eggshell z-20"
           >
-            <div className="my-auto mr-2">
-              <RxChevronDown color="#e4d9ff" />
+            <div className="my-auto mr-2 text-white dark:text-richBlack">
+              {miniMenuIsOpen ? <RxChevronUp /> : <RxChevronDown />}
             </div>
-            <span className="text-periwinkle">Hi, {currentUser.username}</span>
+            <span>Hi, {currentUser.username}</span>
           </button>
           <AnimatePresence>
             {miniMenuIsOpen && (
@@ -102,7 +102,7 @@ const Navbar = () => {
                 exit="closed"
                 variants={variants}
                 transition={{ duration: 0.5 }}
-                className="absolute z-0 bg-paynesGrey shadow-lg rounded-t-3xl rounded-b-md flex-col flex"
+                className="absolute z-0 bg-slate-100 dark:bg-paynesGrey dark:text-slate-200 shadow-lg rounded-t-3xl rounded-b-md flex-col flex"
               >
                 <button
                   onClick={() => setMiniMenuIsOpen(!miniMenuIsOpen)}
@@ -111,9 +111,7 @@ const Navbar = () => {
                   <div className="my-auto mr-2">
                     <RxChevronUp color="#e4d9ff" />
                   </div>
-                  <span className="text-periwinkle">
-                    Hi, {currentUser.username}
-                  </span>
+                  <span>Hi, {currentUser.username}</span>
                 </button>
                 {renderedLinks.map((link) => (
                   <a

@@ -69,7 +69,7 @@ const SavedListings = () => {
     <Wrapper>
       <div
         className="grid gap-4 grid-cols-1
-          sm:grid-cols-2 md:grid-cols-3 m-auto"
+          sm:grid-cols-2 mx-auto my-20"
       >
         {savedListings.map((listing) => (
           <ListingTile key={listing.id} listing={listing} />

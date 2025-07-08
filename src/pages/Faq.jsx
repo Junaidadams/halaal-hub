@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { faqData } from "../../constants";
+import Wrapper from "../components/util/Wrapper";
 
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -37,7 +38,7 @@ const Faq = () => {
   };
 
   return (
-    <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+    <Wrapper>
       <div className="mx-auto my-20 min-h-screen w-[95%]">
         <h1 className="text-4xl font-black text-prussianBlue text-center py-6">
           Frequently Asked Questions
@@ -83,7 +84,7 @@ const Faq = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
