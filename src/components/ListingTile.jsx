@@ -70,7 +70,7 @@ const ListingTile = ({ listing }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-eggshell flex flex-col shadow-md rounded-t-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-lg">
+    <div className="bg-white dark:bg-eggshell flex flex-col shadow-md rounded-t-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-lg h-f">
       <Link to={`/listing/${listing.id}`}>
         <div className="relative">
           <img

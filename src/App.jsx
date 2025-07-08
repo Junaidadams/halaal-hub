@@ -12,6 +12,8 @@ import DetailedListingView from "./pages/DetailedListingView";
 import SavedListings from "./pages/SavedListings";
 import Favourites from "./pages/Favourites";
 
+import RequireAuth from "./pages/util/AuthWrapper";
+
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CreateListing from "./pages/CreateListing";
@@ -24,20 +26,51 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/saved-listings" element={<SavedListings />} />
-      <Route path="/favourites" element={<Favourites />} />
+
       <Route path="/login" element={<Login />} />
       <Route path="/logout" element={<Logout />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/create-listing" element={<CreateListing />} />
       <Route path="/get-started" element={<GetStarted />} />
       <Route path="/faq" element={<Faq />} />
       <Route path="/about" element={<About />} />
-      <Route path="/my-profile" element={<Profile />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/hub" element={<Hub />} />
       <Route path="/verify-email" element={<VerifyingEmail />} />
       <Route path="/listing/:id" element={<DetailedListingView />} />
+
+      <Route
+        path="/create-listing"
+        element={
+          <RequireAuth>
+            <CreateListing />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/saved-listings"
+        element={
+          <RequireAuth>
+            <SavedListings />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/favourites"
+        element={
+          <RequireAuth>
+            <Favourites />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/my-profile"
+        element={
+          <RequireAuth>
+            <Profile />
+          </RequireAuth>
+        }
+      />
+
       <Route path="*" element={<NoPage />} />
     </Routes>
   );

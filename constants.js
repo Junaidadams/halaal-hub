@@ -38,40 +38,21 @@ export const websiteInformation = [
 
 export const navigationLinks = {
   main: [
-    {
-      key: 1,
-      name: "home",
-      link: "/",
-    },
-    {
-      key: 2,
-      name: "hub",
-      link: "/hub",
-    },
-    {
-      key: 3,
-      name: "about",
-      link: "/about",
-    },
-    {
-      key: 4,
-      name: "get started",
-      link: "/get-started",
-    },
+    { key: 1, name: "Home", link: "/" },
+    { key: 2, name: "Hub", link: "/hub" },
+    { key: 3, name: "FAQ", link: "/faq" },
+    { key: 4, name: "Contact", link: "/contact" },
+    { key: 5, name: "About", link: "/about" },
   ],
-  extra: [
-    {
-      key: 5,
-      name: "FAQ",
-      link: "/faq",
-    },
-    {
-      key: 6,
-      name: "contact",
-      link: "/contact",
-    },
+  signedIn: [
+    { key: 6, name: "Profile", link: "/my-profile" },
+    { key: 7, name: "Logout", link: "/logout" },
   ],
-  signedInLinks: [],
+  notSignedIn: [
+    { key: 8, name: "Get Started", link: "/get-started" },
+    { key: 9, name: "Login", link: "/login" },
+    { key: 10, name: "Sign Up", link: "/register" },
+  ],
 };
 
 export const getStartedOptions = {

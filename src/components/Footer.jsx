@@ -2,7 +2,7 @@ import { navigationLinks, websiteInformation } from "../../constants";
 import Logo from "./Logo";
 
 const { socials } = websiteInformation[0];
-const fullNavLinks = navigationLinks.main.concat(navigationLinks.extra);
+const fullNavLinks = navigationLinks.main;
 
 const Footer = () => {
   return (
