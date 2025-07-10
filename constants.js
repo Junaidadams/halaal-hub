@@ -40,18 +40,24 @@ export const navigationLinks = {
   main: [
     { key: 1, name: "Home", link: "/" },
     { key: 2, name: "Hub", link: "/hub" },
-    { key: 3, name: "FAQ", link: "/faq" },
-    { key: 4, name: "Contact", link: "/contact" },
-    { key: 5, name: "About", link: "/about" },
+    { key: 3, name: "About", link: "/about" },
   ],
   signedIn: [
-    { key: 6, name: "Profile", link: "/my-profile" },
-    { key: 7, name: "Logout", link: "/logout" },
+    { key: 4, name: "Profile", link: "/my-profile" },
+    { key: 5, name: "Logout", link: "/logout" },
+    { key: 6, name: "Create Listing", link: "/create-listing" },
   ],
   notSignedIn: [
-    { key: 8, name: "Get Started", link: "/get-started" },
-    { key: 9, name: "Login", link: "/login" },
-    { key: 10, name: "Sign Up", link: "/register" },
+    { key: 7, name: "Get Started", link: "/get-started" },
+    { key: 8, name: "Login", link: "/login" },
+    { key: 9, name: "Sign Up", link: "/register" },
+  ],
+  footer: [
+    { key: 10, name: "Privacy Policy", link: "/privacy-policy" },
+    { key: 11, name: "Terms of Service", link: "/terms-of-service" },
+    { key: 12, name: "Cookie Policy", link: "/cookie-policy" },
+    { key: 13, name: "FAQ", link: "/faq" },
+    { key: 14, name: "Contact", link: "/contact" },
   ],
 };
 

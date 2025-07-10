@@ -34,15 +34,17 @@ const miniMenuVariants = {
   open: {
     clipPath: "inset(0% 0% 0% 0%)",
     transition: {
+      duration: 0.1,
       type: "spring",
       stiffness: 20,
       restDelta: 2,
     },
   },
   closed: {
-    clipPath: "inset(0% 0% 100% 100%)",
+    clipPath: "inset(0% 0% 100% 0%)",
     transition: {
-      delay: 0.01,
+      duration: 0.1,
+      delay: 0.0,
       type: "spring",
       stiffness: 400,
       damping: 40,
@@ -100,7 +102,7 @@ const Navbar = () => {
                 initial="closed"
                 animate="open"
                 exit="closed"
-                variants={variants}
+                variants={miniMenuVariants}
                 transition={{ duration: 0.5 }}
                 className="absolute z-0 bg-slate-100 dark:bg-paynesGrey dark:text-slate-200 shadow-lg rounded-t-3xl rounded-b-md flex-col flex"
               >
@@ -138,7 +140,7 @@ const Navbar = () => {
             initial="closed"
             animate="open"
             exit="closed"
-            variants={miniMenuVariants}
+            variants={variants}
             transition={{ duration: 0.5 }}
             className="absolute top-0 left-0 w-full shadow-lg flex flex-col space-y-6 px-4 pt-2 pb-10 capitalize md:hidden bg-white dark:bg-slate-800"
           >

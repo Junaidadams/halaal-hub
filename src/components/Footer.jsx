@@ -2,7 +2,9 @@ import { navigationLinks, websiteInformation } from "../../constants";
 import Logo from "./Logo";
 
 const { socials } = websiteInformation[0];
+
 const fullNavLinks = navigationLinks.main;
+const footerLinks = navigationLinks.footer;
 
 const Footer = () => {
   return (
@@ -12,6 +14,13 @@ const Footer = () => {
         <div className="flex space-x-4">
           <ul className="">
             {fullNavLinks.map((link) => (
+              <li key={link.key}>
+                <a href={link.link}>{link.name}</a>
+              </li>
+            ))}
+          </ul>
+          <ul className="">
+            {footerLinks.map((link) => (
               <li key={link.key}>
                 <a href={link.link}>{link.name}</a>
               </li>

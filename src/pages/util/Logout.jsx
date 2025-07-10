@@ -12,8 +12,11 @@ const Logout = () => {
     const requestLogout = async () => {
       try {
         await apiRequest.post(`/auth/logout`);
-        localStorage.removeItem("user");
-        localStorage.removeItem("authToken");
+        updateUser(null);
+        setTimeout(() => {
+          // Clear user data from local storage after a short delay
+          localStorage.removeItem("authToken");
+        }, 1000);
       } catch (error) {
         console.error("Error logging out.", error);
       } finally {

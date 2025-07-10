@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { categories } from "../../constants";
 import { certification } from "../../constants";
+import Wrapper from "../components/util/Wrapper";
 import apiRequest from "../../lib/apiRequest";
 
 const CreateListing = () => {
@@ -12,6 +13,7 @@ const CreateListing = () => {
     lat: 0,
     lon: 0,
     googlePlaceId: 0,
+    certifiedBy: "",
   });
   const [businessSearchName, setBusinessSearchName] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -61,7 +63,7 @@ const CreateListing = () => {
   const totalSteps = 5;
 
   return (
-    <div className="min-h-screen -mt-[56px] bg-eggshell flex">
+    <Wrapper>
       <div className="mx-auto my-20 min-h-sceen w-[95%] flex flex-col">
         <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 w-full sm:w-2/3 md:w-1/2 xl:w-1/3 flex-col font-poppins bg-white p-5">
           <div className="flex mb-4">
@@ -133,7 +135,7 @@ const CreateListing = () => {
                   Search
                 </button>
               </div>
-              <button onClick={prefillTest}>Clicki</button>
+              {/* <button onClick={prefillTest}>Clicki</button> */}
               <button
                 onClick={() => setStep(step + 1)}
                 className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
@@ -183,10 +185,16 @@ const CreateListing = () => {
               <h2 className="text-xl font-bold ">Your certification</h2>
               <div className="flex flex-col">
                 <label className="text-xl font-bold ">Certifying body</label>
-                <select className="w-fit">
-                  <option>- Select - </option>
+                <select value={formData.certifiedBy} className="w-fit">
+                  <option key="">- Select - </option>
                   {certification.map((body, index) => (
-                    <option key={index}>{body.shortName}</option>
+                    <option
+                      onChange={() => setFormData(body.shortName)}
+                      value={body.shortName}
+                      key={index}
+                    >
+                      {body.shortName}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -220,7 +228,7 @@ const CreateListing = () => {
           )}
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
