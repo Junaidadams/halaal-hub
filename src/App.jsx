@@ -17,6 +17,7 @@ import RequireAuth from "./pages/util/AuthWrapper";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CreateListing from "./pages/CreateListing";
+import ResetPassword from "./pages/ResetPassword";
 
 import NoPage from "./pages/NoPage";
 import Logout from "./pages/util/Logout";
@@ -34,6 +35,7 @@ const App = () => {
       <Route path="/faq" element={<Faq />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/hub" element={<Hub />} />
       <Route path="/verifying-email" element={<VerifyingEmail />} />
       <Route path="/listing/:id" element={<DetailedListingView />} />
