@@ -70,19 +70,25 @@ const Hub = () => {
     enabled: !!userCoordinates, // only run when coordinates are ready
   });
 
-  if (isLoading) {
+  if (!isLoading) {
     return (
       <Wrapper>
         <div
-          className={`grid gap-4 grid-cols-1 sm:grid-cols-2 ${
-            toggleMapView
-              ? "2xl:grid-cols-3"
-              : "md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
-          }`}
+          className={`w-full my-20 ${
+            toggleMapView ? "lg:w-3/5 xl:w-7/12" : "w-full"
+          }  overflow-y-auto p-6`}
         >
-          {Array.from({ length: 9 }).map((_, i) => (
-            <ListingTileSkeleton key={i} />
-          ))}
+          <div
+            className={`grid gap-4 grid-cols-1 sm:grid-cols-2 ${
+              toggleMapView
+                ? "2xl:grid-cols-3"
+                : "md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 w-screen"
+            }`}
+          >
+            {Array.from({ length: 9 }).map((_, i) => (
+              <ListingTileSkeleton key={i} />
+            ))}
+          </div>
         </div>
       </Wrapper>
     );
@@ -156,7 +162,7 @@ const Hub = () => {
             </DropdownMenu>
 
             <input
-              className="border border-black border-x-0 px-4 focus:outline-none text-sm md:text-base"
+              className="border border-black border-x-0 px-1 md:px-3 focus:outline-none text-sm md:text-base"
               placeholder="Search listings..."
             />
             <button

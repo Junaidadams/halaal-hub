@@ -71,7 +71,7 @@ const Navbar = () => {
         <Toggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
       </div>
       <Logo currentUser={currentUser} />
-      <ul className="space-x-8 capitalize hidden md:flex flex-row p-2 ml-auto  rounded-full dark:text-eggshell">
+      <ul className="space-x-8 capitalize hidden md:flex flex-row p-2 ml-auto  rounded-full dark:text-ghost">
         {!currentUser &&
           renderedLinks.map((link) => (
             <li key={link.key} className="">
@@ -89,7 +89,7 @@ const Navbar = () => {
         <div className="z-20 hidden md:flex fixed flex-col mt-2 right-2 top-0">
           <button
             onClick={() => setMiniMenuIsOpen(!miniMenuIsOpen)}
-            className="shadow-lg bg-space-cadet py-2 px-3 rounded-full flex text-eggshell dark:text-black bg-richBlack dark:bg-eggshell z-20"
+            className="shadow-lg bg-space-cadet py-2 px-3 rounded-full flex text-ghost dark:text-black bg-richBlack dark:bg-ghost z-20 font-semibold"
           >
             <div className="my-auto mr-2 text-white dark:text-richBlack">
               {miniMenuIsOpen ? <RxChevronUp /> : <RxChevronDown />}
@@ -151,7 +151,7 @@ const Navbar = () => {
               <a
                 key={link.key}
                 href={link.link}
-                className="text-richBlack dark:text-eggshell m-auto "
+                className="text-richBlack dark:text-ghost m-auto "
                 onClick={() => setIsOpen(false)} // Close menu on link click
               >
                 {link.name}

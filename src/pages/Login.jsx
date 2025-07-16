@@ -102,9 +102,12 @@ const Signup = () => {
               />
             </div>
             <p>
-              Don&apos;t have an account?{" "}
-              <a className="" href="/register">
-                Create one here.
+              <a className="text-slate-700" href="/register">
+                Don&apos;t have an account?{" "}
+              </a>
+              or{" "}
+              <a className="text-slate-700" href="/forgot-password">
+                Forgot Password?
               </a>
             </p>
             <button

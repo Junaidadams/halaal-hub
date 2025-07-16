@@ -70,7 +70,7 @@ const ListingTile = ({ listing }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-eggshell flex flex-col shadow-md rounded-t-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-lg h-f">
+    <div className="bg-white dark:bg-ghost flex flex-col shadow-md rounded-t-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-lg h-f">
       <Link to={`/listing/${listing.id}`}>
         <div className="relative">
           <img
@@ -105,7 +105,7 @@ const ListingTile = ({ listing }) => {
           )}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-eggshell text-xs mt-2 inline-block bg-prussianBlue p-2 "
+          className="text-ghost text-xs mt-2 inline-block bg-prussianBlue p-2 "
         >
           <button className="flex flex-row">
             <SiGooglemaps className="my-auto mr-1" />

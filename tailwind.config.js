@@ -8,6 +8,7 @@ export default {
       },
       colors: {
         eggshell: "#F0EBD8",
+        ghost: "#F8F8FF",
         richBlack: "#0D1321",
         lakeBlue: "#748CAB",
         prussianBlue: "#1D2D44",
