@@ -5,6 +5,7 @@ import { FaSort, FaSearch } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa6";
 import { categories } from "../../constants";
 import ListingTileSkeleton from "../components/skeleton/ListingTileSkeleton";
+import MapViewSkeleton from "../components/skeleton/MapViewSkeleton";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { AuthContext } from "../context/AuthContext";
@@ -70,7 +71,7 @@ const Hub = () => {
     enabled: !!userCoordinates, // only run when coordinates are ready
   });
 
-  if (!isLoading) {
+  if (isLoading) {
     return (
       <Wrapper>
         <div
@@ -82,7 +83,7 @@ const Hub = () => {
             className={`grid gap-4 grid-cols-1 sm:grid-cols-2 ${
               toggleMapView
                 ? "2xl:grid-cols-3"
-                : "md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 w-screen"
+                : "md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
             }`}
           >
             {Array.from({ length: 9 }).map((_, i) => (
@@ -90,6 +91,18 @@ const Hub = () => {
             ))}
           </div>
         </div>
+        <AnimatePresence>
+          <motion.div
+            initial="closed"
+            animate="open"
+            variants={variants}
+            transition={{ duration: 0.1 }}
+            className="hidden lg:block lg:w-2/5 xl:w-5/12 sticky top-[56px] h-[calc(100vh-56px)]"
+          >
+            {" "}
+            <MapViewSkeleton />
+          </motion.div>
+        </AnimatePresence>
       </Wrapper>
     );
   }
