@@ -1,9 +1,9 @@
 import { getStartedOptions } from "../../constants";
-import { Link } from "react-router-dom";
+
 import Wrapper from "../components/util/Wrapper";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
-import { IoCreateOutline } from "react-icons/io5";
+import NavGrid from "../components/NavGrid";
 
 const GetStarted = () => {
   const { currentUser } = useContext(AuthContext);
@@ -18,43 +18,7 @@ const GetStarted = () => {
       ));
   return (
     <Wrapper>
-      <div className="mx-auto my-20  w-[95%]  font-poppins">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-4 xl:gap-6 mx-auto md:my-10 lg:my-14 xl:my-20 sm:w-2/3 xl:w-1/2 border-b border-black dark:border-slate-300 border-dashed pb-20 p-4">
-          {fullLinks.map(({ key, name, link, description, icon: Icon }) => (
-            <Link
-              key={key}
-              to={link}
-              className="flex flex-col items-center bg-white shadow-lg p-6 rounded-sm hover:bg-richBlack dark:border-slate-200 dark:border transition duration-300 group"
-            >
-              <div className="text-prussianBlue text-4xl mb-4 group-hover:text-white">
-                <Icon /> {/* Render the icon correctly */}
-              </div>
-              <h2 className="text-prussianBlue font-semibold sm:font-bold md:font-black tracking-wider  text-lg group-hover:text-white">
-                {name}
-              </h2>
-              <p className="text-paynesGrey text-sm text-center group-hover:text-white">
-                {description}
-              </p>
-            </Link>
-          ))}
-          {currentUser && currentUser.role === "user" && (
-            <Link
-              to="/create-listing"
-              className="flex flex-col items-center bg-white shadow-lg p-6 rounded-sm hover:bg-richBlack dark:border-slate-200 dark:border transition duration-300 group"
-            >
-              <div className="text-prussianBlue text-4xl mb-4 group-hover:text-white">
-                <IoCreateOutline />
-              </div>
-              <h2 className="text-prussianBlue font-semibold sm:font-bold md:font-black tracking-wider  text-lg group-hover:text-white">
-                Create listing
-              </h2>
-              <p className="text-paynesGrey text-sm text-center group-hover:text-white">
-                Create a halal hub listing that others can find!
-              </p>
-            </Link>
-          )}
-        </div>
-      </div>
+      <NavGrid fullLinks={fullLinks} />
     </Wrapper>
   );
 };

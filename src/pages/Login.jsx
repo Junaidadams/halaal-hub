@@ -3,6 +3,7 @@ import apiRequest from "../../lib/apiRequest";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../components/util/Wrapper";
+import BasicForm from "../components/BasicForm";
 
 const Signup = () => {
   const { updateUser } = useContext(AuthContext);
@@ -19,10 +20,6 @@ const Signup = () => {
     email: "",
     password: "",
   });
-
-  // const handleSubmit = () => {
-  //   updateUser(formData);
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,7 +64,7 @@ const Signup = () => {
 
   return (
     <Wrapper>
-      <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
+      {/* <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
         <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 w-full sm:w-2/3 md:w-1/2 xl:w-1/3 flex-col font-poppins bg-white p-5">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
@@ -91,7 +88,7 @@ const Signup = () => {
               <label className="text-xl font-bold ">Password</label>
               <input
                 className="w-full px-4 py-2 border rounded-md"
-                type="text"
+                type="password"
                 value={formData.password}
                 onChange={(e) =>
                   setFormData((prev) => ({
@@ -118,7 +115,20 @@ const Signup = () => {
             </button>
           </form>
         </div>
-      </div>
+      </div> */}
+
+      <BasicForm
+        fields={[
+          { name: "email", label: "Email", type: "email" },
+          { name: "password", label: "Password", type: "password" },
+        ]}
+        formData={formData}
+        setFormData={setFormData}
+        handleSubmit={handleSubmit}
+        title="Login"
+        submitLabel="Login"
+        flavourText="Please enter your email and password to login."
+      />
     </Wrapper>
   );
 };

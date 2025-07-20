@@ -34,9 +34,10 @@ const miniMenuVariants = {
   open: {
     clipPath: "inset(0% 0% 0% 0%)",
     transition: {
-      duration: 0.1,
+      duration: 0.3,
       type: "spring",
-      stiffness: 20,
+      stiffness: 400,
+      damping: 40,
       restDelta: 2,
     },
   },
@@ -142,7 +143,7 @@ const Navbar = () => {
             exit="closed"
             variants={variants}
             transition={{ duration: 0.5 }}
-            className="absolute top-0 left-0 w-full shadow-lg flex flex-col space-y-6 px-4 pt-2 pb-10 capitalize md:hidden bg-white dark:bg-slate-800"
+            className="absolute top-0 left-0 w-full shadow-lg flex flex-col space-y-6 px-2 pt-2 pb-10 capitalize md:hidden bg-white dark:bg-slate-800"
           >
             <div className="md:hidden ">
               <Toggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />

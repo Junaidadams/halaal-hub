@@ -1,6 +1,6 @@
 import MapView from "../components/MapView";
 import { useQuery } from "@tanstack/react-query";
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FaSort, FaSearch } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa6";
 import { categories } from "../../constants";
@@ -8,7 +8,6 @@ import ListingTileSkeleton from "../components/skeleton/ListingTileSkeleton";
 import MapViewSkeleton from "../components/skeleton/MapViewSkeleton";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { AuthContext } from "../context/AuthContext";
 import DropdownMenu from "../components/DropdownMenu";
 import ListingTile from "../components/ListingTile";
 import Wrapper from "../components/util/Wrapper";
@@ -26,8 +25,8 @@ const variants = {
 };
 
 const Hub = () => {
-  const { currentUser } = useContext(AuthContext);
-  const [userCoordinates, setUserCoordinates] = useState(null); // null until geolocation retrieved
+  const [userCoordinates, setUserCoordinates] = useState(null);
+  const [locationError, setLocationError] = useState(false); // NEW: track location denial
   const [toggleMapView, setToggleMapView] = useState(true);
 
   useEffect(() => {
@@ -42,22 +41,27 @@ const Hub = () => {
       },
       (err) => {
         console.error("Geolocation error:", err);
+        setLocationError(true); // NEW: handle user declining
       },
       {
-        enableHighAccuracy: true, // 🚀 Requests GPS-level accuracy if available
-        timeout: 10000, // Wait max 10 seconds
-        maximumAge: 0, // Don't use a cached position
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0,
       }
     );
   }, []);
 
-  const fetchListings = async () => {
+  const fetchListingsByLocation = async () => {
     if (!userCoordinates) return [];
-
     const coords = `${userCoordinates.lat},${userCoordinates.lng}`;
     const res = await apiRequest.get("/listings/by-location", {
       params: { location: coords },
     });
+    return res.data;
+  };
+
+  const fetchListings = async () => {
+    const res = await apiRequest.get("/listings/");
     return res.data;
   };
 
@@ -66,9 +70,12 @@ const Hub = () => {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["listings", userCoordinates],
-    queryFn: fetchListings,
-    enabled: !!userCoordinates, // only run when coordinates are ready
+    queryKey: ["listings", userCoordinates, locationError],
+    queryFn:
+      locationError || !userCoordinates
+        ? fetchListings
+        : fetchListingsByLocation,
+    enabled: true, // Always enabled now
   });
 
   if (isLoading) {

@@ -1,13 +1,35 @@
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import PropTypes from "prop-types";
+import { FaLocationDot } from "react-icons/fa6";
 import { useState } from "react";
 
 import ListingTile from "./ListingTile";
 import SearchControl from "./SearchControl";
+import { renderToStaticMarkup } from "react-dom/server";
+import { RiMapPinUserFill } from "react-icons/ri";
 
 const MapView = ({ listings, coordinates }) => {
   const defaultCoordinates = [-33.9249, 18.4241]; // Cape Town
+
+  // To use a react-icon (like FaLocationDot) as a Leaflet marker icon, you need to render the icon to SVG or HTML and use it as the icon's html property with L.divIcon.
+  // Example using FaLocationDot as a custom marker:
+
+  const listingMarker = L.divIcon({
+    html: renderToStaticMarkup(<FaLocationDot size={32} color="#1D2D44" />),
+    iconSize: [32, 32],
+    className: "", // Remove default styles
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32],
+  });
+  const userMarker = L.divIcon({
+    html: renderToStaticMarkup(<RiMapPinUserFill size={32} color="#1D2D44" />),
+    iconSize: [32, 32],
+    className: "", // Remove default styles
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32],
+  });
 
   const hasValidCoordinates =
     coordinates &&
@@ -45,7 +67,7 @@ const MapView = ({ listings, coordinates }) => {
 
         {/* User location */}
         {hasValidCoordinates && (
-          <Marker position={initialPosition}>
+          <Marker position={initialPosition} icon={userMarker}>
             <Popup>Your location</Popup>
           </Marker>
         )}
@@ -62,7 +84,11 @@ const MapView = ({ listings, coordinates }) => {
 
         {/* Listings */}
         {listings.map((item) => (
-          <Marker key={item.id} position={[item.lat, item.lng]}>
+          <Marker
+            key={item.id}
+            position={[item.lat, item.lng]}
+            icon={listingMarker}
+          >
             <Popup>
               <ListingTile listing={item} />
             </Popup>

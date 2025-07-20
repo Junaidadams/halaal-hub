@@ -24,7 +24,7 @@ import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 export const websiteInformation = [
   {
     name: "website",
-    copywright: "Blah blah blah, copyright blah blah.",
+    copyright: "Blah blah blah, copyright blah blah.",
     year: 2024,
     developer: "Junaid Adams",
     socials: [
@@ -55,11 +55,34 @@ export const navigationLinks = {
   footer: [
     { key: 10, name: "Privacy Policy", link: "/privacy-policy" },
     { key: 11, name: "Terms of Service", link: "/terms-of-service" },
-    { key: 12, name: "Cookie Policy", link: "/cookie-policy" },
     { key: 13, name: "FAQ", link: "/faq" },
     { key: 14, name: "Contact", link: "/contact" },
   ],
 };
+
+export const contactPages = [
+  {
+    key: 1,
+    name: "Suggest a Feature",
+    link: "/suggest-feature",
+    description: "Have an idea for a new feature? Let us know!",
+    icon: FaUserPlus,
+  },
+  {
+    key: 2,
+    name: "Report an Issue",
+    link: "/report-issue",
+    description: "Report any issues or bugs you encounter on the site.",
+    icon: FaUserPlus,
+  },
+  {
+    key: 3,
+    name: "General Contact",
+    link: "/general-contact",
+    description: "Reach out to us for any general inquiries or support.",
+    icon: FaUserPlus,
+  },
+];
 
 export const getStartedOptions = {
   notSignedIn: [
