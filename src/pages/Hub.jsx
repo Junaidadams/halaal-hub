@@ -2,7 +2,7 @@ import MapView from "../components/MapView";
 import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { FaSort, FaSearch } from "react-icons/fa";
-import { FaFilter } from "react-icons/fa6";
+import { FaChevronLeft, FaChevronRight, FaFilter } from "react-icons/fa6";
 import { categories } from "../../constants";
 import ListingTileSkeleton from "../components/skeleton/ListingTileSkeleton";
 import MapViewSkeleton from "../components/skeleton/MapViewSkeleton";
@@ -64,6 +64,19 @@ const Hub = () => {
 
     // Return the full response so we have pagination info
     return res.data;
+  };
+
+  const nextPage = () => {
+    if (page < totalPages) {
+      // Ensure we don't go beyond total pages
+      setPage((prev) => prev + 1);
+    }
+  };
+  const prevPage = () => {
+    if (page > 1) {
+      // Ensure we don't go below page 1
+      setPage((prev) => prev - 1);
+    }
   };
 
   const fetchListings = async () => {
@@ -221,8 +234,9 @@ const Hub = () => {
           {listings.map((listing) => (
             <ListingTile key={listing.id} listing={listing} />
           ))}
-          <div className="bg-white dark:bg-ghost flex flex-col shadow-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-lg h-f">
-            {page < totalPages && (
+
+          {/* {page < totalPages && (
+            <div className="bg-white dark:bg-ghost flex flex-col shadow-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-lg h-f">
               <div className="text-center my-6 ">
                 <button
                   onClick={() => setPage((prev) => prev + 1)}
@@ -231,19 +245,32 @@ const Hub = () => {
                   Load More
                 </button>
               </div>
-            )}
-            <div className="text-center my-6 ">
-              <select
-                value={limit}
-                type=""
-                onChange={() => setLimit((prev) => prev + 1)}
-                className="bg-prussianBlue text-white px-4 py-2 rounded shadow hover:bg-opacity-90 transition"
-              >
-                <option value={10}>10 per page</option>
-                <option value={20}>20 per page</option>
-                <option value={50}>50 per page</option>
-              </select>
             </div>
+          )} */}
+        </div>
+        <div className="flex mx-auto bg-prussianBlue dark:text-ghost text-white space-x-6 w-full justify-center my-6 ">
+          <button type="button" onClick={() => prevPage()}>
+            <span className="sr-only">Previous Page</span>
+            <FaChevronLeft />
+          </button>
+          <span className="my-auto">
+            {page} of {totalPages}{" "}
+          </span>
+
+          <button type="button" onClick={() => nextPage()}>
+            <FaChevronRight />
+          </button>
+          <div className="">
+            <select
+              value={limit}
+              type=""
+              onChange={() => setLimit((prev) => prev + 1)}
+              className="bg-prussianBlue text-white px-4 py-2 rounded shadow hover:bg-opacity-90 transition"
+            >
+              <option value={10}>10 per page</option>
+              <option value={20}>20 per page</option>
+              <option value={50}>50 per page</option>
+            </select>
           </div>
         </div>
       </div>
