@@ -128,6 +128,8 @@ const Signup = () => {
         title="Login"
         submitLabel="Login"
         flavourText="Please enter your email and password to login."
+        preSubmissionText="Login"
+        submissionReattempt={true}
       />
     </Wrapper>
   );

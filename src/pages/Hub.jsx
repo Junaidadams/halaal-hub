@@ -25,6 +25,8 @@ const variants = {
 };
 
 const Hub = () => {
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
   const [userCoordinates, setUserCoordinates] = useState(null);
   const [locationError, setLocationError] = useState(false); // NEW: track location denial
   const [toggleMapView, setToggleMapView] = useState(true);
@@ -34,8 +36,8 @@ const Hub = () => {
       (position) => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
-        console.log("Accurate position fetched:", lat, lng);
-        console.log("Accuracy (in meters):", position.coords.accuracy);
+        // console.log("Accurate position fetched:", lat, lng);
+        // console.log("Accuracy (in meters):", position.coords.accuracy);
 
         setUserCoordinates({ lat, lng });
       },
@@ -52,31 +54,39 @@ const Hub = () => {
   }, []);
 
   const fetchListingsByLocation = async () => {
-    if (!userCoordinates) return [];
+    if (!userCoordinates)
+      return { listings: [], totalPages: 1, totalCount: 0, page: 1 };
+
     const coords = `${userCoordinates.lat},${userCoordinates.lng}`;
     const res = await apiRequest.get("/listings/by-location", {
-      params: { location: coords },
+      params: { location: coords, page, limit },
     });
+
+    // Return the full response so we have pagination info
     return res.data;
   };
 
   const fetchListings = async () => {
-    const res = await apiRequest.get("/listings/");
+    const res = await apiRequest.get("/listings/", {
+      params: { page, limit },
+    });
     return res.data;
   };
 
   const {
-    data: listings = [],
+    data = { listings: [], totalPages: 1, totalCount: 0, page: 1 },
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["listings", userCoordinates, locationError],
+    queryKey: ["listings", userCoordinates, locationError, page],
     queryFn:
       locationError || !userCoordinates
         ? fetchListings
         : fetchListingsByLocation,
-    enabled: true, // Always enabled now
+    enabled: true,
   });
+
+  const { listings, totalPages, totalCount } = data;
 
   if (isLoading) {
     return (
@@ -211,6 +221,30 @@ const Hub = () => {
           {listings.map((listing) => (
             <ListingTile key={listing.id} listing={listing} />
           ))}
+          <div className="bg-white dark:bg-ghost flex flex-col shadow-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-lg h-f">
+            {page < totalPages && (
+              <div className="text-center my-6 ">
+                <button
+                  onClick={() => setPage((prev) => prev + 1)}
+                  className="bg-prussianBlue text-white px-4 py-2 rounded shadow hover:bg-opacity-90 transition"
+                >
+                  Load More
+                </button>
+              </div>
+            )}
+            <div className="text-center my-6 ">
+              <select
+                value={limit}
+                type=""
+                onChange={() => setLimit((prev) => prev + 1)}
+                className="bg-prussianBlue text-white px-4 py-2 rounded shadow hover:bg-opacity-90 transition"
+              >
+                <option value={10}>10 per page</option>
+                <option value={20}>20 per page</option>
+                <option value={50}>50 per page</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
 
