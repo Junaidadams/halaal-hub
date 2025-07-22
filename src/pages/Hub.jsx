@@ -264,7 +264,7 @@ const Hub = () => {
             <select
               value={limit}
               type=""
-              onChange={() => setLimit((prev) => prev + 1)}
+              onChange={(e) => setLimit(Number(e.target.value))}
               className="bg-prussianBlue text-white px-4 py-2 rounded shadow hover:bg-opacity-90 transition"
             >
               <option value={10}>10 per page</option>
