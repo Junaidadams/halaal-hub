@@ -25,6 +25,7 @@ const variants = {
 };
 
 const Hub = () => {
+  const [selectedListing, setSelectedListing] = useState(null);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
   const [userCoordinates, setUserCoordinates] = useState(null);
@@ -36,8 +37,6 @@ const Hub = () => {
       (position) => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
-        // console.log("Accurate position fetched:", lat, lng);
-        // console.log("Accuracy (in meters):", position.coords.accuracy);
 
         setUserCoordinates({ lat, lng });
       },
@@ -232,7 +231,12 @@ const Hub = () => {
           }`}
         >
           {listings.map((listing) => (
-            <ListingTile key={listing.id} listing={listing} />
+            <ListingTile
+              key={listing.id}
+              listing={listing}
+              selectedListing={selectedListing}
+              setSelectedListing={setSelectedListing}
+            />
           ))}
         </div>
         <div className="flex mx-auto bg-prussianBlue dark:text-ghost text-white space-x-6 w-full justify-center my-6 ">
@@ -272,7 +276,11 @@ const Hub = () => {
             transition={{ duration: 0.1 }}
             className="hidden lg:block lg:w-2/5 xl:w-5/12 sticky top-[56px] h-[calc(100vh-56px)]"
           >
-            <MapView listings={listings} coordinates={userCoordinates} />
+            <MapView
+              listings={listings}
+              coordinates={userCoordinates}
+              selectedListing={selectedListing}
+            />
           </motion.div>
         )}
       </AnimatePresence>

@@ -9,7 +9,7 @@ import apiRequest from "../../lib/apiRequest";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const ListingTile = ({ listing }) => {
+const ListingTile = ({ listing, setSelectedListing, selectedListing }) => {
   const { currentUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -30,12 +30,10 @@ const ListingTile = ({ listing }) => {
 
     try {
       if (isSaved) {
-        // REMOVE saved listing
         await apiRequest.delete(`/auth/remove-saved`, {
           data: { listingId: listing.id, userId: currentUser.id },
         });
 
-        // Update local context
         const updatedSavedListings = (currentUser.savedListings || []).filter(
           (saved) => saved.listingId !== listing.id
         );
@@ -45,7 +43,6 @@ const ListingTile = ({ listing }) => {
           savedListings: updatedSavedListings,
         });
       } else {
-        // ADD saved listing
         const res = await apiRequest.post(`/auth/add-saved`, {
           listingId: listing.id,
           userId: currentUser.id,
@@ -55,10 +52,7 @@ const ListingTile = ({ listing }) => {
 
         updateUser({
           ...currentUser,
-          savedListings: [
-            ...(currentUser.savedListings || []), // ensure it's an array
-            newSaved,
-          ],
+          savedListings: [...(currentUser.savedListings || []), newSaved],
         });
       }
     } catch (err) {
@@ -83,7 +77,7 @@ const ListingTile = ({ listing }) => {
           </p>
         </div>
         <div className="p-4">
-          <h2 className="text-lg dark:text-richBlack font-bold mt-2 font-poppins">
+          <h2 className="text-lg dark:text-richBlack font-bold font-poppins">
             {listing.name}
             <span className="text-base font-normal w-fit pb-1 rounded-full flex capitalize">
               <Stars
@@ -99,19 +93,29 @@ const ListingTile = ({ listing }) => {
         </div>
       </Link>
       <div className="justify-between flex p-4 mt-auto">
-        <a
-          href={`https://www.google.com/maps?q=${encodeURIComponent(
-            listing.address
-          )}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-ghost text-xs mt-2 inline-block bg-prussianBlue p-2 "
-        >
-          <button className="flex flex-row">
-            <SiGooglemaps className="my-auto mr-1" />
-            <span className="m-auto">Google maps</span>
+        <div>
+          {/* <a
+            href={`https://www.google.com/maps?q=${encodeURIComponent(
+              listing.address
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ghost text-xs mt-2 inline-block bg-prussianBlue p-2 "
+          >
+            <button className="flex flex-row">
+              <SiGooglemaps className="my-auto mr-1" />
+              <span className="m-auto">Google maps</span>
+            </button>
+          </a> */}
+          <button
+            type="button"
+            onClick={() => setSelectedListing(listing)}
+            className="text-ghost text-xs mt-2 inline-block bg-prussianBlue p-2 "
+          >
+            Show on Map
+            <SiGooglemaps className="inline ml-1" />
           </button>
-        </a>
+        </div>
         {currentUser && (
           <motion.button
             whileHover={{ scale: 1.1 }}

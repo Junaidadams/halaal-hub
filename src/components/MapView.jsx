@@ -10,11 +10,8 @@ import SearchControl from "./SearchControl";
 import { renderToStaticMarkup } from "react-dom/server";
 import { RiMapPinUserFill } from "react-icons/ri";
 
-const MapView = ({ listings, coordinates }) => {
+const MapView = ({ listings, coordinates, selectedListing }) => {
   const defaultCoordinates = [-33.9249, 18.4241]; // Cape Town
-
-  // To use a react-icon (like FaLocationDot) as a Leaflet marker icon, you need to render the icon to SVG or HTML and use it as the icon's html property with L.divIcon.
-  // Example using FaLocationDot as a custom marker:
 
   const listingMarker = L.divIcon({
     html: renderToStaticMarkup(<FaLocationDot size={32} color="#1D2D44" />),
@@ -23,6 +20,14 @@ const MapView = ({ listings, coordinates }) => {
     iconAnchor: [16, 32],
     popupAnchor: [0, -32],
   });
+  const selectedListingMarker = L.divIcon({
+    html: renderToStaticMarkup(<FaLocationDot size={32} color="#748CAB" />),
+    iconSize: [32, 32],
+    className: "",
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32],
+  });
+
   const userMarker = L.divIcon({
     html: renderToStaticMarkup(<RiMapPinUserFill size={32} color="#1D2D44" />),
     iconSize: [32, 32],
@@ -81,13 +86,22 @@ const MapView = ({ listings, coordinates }) => {
             </Marker>
           </>
         )}
+        {selectedListing && (
+          <MapFlyTo
+            coords={{ lat: selectedListing.lat, lng: selectedListing.lng }}
+          />
+        )}
 
         {/* Listings */}
         {listings.map((item) => (
           <Marker
             key={item.id}
             position={[item.lat, item.lng]}
-            icon={listingMarker}
+            icon={
+              selectedListing && item.id === selectedListing.id
+                ? selectedListingMarker
+                : listingMarker
+            }
           >
             <Popup>
               <ListingTile listing={item} />
@@ -105,6 +119,7 @@ MapView.propTypes = {
     lat: PropTypes.number,
     lng: PropTypes.number,
   }),
+  selectedListing: PropTypes.object,
 };
 
 export default MapView;
