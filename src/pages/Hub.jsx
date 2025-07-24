@@ -91,7 +91,7 @@ const Hub = () => {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["listings", userCoordinates, locationError, page],
+    queryKey: ["listings", userCoordinates, locationError, page, limit],
     queryFn:
       locationError || !userCoordinates
         ? fetchListings
@@ -234,19 +234,6 @@ const Hub = () => {
           {listings.map((listing) => (
             <ListingTile key={listing.id} listing={listing} />
           ))}
-
-          {/* {page < totalPages && (
-            <div className="bg-white dark:bg-ghost flex flex-col shadow-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-lg h-f">
-              <div className="text-center my-6 ">
-                <button
-                  onClick={() => setPage((prev) => prev + 1)}
-                  className="bg-prussianBlue text-white px-4 py-2 rounded shadow hover:bg-opacity-90 transition"
-                >
-                  Load More
-                </button>
-              </div>
-            </div>
-          )} */}
         </div>
         <div className="flex mx-auto bg-prussianBlue dark:text-ghost text-white space-x-6 w-full justify-center my-6 ">
           <button type="button" onClick={() => prevPage()}>
@@ -265,7 +252,7 @@ const Hub = () => {
               value={limit}
               type=""
               onChange={(e) => setLimit(Number(e.target.value))}
-              className="bg-prussianBlue text-white px-4 py-2 rounded shadow hover:bg-opacity-90 transition"
+              className="bg-prussianBlue text-white px-4 py-2 rounded shadow hover:bg-opacity-90 transition focus:outline-none focus:ring-0"
             >
               <option value={10}>10 per page</option>
               <option value={20}>20 per page</option>

@@ -28,23 +28,44 @@ const BasicForm = ({
             <h1 className="text-2xl font-black tracking-wider mb-4">{title}</h1>
             <p>{flavourText}</p>
           </div>
-          {fields.map((field) => (
-            <div className="space-y-2" key={field.name}>
-              <label className="text-xl font-bold mb-4">{field.label}</label>
-              <input
-                className="w-full px-4 py-2 border rounded-md"
-                type={field.type}
-                value={formData[field.name] || ""}
-                onChange={(e) =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    [field.name]: e.target.value,
-                  }))
-                }
-                {...field.inputProps}
-              />
-            </div>
-          ))}
+          {fields.map((field) =>
+            field.type === "textarea" ? (
+              <div className="space-y-2" key={field.name}>
+                <label className="text-xl font-semibold mb-4">
+                  {field.label}
+                </label>
+                <textarea
+                  className="w-full px-4 py-2 border focus:outline-0 focus:border-black rounded-md"
+                  value={formData[field.name] || ""}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      [field.name]: e.target.value,
+                    }))
+                  }
+                  {...field.inputProps}
+                />
+              </div>
+            ) : (
+              <div className="space-y-2" key={field.name}>
+                <label className="text-xl font-semibold mb-4">
+                  {field.label}
+                </label>
+                <input
+                  className="w-full px-4 py-2 border focus:outline-0 focus:border-black rounded-md"
+                  type={field.type}
+                  value={formData[field.name] || ""}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      [field.name]: e.target.value,
+                    }))
+                  }
+                  {...field.inputProps}
+                />
+              </div>
+            )
+          )}
           {children}
           {/* <button
             type="submit"
@@ -88,10 +109,10 @@ BasicForm.propTypes = {
     error: PropTypes.string,
     success: PropTypes.bool,
     complete: PropTypes.bool,
-  }),
+  }).isRequired,
   preSubmissionText: PropTypes.string,
   postSubmissionText: PropTypes.string,
-  submissionReattempt: PropTypes.string,
+  submissionReattempt: PropTypes.bool,
 };
 
 export default BasicForm;

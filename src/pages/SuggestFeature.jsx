@@ -7,25 +7,43 @@ const SuggestFeature = () => {
   const [formData, setFormData] = useState({
     summary: "",
     description: "",
-    page: "",
   });
 
-  const handleSubmit = (e) => {
+  const [submissionState, setSubmissionState] = useState({
+    formSubmit: false,
+    error: "",
+    success: false,
+    complete: false,
+  });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    apiRequest
-      .post("/util/report-issue", formData)
-      .then((response) => {
-        console.log("Issue reported successfully:", response.data);
-        // Optionally reset the form or show a success message
-        setFormData({
-          summary: "",
-          description: "",
-          page: "",
-        });
-      })
-      .catch((error) => {
-        console.error("Error reporting issue:", error);
+
+    try {
+      const res = await apiRequest.post("/util/suggest-feature", {
+        ...formData,
       });
+      setSubmissionState((prev) => ({
+        ...prev,
+        success: true,
+        formSubmit: false,
+        complete: true,
+        error: "",
+      }));
+    } catch (err) {
+      console.error(err.response?.data?.message || "An error occurred.");
+
+      setSubmissionState((prev) => ({
+        ...prev,
+        formSubmit: false,
+        success: false,
+        error:
+          "Failed to send suggestion request. " +
+          (err.response?.data?.message || ""),
+        complete: true,
+      }));
+      return;
+    }
   };
 
   return (
@@ -34,13 +52,14 @@ const SuggestFeature = () => {
         fields={[
           { name: "summary", label: "Summary", type: "input" },
           { name: "description", label: "Description", type: "textarea" },
-          { name: "page", label: "Page", type: "select" },
         ]}
         formData={formData}
         setFormData={setFormData}
         handleSubmit={handleSubmit}
         title="Suggest a Feature"
         submitLabel="Submit Suggestion"
+        flavourText="Have an idea for a new feature? Let us know!"
+        submissionState={submissionState}
       />
     </Wrapper>
   );

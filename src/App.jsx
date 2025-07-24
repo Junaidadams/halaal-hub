@@ -11,8 +11,11 @@ import Profile from "./pages/Profile";
 import DetailedListingView from "./pages/DetailedListingView";
 import SavedListings from "./pages/SavedListings";
 import Favourites from "./pages/Favourites";
+
 import ReportIssue from "./pages/ReportIssue";
 import SuggestFeature from "./pages/SuggestFeature";
+import SuggestBusiness from "./pages/SuggestBusiness";
+import GeneralContact from "./pages/GeneralContact";
 
 import RequireAuth from "./pages/util/AuthWrapper";
 
@@ -41,10 +44,13 @@ const App = () => {
 
       <Route path="/report-issue" element={<ReportIssue />} />
       <Route path="/suggest-feature" element={<SuggestFeature />} />
+      <Route path="/suggest-business" element={<SuggestBusiness />} />
+      <Route path="/general-contact" element={<GeneralContact />} />
 
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/hub" element={<Hub />} />
       <Route path="/verifying-email" element={<VerifyingEmail />} />
+
       <Route path="/listing/:id" element={<DetailedListingView />} />
 
       <Route

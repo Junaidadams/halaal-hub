@@ -35,10 +35,6 @@ const CreateListing = () => {
     console.log(formData);
   };
 
-  const prefillTest = () => {
-    console.log(formData);
-  };
-
   const stepMinusOne = () => {
     step > 1 && setStep((prev) => prev - 1);
   };
@@ -120,12 +116,20 @@ const CreateListing = () => {
                     onChange={(e) =>
                       handlePrefill(searchResults[e.target.value])
                     }
-                    className="w-full px-4 py-2 mt-2 border rounded-md"
+                    className="w-full px-4 py-2 mt-2 border rounded-md truncate"
+                    style={{
+                      maxWidth: "100%",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                    }}
                   >
                     <option value="">Select a business</option>
                     {searchResults.map((result, index) => (
                       <option key={index} value={index}>
-                        {result.display_name}
+                        {result.display_name.length > 40
+                          ? result.display_name.slice(0, 40) + "..."
+                          : result.display_name}
                       </option>
                     ))}
                   </select>

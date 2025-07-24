@@ -3,6 +3,7 @@ import {
   BsLinkedin,
   BsInstagram,
   BsTwitterX,
+  BsBuildingAdd,
 } from "react-icons/bs";
 import {
   FaUserPlus,
@@ -12,10 +13,17 @@ import {
   FaUtensils,
   FaHouseUser,
   FaRegUser,
+  FaHeadphones,
 } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
-import { MdBakeryDining, MdRestaurant } from "react-icons/md";
+import {
+  MdBakeryDining,
+  MdErrorOutline,
+  MdOutlineFeaturedPlayList,
+  MdOutlineMessage,
+  MdRestaurant,
+} from "react-icons/md";
 import { IoMdCafe } from "react-icons/io";
 import { RiTakeawayFill } from "react-icons/ri";
 
@@ -63,24 +71,40 @@ export const navigationLinks = {
 export const contactPages = [
   {
     key: 1,
-    name: "Suggest a Feature",
-    link: "/suggest-feature",
-    description: "Have an idea for a new feature? Let us know!",
-    icon: FaUserPlus,
+    name: "Customer Support",
+    link: "/customer-support",
+    description:
+      "Get help with any issues or questions you have about our services.",
+    icon: FaHeadphones,
   },
   {
     key: 2,
-    name: "Report an Issue",
+    name: "Report a Tech Issue",
     link: "/report-issue",
     description: "Report any issues or bugs you encounter on the site.",
-    icon: FaUserPlus,
+    icon: MdErrorOutline,
   },
   {
     key: 3,
     name: "General Contact",
     link: "/general-contact",
     description: "Reach out to us for any general inquiries or support.",
-    icon: FaUserPlus,
+    icon: MdOutlineMessage,
+  },
+  {
+    key: 4,
+    name: "Suggest a Business",
+    link: "/suggest-business",
+    description:
+      "Get in touch with us and suggest a Halal business for listing, our team will do the rest.",
+    icon: BsBuildingAdd,
+  },
+  {
+    key: 5,
+    name: "Suggest a Feature",
+    link: "/suggest-feature",
+    description: "Have an idea for a new feature? Let us know!",
+    icon: MdOutlineFeaturedPlayList,
   },
 ];
 

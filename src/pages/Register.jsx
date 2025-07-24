@@ -76,7 +76,7 @@ const Register = () => {
             </div>
 
             <div className="space-y-2">
-              <label className="text-xl font-bold mb-4">Email</label>
+              <label className="text-xl font-semibold mb-4">Email</label>
               <input
                 className="w-full px-4 py-2 border rounded-md"
                 type="text"
@@ -90,7 +90,7 @@ const Register = () => {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-xl font-bold ">Password</label>
+              <label className="text-xl font-semibold ">Password</label>
               <input
                 className="w-full px-4 py-2 border rounded-md"
                 type="text"
@@ -104,7 +104,7 @@ const Register = () => {
               />
             </div>
             <div className="space-y-2">
-              <h2 className="text-xl font-bold ">Which are you?</h2>
+              <h2 className="text-xl font-semibold ">Which are you?</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {accountTypes.map(({ value, icon: Icon }) => (
                   <button
@@ -137,7 +137,7 @@ const Register = () => {
               )}
             </div>
             <div className="space-y-2">
-              <label className="text-xl font-bold mb-4">
+              <label className="text-xl font-semibold mb-4">
                 Username (optional)
               </label>
               <input
