@@ -152,7 +152,7 @@ const CreateListing = () => {
           {step === 2 && (
             <div className=" flex flex-col space-y-4 w-full">
               <h2 className="text-xl font-bold">
-                What type of place are you listing?
+                What type of place is {formData.businessName}?
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {categories.map(({ value, icon: Icon }) => (
@@ -206,6 +206,12 @@ const CreateListing = () => {
                 {" "}
                 <label className="text-xl font-bold ">Certificate</label>
                 <input
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      certificate: e.target.files[0],
+                    }))
+                  }
                   type="file"
                   className="block w-full text-sm text-gray-700
                file:mr-4 file:py-2 file:px-4
