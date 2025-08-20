@@ -8,9 +8,12 @@ const footerLinks = navigationLinks.footer;
 
 const Footer = () => {
   return (
-    <div className="bg-richBlack text-slate-200 capitalize flex flex-col">
+    <div
+      className="bg-eggshell dark:bg-richBlack text-richBlack
+     dark:text-slate-200 capitalize flex flex-col"
+    >
       <div className="flex flex-col lg:flex-row my-16 mx-auto  space-y-6 lg:space-x-12 lg:space-y-0">
-        <Logo color="white" className="mx" margin="mx-auto" />
+        <Logo className="mx" margin="mx-auto" />
         <div className="flex space-x-4">
           <ul className="">
             {fullNavLinks.map((link) => (
