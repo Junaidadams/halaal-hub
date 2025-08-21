@@ -14,7 +14,7 @@ const Footer = () => {
     >
       <div className="flex flex-col lg:flex-row my-16 mx-auto  space-y-6 lg:space-x-12 lg:space-y-0">
         <Logo className="mx" margin="mx-auto" />
-        <div className="flex space-x-4">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start text-center space-y-1 sm:space-y-0 sm:space-x-12">
           <ul className="">
             {fullNavLinks.map((link) => (
               <li key={link.key}>
