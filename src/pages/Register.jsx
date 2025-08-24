@@ -12,9 +12,9 @@ const Register = () => {
     complete: false,
   });
 
-  useEffect(() => {
-    console.log("isLoading state changed", setSubmissionState);
-  }, [setSubmissionState]);
+  // useEffect(() => {
+  //   console.log("isLoading state changed", setSubmissionState);
+  // }, [setSubmissionState]);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -69,10 +69,16 @@ const Register = () => {
       <div className="mx-auto my-20 min-h-screen w-[95%] flex flex-col">
         <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 w-full sm:w-2/3 md:w-1/2 xl:w-1/3 flex-col font-poppins bg-white p-5">
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <h1 className="text-2xl font-black tracking-wider mb-4">
+            <div className="spac">
+              <h1 className="text-2xl font-black tracking-wider">
                 Create Account
               </h1>
+              <p>
+                Or if you already have an account,{" "}
+                <a className="" href="/login">
+                  login here.
+                </a>
+              </p>
             </div>
 
             <div className="space-y-2">
@@ -152,12 +158,7 @@ const Register = () => {
                 }
               />
             </div>
-            <p>
-              Already have an account?{" "}
-              <a className="" href="/login">
-                Login here.
-              </a>
-            </p>
+
             <SubmitButton
               complete={submissionState.complete}
               success={submissionState.success}
@@ -167,6 +168,9 @@ const Register = () => {
               postSubmissionText="Submitted"
               reattempt={true}
             />
+            {submissionState.error && (
+              <p className="">{submissionState.error}</p>
+            )}
           </form>
         </div>
       </div>
