@@ -58,7 +58,7 @@ const SearchControl = ({ onResult }) => {
         />
         <button
           type="submit"
-          className="bg-blue-600 text-white px-3 rounded-r hover:bg-blue-700"
+          className="bg-richBlack text-white px-3 rounded-r hover:bg-blue-700"
         >
           Search
         </button>

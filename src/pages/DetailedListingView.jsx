@@ -55,7 +55,7 @@ const DetailedListingView = () => {
           <span className="capitalize">{listing.category}</span> at{" "}
           {listing.address}
         </h1>
-        <div className="font-semibold flex p-1 mt-2">
+        <div className="font-semibold flex flex-col p-1 mt-2">
           <div className="flex">
             <span className="mr-2 my-auto text-[#333] dark:text-slate-200">
               Reviews
@@ -65,6 +65,7 @@ const DetailedListingView = () => {
               <p>({listing.stars})</p>
             </span>
           </div>
+          <p className="font-normal underline text-sm">Leave a review</p>
         </div>
         <div className="flex flex-col px-1 py-4">
           <p className=" text-base text-richBlack dark:text-slate-200 ">
