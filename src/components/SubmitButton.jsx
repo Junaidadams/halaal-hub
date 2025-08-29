@@ -20,7 +20,7 @@ const SubmitButton = ({
         <span className="w-fit m-auto">{postSubmissionText}</span>
       ) : (
         <div className="m-auto flex flex-row">
-          <span className="w-fit ml-auto mr-2">{preSubmissionText}</span>
+          <span className="w-fit ml-auto">{preSubmissionText}</span>
           <Spinner isLoading={isLoading} complete={complete} />
         </div>
       )}
