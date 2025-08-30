@@ -6,6 +6,7 @@ import Wrapper from "../components/util/Wrapper";
 import BusinessInfo from "../components/formComponents/BusinessInfo";
 import Category from "../components/formComponents/Category";
 import Certification from "../components/formComponents/Certification";
+import StepLocation from "../components/formComponents/StepLocation";
 
 const CreateListing = () => {
   const [step, setStep] = useState(1);
@@ -18,6 +19,8 @@ const CreateListing = () => {
     googlePlaceId: 0,
     certifiedBy: "",
     certificate: null,
+    address: "",
+    postalCode: "",
   });
 
   const handleChange = (e) => {
@@ -80,6 +83,13 @@ const CreateListing = () => {
               formData={formData}
               setFormData={setFormData}
               next={() => setStep(4)}
+            />
+          )}
+          {step === 4 && (
+            <StepLocation
+              formData={formData}
+              setFormData={setFormData}
+              next={() => setStep(5)}
             />
           )}
         </div>
