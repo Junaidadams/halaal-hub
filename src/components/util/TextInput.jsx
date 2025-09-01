@@ -12,7 +12,7 @@ const TextInput = ({ label, name, value, onChange, type, placeholder }) => {
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="w-full px-4 py-2 border rounded-md"
+        className="w-full px-4 py-2 border focus:outline-0 focus:border-black rounded-md"
       />
     </div>
   );
