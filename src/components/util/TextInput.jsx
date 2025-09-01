@@ -7,6 +7,7 @@ const TextInput = ({ label, name, value, onChange, type, placeholder }) => {
         {label}
       </label>
       <input
+        required
         name={name}
         type={type}
         value={value}

@@ -20,6 +20,7 @@ const BusinessInfo = ({ formData, handleChange, next }) => {
         placeholder="Enter contact email"
       />
       <button
+        disabled={!formData.businessName || !formData.email}
         onClick={next}
         className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
       >
