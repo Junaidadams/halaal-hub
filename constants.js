@@ -26,7 +26,7 @@ import {
 } from "react-icons/md";
 import { IoMdCafe } from "react-icons/io";
 import { RiTakeawayFill } from "react-icons/ri";
-
+import { PiCookingPotFill } from "react-icons/pi";
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 
 export const websiteInformation = [
@@ -179,6 +179,64 @@ export const contactInformation = [
   { key: 2, name: "Call", address: "0826756350", icon: AiOutlinePhone },
 ];
 
+export const termsOfService = [
+  {
+    id: 1,
+    text: "All listings must provide accurate and truthful information about the business.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 2,
+    text: "Businesses must submit clear, legible images of their Halaal certification, issued by a recognized and valid certifying body.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 3,
+    text: "Uploaded documents, including certification, must be current and not expired.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 4,
+    text: "Businesses are responsible for updating their listing if certification status or business details change.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 5,
+    text: "Any falsified or misleading information may result in the listing being removed without notice.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 6,
+    text: "Businesses agree that all submitted content (text, images, documents) may be reviewed by our moderation team before being published.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 7,
+    text: "We reserve the right to reject or remove any listing that does not comply with our standards or Terms of Service.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 8,
+    text: "Submitting a listing does not guarantee approval — all listings are subject to review and verification.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 9,
+    text: "Businesses must ensure that contact details provided (email, phone, address) are correct and accessible.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 10,
+    text: "The platform is not liable for any disputes between customers and listed businesses.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 11,
+    text: "Repeated violations of these Terms may result in permanent suspension from the platform.",
+    lastUpdated: "2025-01-01",
+  },
+];
+
 export const faqData = [
   {
     question: "What is Halaal Hub?",
@@ -218,6 +276,7 @@ export const categories = [
   { label: "Restaurant", value: "restaurant", icon: MdRestaurant },
   { label: "Bakery", value: "bakery", icon: MdBakeryDining },
   { label: "Takeaway", value: "takeaway", icon: RiTakeawayFill },
+  { label: "Caterer", value: "caterer", icon: PiCookingPotFill },
 ];
 
 export const certification = [

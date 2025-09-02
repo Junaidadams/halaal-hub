@@ -1,9 +1,10 @@
 import TextInput from "../util/TextInput";
 
-const BusinessInfo = ({ formData, handleChange, next }) => {
+const BusinessInfo = ({ formData, handleChange, next, summary }) => {
   return (
     <div className="flex flex-col space-y-4 w-full">
       <TextInput
+        required="true"
         label="Business Name"
         name="businessName"
         value={formData.businessName}
@@ -12,6 +13,7 @@ const BusinessInfo = ({ formData, handleChange, next }) => {
         placeholder="Enter business name"
       />
       <TextInput
+        required="true"
         label="Email Address"
         name="email"
         value={formData.email}
@@ -19,13 +21,14 @@ const BusinessInfo = ({ formData, handleChange, next }) => {
         type="email"
         placeholder="Enter contact email"
       />
-      <button
-        disabled={!formData.businessName || !formData.email}
-        onClick={next}
-        className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
-      >
-        Next
-      </button>
+      {!summary && (
+        <button
+          onClick={next}
+          className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
+        >
+          Next
+        </button>
+      )}
     </div>
   );
 };

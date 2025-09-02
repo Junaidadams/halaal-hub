@@ -1,10 +1,18 @@
 import PropTypes from "prop-types";
 
-const TextInput = ({ label, name, value, onChange, type, placeholder }) => {
+const TextInput = ({
+  label,
+  name,
+  value,
+  onChange,
+  type,
+  placeholder,
+  required,
+}) => {
   return (
     <div>
-      <label htmlFor={name} className="text-xl font-bold">
-        {label}
+      <label htmlFor={name} className="text-xl font-semibold">
+        {label} {required && "*"}
       </label>
       <input
         required
@@ -26,6 +34,7 @@ TextInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string,
   placeholder: PropTypes.string,
+  required: PropTypes.bool,
 };
 
 export default TextInput;

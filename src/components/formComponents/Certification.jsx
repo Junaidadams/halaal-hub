@@ -1,6 +1,6 @@
 import { certification } from "../../../constants";
 
-const Step3Certification = ({ formData, setFormData, next }) => {
+const Step3Certification = ({ formData, setFormData, next, summary }) => {
   return (
     <div className="flex flex-col space-y-4 w-full">
       <h2 className="text-xl font-bold">Your certification</h2>
@@ -25,6 +25,10 @@ const Step3Certification = ({ formData, setFormData, next }) => {
 
       <div className="flex flex-col">
         <label className="text-xl font-bold">Certificate</label>
+        <p>
+          Any document or image format will do. Should we run into trouble
+          verifying your business we will reach out.
+        </p>
         <input
           onChange={(e) =>
             setFormData((prev) => ({
@@ -44,12 +48,14 @@ const Step3Certification = ({ formData, setFormData, next }) => {
       </div>
 
       <div className="flex flex-col">
-        <button
-          onClick={next}
-          className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
-        >
-          Next
-        </button>
+        {!summary && (
+          <button
+            onClick={next}
+            className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
+          >
+            Next
+          </button>
+        )}
       </div>
     </div>
   );

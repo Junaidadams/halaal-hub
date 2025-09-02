@@ -1,12 +1,12 @@
 import { categories } from "../../../constants";
 
-const Category = ({ formData, handleCategorySelect, next }) => {
+const Category = ({ formData, handleCategorySelect, next, summary }) => {
   return (
     <div className="flex flex-col space-y-4 w-full">
       <h2 className="text-xl font-bold">
         What type of place is {formData.businessName}?
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {categories.map(({ value, icon: Icon }) => (
           <button
             key={value}
@@ -21,12 +21,14 @@ const Category = ({ formData, handleCategorySelect, next }) => {
           </button>
         ))}
       </div>
-      <button
-        onClick={next}
-        className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
-      >
-        Next
-      </button>
+      {!summary && (
+        <button
+          onClick={next}
+          className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
+        >
+          Next
+        </button>
+      )}
     </div>
   );
 };

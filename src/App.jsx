@@ -6,6 +6,7 @@ import Faq from "./pages/Faq";
 import About from "./pages/About";
 
 import GetStarted from "./pages/GetStarted";
+import TOS from "./pages/TOS";
 import Hub from "./pages/Hub";
 import Profile from "./pages/Profile";
 import DetailedListingView from "./pages/DetailedListingView";
@@ -39,6 +40,7 @@ const App = () => {
       <Route path="/register" element={<Register />} />
 
       <Route path="/get-started" element={<GetStarted />} />
+      <Route path="/terms-of-service" element={<TOS />} />
       <Route path="/faq" element={<Faq />} />
       <Route path="/about" element={<About />} />
 

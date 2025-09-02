@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const StepLocation = ({ formData, setFormData, next }) => {
+const StepLocation = ({ formData, setFormData, next, summary }) => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -91,12 +91,14 @@ const StepLocation = ({ formData, setFormData, next }) => {
         </div>
       )}
 
-      <button
-        onClick={next}
-        className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
-      >
-        Next
-      </button>
+      {!summary && (
+        <button
+          onClick={next}
+          className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
+        >
+          Next
+        </button>
+      )}
     </div>
   );
 };
