@@ -31,7 +31,7 @@ import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 
 export const websiteInformation = [
   {
-    name: "website",
+    name: "Eat Halal",
     copyright: "Blah blah blah, copyright blah blah.",
     year: 2024,
     developer: "Junaid Adams",
@@ -247,7 +247,6 @@ export const termsOfService = [
     lastUpdated: "2025-01-01",
   },
 ];
-
 
 export const faqData = [
   {

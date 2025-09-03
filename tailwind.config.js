@@ -5,6 +5,8 @@ export default {
     extend: {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        satoshi: ["Satoshi", "sans-serif"],
+        cabinet: ["Cabinet Grotesk", "sans-serif"],
       },
       colors: {
         eggshell: "#F0EBD8",

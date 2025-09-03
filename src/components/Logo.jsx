@@ -7,10 +7,10 @@ const Logo = ({ color, margin }) => {
       href="/"
       className={`flex text-${
         !color ? "richBlack" : color
-      } font-bold tracking-widest font-poppins ${margin} dark:text-ghost`}
+      } font-bold tracking-widest font-cabinet ${margin} dark:text-ghost`}
     >
       <PiBowlFoodFill className="my-auto" size={29} />
-      <h1 className="mx-1 my-auto">Halaal Hub</h1>
+      <h1 className="mx-1 my-auto">Eat Halal</h1>
     </a>
   );
 };

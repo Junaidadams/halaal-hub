@@ -1,4 +1,5 @@
 import Wrapper from "../components/util/Wrapper";
+import { websiteInformation } from "../../constants";
 
 const Home = () => {
   return (
@@ -17,7 +18,7 @@ const Home = () => {
         <div className="z-10 flex flex-col bg-richBlack bg-opacity-80 dark:bg-ghost dark:bg-opacity-80 p-5 sm:p-6 md:p-7 shadow-sm items-center justify-center">
           <h1 className="m-auto text-center text-ghost dark:text-richBlack  tracking-widest text-3xl font-bold sm:font-black">
             Welcome to
-            <br /> Halaal Hub
+            <br /> {websiteInformation[0].name}
           </h1>
           <p className="tracking-wider sm:tracking-widest text-sm  text-center font-light mx-auto w-fit dark:text-richBlack text-ghost">
             The Halaal food directory.
