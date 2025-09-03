@@ -182,60 +182,72 @@ export const contactInformation = [
 export const termsOfService = [
   {
     id: 1,
+    heading: "Accuracy of Information",
     text: "All listings must provide accurate and truthful information about the business.",
     lastUpdated: "2025-01-01",
   },
   {
     id: 2,
+    heading: "Halaal Certification Requirement",
     text: "Businesses must submit clear, legible images of their Halaal certification, issued by a recognized and valid certifying body.",
     lastUpdated: "2025-01-01",
   },
   {
     id: 3,
+    heading: "Valid Certification",
     text: "Uploaded documents, including certification, must be current and not expired.",
     lastUpdated: "2025-01-01",
   },
   {
     id: 4,
+    heading: "Responsibility to Update",
     text: "Businesses are responsible for updating their listing if certification status or business details change.",
     lastUpdated: "2025-01-01",
   },
   {
     id: 5,
+    heading: "No Misrepresentation",
     text: "Any falsified or misleading information may result in the listing being removed without notice.",
     lastUpdated: "2025-01-01",
   },
   {
     id: 6,
+    heading: "Content Review",
     text: "Businesses agree that all submitted content (text, images, documents) may be reviewed by our moderation team before being published.",
     lastUpdated: "2025-01-01",
   },
   {
     id: 7,
+    heading: "Right to Reject",
     text: "We reserve the right to reject or remove any listing that does not comply with our standards or Terms of Service.",
     lastUpdated: "2025-01-01",
   },
   {
     id: 8,
+    heading: "Approval Not Guaranteed",
     text: "Submitting a listing does not guarantee approval — all listings are subject to review and verification.",
     lastUpdated: "2025-01-01",
   },
   {
     id: 9,
+    heading: "Contact Information",
     text: "Businesses must ensure that contact details provided (email, phone, address) are correct and accessible.",
     lastUpdated: "2025-01-01",
   },
   {
     id: 10,
+    heading: "Liability Disclaimer",
     text: "The platform is not liable for any disputes between customers and listed businesses.",
     lastUpdated: "2025-01-01",
   },
   {
     id: 11,
+    heading: "Violations",
     text: "Repeated violations of these Terms may result in permanent suspension from the platform.",
     lastUpdated: "2025-01-01",
   },
 ];
+
 
 export const faqData = [
   {
