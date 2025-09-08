@@ -3,17 +3,16 @@ import BasicForm from "../components/BasicForm";
 import Wrapper from "../components/util/Wrapper";
 import apiRequest from "../../lib/apiRequest";
 
-const ReportIssue = () => {
+const CustomerSupport = () => {
   const [formData, setFormData] = useState({
     summary: "",
     description: "",
-    page: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     apiRequest
-      .post("/util/report-issue", formData)
+      .post("/util/customer-service", formData)
       .then((response) => {
         console.log("Issue reported successfully:", response.data);
         // Optionally reset the form or show a success message
@@ -27,24 +26,22 @@ const ReportIssue = () => {
         console.error("Error reporting issue:", error);
       });
   };
-
   return (
     <Wrapper>
       <BasicForm
         fields={[
           { name: "summary", label: "Summary", type: "input" },
           { name: "description", label: "Description", type: "textarea" },
-          { name: "page", label: "page", type: "select" },
         ]}
-        flavourText=""
+        flavourText="Your ticket will be responded to by one of our agents as soon as possible"
         formData={formData}
         setFormData={setFormData}
         handleSubmit={handleSubmit}
-        title="Report an Issue"
+        title="Create a support ticket"
         submitLabel="Submit Issue"
       />
     </Wrapper>
   );
 };
 
-export default ReportIssue;
+export default CustomerSupport;

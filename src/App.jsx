@@ -24,6 +24,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CreateListing from "./pages/CreateListing";
 import ResetPassword from "./pages/ResetPassword";
+import CustomerSupport from "./pages/CustomerSupport";
 
 import NoPage from "./pages/NoPage";
 import Logout from "./pages/util/Logout";
@@ -45,6 +46,7 @@ const App = () => {
       <Route path="/about" element={<About />} />
 
       <Route path="/report-issue" element={<ReportIssue />} />
+      <Route path="/customer-support" element={<CustomerSupport />} />
       <Route path="/suggest-feature" element={<SuggestFeature />} />
       <Route path="/suggest-business" element={<SuggestBusiness />} />
       <Route path="/general-contact" element={<GeneralContact />} />

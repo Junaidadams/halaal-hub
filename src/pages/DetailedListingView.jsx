@@ -8,6 +8,7 @@ import { MdOutlineCategory } from "react-icons/md";
 import { FaStar } from "react-icons/fa6";
 import ShareButton from "../components/ShareButton";
 import Wrapper from "../components/util/Wrapper";
+import BackButton from "../components/util/BackButton";
 
 const fetchListings = async () => {
   const res = await axios.get("/data/listings.json");
@@ -38,6 +39,7 @@ const DetailedListingView = () => {
   return (
     <Wrapper>
       <div className="mx-auto my-20 min-h-screen w-[95%] sm:w-2/3 xl:w-1/2 flex flex-col font-poppins sm:p-5 dark:text-slate-50">
+        <BackButton />
         <h1 className="text-2xl font-bold capitalize mb-2">
           {listing.name} - ({listing.category})
         </h1>

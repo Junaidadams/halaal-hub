@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import SubmitButton from "./SubmitButton";
+import BackButton from "./util/BackButton";
 
 const BasicForm = ({
   fields,
@@ -25,6 +26,7 @@ const BasicForm = ({
       <div className="flex mx-auto md:my-10 lg:my-14 xl:my-20 w-full sm:w-2/3 md:w-1/2 xl:w-1/3 flex-col font-poppins bg-white p-5">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
+            <BackButton />
             <h1 className="text-2xl font-black tracking-wider mb-4">{title}</h1>
             <p>{flavourText}</p>
           </div>

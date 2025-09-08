@@ -5,6 +5,7 @@ import apiRequest from "../../lib/apiRequest";
 import { useQuery } from "@tanstack/react-query";
 import ListingTileSkeleton from "../components/skeleton/ListingTileSkeleton";
 import ListingTile from "../components/ListingTile";
+import BackButton from "../components/util/BackButton";
 
 const SavedListings = () => {
   const { currentUser } = useContext(AuthContext);
@@ -68,12 +69,18 @@ const SavedListings = () => {
   return (
     <Wrapper>
       <div
-        className="grid gap-4 grid-cols-1
-          sm:grid-cols-2 mx-auto my-20"
+        className="w-full my-20 mx-auto lg:w-3/5 xl:w-1/2
+          overflow-y-auto p-6 flex"
       >
-        {savedListings.map((listing) => (
-          <ListingTile key={listing.id} listing={listing} />
-        ))}
+        {" "}
+        <div
+          className="grid gap-4 grid-cols-1
+          sm:grid-cols-2 mx-auto my-20 w-full"
+        >
+          {savedListings.map((listing) => (
+            <ListingTile key={listing.id} listing={listing} />
+          ))}
+        </div>
       </div>
     </Wrapper>
   );
