@@ -34,7 +34,7 @@ const ReportIssue = () => {
         fields={[
           { name: "summary", label: "Summary", type: "input" },
           { name: "description", label: "Description", type: "textarea" },
-          { name: "page", label: "page", type: "select" },
+          { name: "page", label: "Page", type: "select" },
         ]}
         flavourText=""
         formData={formData}

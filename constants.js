@@ -52,8 +52,8 @@ export const navigationLinks = {
   ],
   signedIn: [
     { key: 4, name: "Profile", link: "/my-profile" },
-    { key: 5, name: "Logout", link: "/logout" },
-    { key: 6, name: "Create Listing", link: "/create-listing" },
+    { key: 5, name: "Create Listing", link: "/create-listing" },
+    { key: 6, name: "Logout", link: "/logout" },
   ],
   notSignedIn: [
     { key: 7, name: "Get Started", link: "/get-started" },
