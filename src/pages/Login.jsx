@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Wrapper from "../components/util/Wrapper";
 import BasicForm from "../components/BasicForm";
 
-const Signup = () => {
+const Login = () => {
   const { updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -22,6 +22,7 @@ const Signup = () => {
   });
 
   const handleSubmit = async (e) => {
+    updateUser(null);
     e.preventDefault();
     setSubmissionState((prev) => ({
       ...prev,
@@ -83,4 +84,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

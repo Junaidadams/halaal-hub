@@ -113,19 +113,3 @@ BasicForm.propTypes = {
 };
 
 export default BasicForm;
-
-/*
-Example usage:
-
-<BasicForm
-  fields={[
-    { name: "email", label: "Email", type: "email" },
-    { name: "password", label: "Password", type: "password" },
-  ]}
-  formData={formData}
-  setFormData={setFormData}
-  handleSubmit={handleSubmit}
-  title="Login"
-  submitLabel="Log In"
-/>
-*/

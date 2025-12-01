@@ -6,7 +6,7 @@ import Wrapper from "../components/util/Wrapper";
 import BusinessInfo from "../components/formComponents/BusinessInfo";
 import Category from "../components/formComponents/Category";
 import Certification from "../components/formComponents/Certification";
-import StepLocation from "../components/formComponents/StepLocation";
+import Location from "../components/formComponents/Location";
 
 const CreateListing = () => {
   const [step, setStep] = useState(1);
@@ -93,7 +93,7 @@ const CreateListing = () => {
               />
             )}
             {step === 4 && (
-              <StepLocation
+              <Location
                 formData={formData}
                 setFormData={setFormData}
                 next={() => setStep(5)}
@@ -127,7 +127,7 @@ const CreateListing = () => {
                     setFormData={setFormData}
                     next={() => setStep(4)}
                   />
-                  <StepLocation
+                  <Location
                     summary={true}
                     formData={formData}
                     setFormData={setFormData}

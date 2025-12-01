@@ -9,6 +9,7 @@ const Category = ({ formData, handleCategorySelect, next, summary }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {categories.map(({ value, icon: Icon }) => (
           <button
+            type="button"
             key={value}
             onClick={() => handleCategorySelect(value)}
             className={`${
@@ -23,6 +24,7 @@ const Category = ({ formData, handleCategorySelect, next, summary }) => {
       </div>
       {!summary && (
         <button
+          type="button"
           onClick={next}
           className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
         >

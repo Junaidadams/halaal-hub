@@ -4,7 +4,7 @@ const BusinessInfo = ({ formData, handleChange, next, summary }) => {
   return (
     <div className="flex flex-col space-y-4 w-full">
       <TextInput
-        required="true"
+        required
         label="Business Name"
         name="businessName"
         value={formData.businessName}
@@ -13,7 +13,7 @@ const BusinessInfo = ({ formData, handleChange, next, summary }) => {
         placeholder="Enter business name"
       />
       <TextInput
-        required="true"
+        required
         label="Email Address"
         name="email"
         value={formData.email}
@@ -23,6 +23,7 @@ const BusinessInfo = ({ formData, handleChange, next, summary }) => {
       />
       {!summary && (
         <button
+          type="button"
           onClick={next}
           className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
         >

@@ -25,9 +25,9 @@ const Step3Certification = ({ formData, setFormData, next, summary }) => {
 
       <div className="flex flex-col">
         <label className="text-xl font-bold">Certificate</label>
-        <p>
-          Any document or image format will do. Should we run into trouble
-          verifying your business we will reach out.
+        <p className="mb-1">
+          Any document or image format is fine as long as it is legible. Should
+          we run into trouble verifying your business we will reach out.
         </p>
         <input
           onChange={(e) =>
@@ -44,17 +44,30 @@ const Step3Certification = ({ formData, setFormData, next, summary }) => {
           file:bg-richBlack file:text-white
           hover:file:bg-gray-800"
         />
-        <button type="button">Add later</button>
       </div>
 
       <div className="flex flex-col">
         {!summary && (
-          <button
-            onClick={next}
-            className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
+          <div
+            className="ml-auto space-x-2
+          "
           >
-            Next
-          </button>
+            {" "}
+            <button
+              onClick={next}
+              type="button"
+              className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
+            >
+              Add later
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              className="bg-richBlack text-white px-4 py-1 ml-auto rounded-sm"
+            >
+              Next
+            </button>
+          </div>
         )}
       </div>
     </div>

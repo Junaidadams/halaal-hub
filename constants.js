@@ -5,6 +5,7 @@ import {
   BsTwitterX,
   BsBuildingAdd,
 } from "react-icons/bs";
+
 import {
   FaUserPlus,
   FaSignInAlt,
@@ -15,8 +16,11 @@ import {
   FaRegUser,
   FaHeadphones,
 } from "react-icons/fa";
+
 import { CiLogout } from "react-icons/ci";
+
 import { CgProfile } from "react-icons/cg";
+
 import {
   MdBakeryDining,
   MdErrorOutline,
@@ -24,10 +28,12 @@ import {
   MdOutlineMessage,
   MdRestaurant,
 } from "react-icons/md";
+
 import { IoMdCafe } from "react-icons/io";
 import { RiTakeawayFill } from "react-icons/ri";
 import { PiCookingPotFill } from "react-icons/pi";
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
+import { GiMeat } from "react-icons/gi";
 
 export const websiteInformation = [
   {
@@ -248,6 +254,108 @@ export const termsOfService = [
   },
 ];
 
+export const privacyPolicy = [
+  {
+    id: 1,
+    heading: "Information We Collect",
+    text: "We collect personal information such as name, email address, phone number, and business details when you create a listing or contact us. We may also collect non-identifiable information like browser type, device, and usage statistics.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 2,
+    heading: "Use of Information",
+    text: "Your information is used to display business listings, communicate with you, verify Halaal certifications, improve our services, and ensure platform security.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 3,
+    heading: "Certification Documents",
+    text: "Uploaded Halaal certification documents are stored securely and are only used for verification purposes. They may be reviewed by our moderation team before being published.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 4,
+    heading: "Sharing of Information",
+    text: "We do not sell your personal information. However, business details submitted for listings (such as name, address, and contact information) will be visible to the public on our platform.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 5,
+    heading: "Third-Party Services",
+    text: "We may use trusted third-party services for hosting, analytics, and payment processing. These providers are bound to keep your information secure and only use it for agreed purposes.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 6,
+    heading: "Data Security",
+    text: "We implement industry-standard security measures to protect your data. However, no online service can be completely secure, and we cannot guarantee absolute protection.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 7,
+    heading: "Your Rights",
+    text: "You may request access to, correction of, or deletion of your personal data by contacting us. We will process such requests in line with applicable data protection laws.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 8,
+    heading: "Cookies",
+    text: "Our platform may use cookies and similar technologies to improve user experience, track usage, and provide personalized content. You can manage cookies through your browser settings.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 9,
+    heading: "Children’s Privacy",
+    text: "Eat Halal is not intended for children under the age of 13. We do not knowingly collect personal data from children.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 10,
+    heading: "Changes to Privacy Policy",
+    text: "We may update this Privacy Policy from time to time. Updates will be posted on this page with a revised 'last updated' date.",
+    lastUpdated: "2025-01-01",
+  },
+  {
+    id: 11,
+    heading: "Contact Us",
+    text: "If you have any questions or concerns about this Privacy Policy, please contact us at support@eathalal.com.",
+    lastUpdated: "2025-01-01",
+  },
+];
+
+export const privacySummary = [
+  {
+    id: 1,
+    heading: "What We Collect",
+    text: "We collect basic details like your name, email, phone number, and business information to create and manage listings.",
+  },
+  {
+    id: 2,
+    heading: "How We Use It",
+    text: "Your information helps us verify Halaal certification, display listings, and improve our platform.",
+  },
+  {
+    id: 3,
+    heading: "What’s Public",
+    text: "Business details you submit (like name, contact info, and address) will be visible to users on Eat Halal.",
+  },
+  {
+    id: 4,
+    heading: "Keeping Data Safe",
+    text: "We use security measures to protect your information, but no system is 100% secure online.",
+  },
+  {
+    id: 5,
+    heading: "Your Choices",
+    text: "You can request to update or delete your data by contacting us at support@eathalal.com.",
+  },
+  {
+    id: 6,
+    heading: "Updates",
+    text: "If we change this policy, we’ll update the date here so you know what’s new.",
+  },
+];
+
 export const faqData = [
   {
     question: "What is Halaal Hub?",
@@ -288,6 +396,7 @@ export const categories = [
   { label: "Bakery", value: "bakery", icon: MdBakeryDining },
   { label: "Takeaway", value: "takeaway", icon: RiTakeawayFill },
   { label: "Caterer", value: "caterer", icon: PiCookingPotFill },
+  { label: "Butchery", value: "butchery", icon: GiMeat },
 ];
 
 export const certification = [
