@@ -60,7 +60,7 @@ const Navbar = () => {
 
   var renderedLinks = navigationLinks.main;
   currentUser
-    ? (renderedLinks = navigationLinks.signedIn.concat(navigationLinks.main))
+    ? (renderedLinks = navigationLinks.main.concat(navigationLinks.signedIn))
     : (renderedLinks = navigationLinks.main.concat(
         navigationLinks.notSignedIn
       ));

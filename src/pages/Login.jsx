@@ -55,9 +55,7 @@ const Login = () => {
         ...prev,
         formSubmit: false,
         success: false,
-        error:
-          "Failed to send registration request. " +
-          (err.response?.data?.message || ""),
+        error: "Failed to log in, " + (err.response?.data?.message || ""),
         complete: true,
       }));
     }

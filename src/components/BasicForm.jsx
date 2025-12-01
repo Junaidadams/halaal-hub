@@ -69,7 +69,9 @@ const BasicForm = ({
             )
           )}
           {children}
-
+          <div>
+            {submissionState.error && <span>{submissionState.error}</span>}
+          </div>
           <SubmitButton
             complete={submissionState.complete}
             success={submissionState.success}

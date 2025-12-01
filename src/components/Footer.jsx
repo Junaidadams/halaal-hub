@@ -29,7 +29,7 @@ const Footer = () => {
               </li>
             ))}
           </ul>
-          <ul className="">
+          {/* <ul className="">
             {socials.map(({ key, name, link, logo: Logo }) => (
               <li key={key}>
                 <a href={link} className="flex space-x-2 ">
@@ -38,7 +38,7 @@ const Footer = () => {
                 </a>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </div>
       <p className="mx-auto text-slate-300 text-sm font-light pb-4">
