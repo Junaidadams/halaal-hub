@@ -6,7 +6,7 @@ import Wrapper from "../components/util/Wrapper";
 import BasicForm from "../components/BasicForm";
 
 const Login = () => {
-  const { updateUser } = useContext(AuthContext);
+  const { updateUser, currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [submissionState, setSubmissionState] = useState({

@@ -9,7 +9,7 @@ const footerLinks = navigationLinks.footer;
 const Footer = () => {
   return (
     <div
-      className="bg-eggshell dark:bg-richBlack text-richBlack
+      className="bg-mainLight dark:bg-mainDark text-richBlack
      dark:text-slate-200 capitalize flex flex-col"
     >
       <div className="flex flex-col lg:flex-row my-16 mx-auto  space-y-6 lg:space-x-12 lg:space-y-0">

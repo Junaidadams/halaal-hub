@@ -64,11 +64,12 @@ const ListingTile = ({ listing, setSelectedListing, selectedListing }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-ghost flex flex-col shadow-md rounded-t-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-lg h-f">
+    <div className="bg-[#ededed] dark:bg-mainLight flex flex-col shadow-md rounded-t-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-">
       <Link to={`/listing/${listing.id}`}>
         <div className="relative">
           <img
-            src={listing.imageUrl}
+            // src={listing.imageUrl}
+            src="https://thumbs.dreamstime.com/b/unhealthy-fast-food-delivery-menu-featuring-assorted-burgers-cheeseburgers-nuggets-french-fries-soda-high-calorie-low-356045884.jpg"
             alt={listing.name}
             className="w-full h-40 object-cover rounded-t-sm"
           />

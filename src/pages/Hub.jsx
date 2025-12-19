@@ -1,105 +1,88 @@
-import MapView from "../components/MapView";
 import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
-import { FaSort, FaSearch } from "react-icons/fa";
-import { FaChevronLeft, FaChevronRight, FaFilter } from "react-icons/fa6";
-import { categories } from "../../constants";
-import ListingTileSkeleton from "../components/skeleton/ListingTileSkeleton";
-import MapViewSkeleton from "../components/skeleton/MapViewSkeleton";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import { categories } from "../../constants";
+
 import ListingSearch from "../components/util/ListingSearch";
-import DropdownMenu from "../components/DropdownMenu";
 import ListingTile from "../components/ListingTile";
 import Wrapper from "../components/util/Wrapper";
-import apiRequest from "../../lib/apiRequest";
+import MapView from "../components/MapView";
 
-const variants = {
-  open: {
-    x: 0,
-    transition: { type: "spring", stiffness: 80, damping: 18, mass: 0.5 },
-  },
-  closed: {
-    x: 100,
-    transition: { type: "spring", stiffness: 80, damping: 18, mass: 0.5 },
-  },
-};
+import ListingTileSkeleton from "../components/skeleton/ListingTileSkeleton";
+import MapViewSkeleton from "../components/skeleton/MapViewSkeleton";
+
+import {
+  fetchListings,
+  fetchListingsByLocation,
+} from "../../lib/queries/listings";
 
 const Hub = () => {
   const [selectedListing, setSelectedListing] = useState(null);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
   const [userCoordinates, setUserCoordinates] = useState(null);
-  const [locationError, setLocationError] = useState(false); // NEW: track location denial
+  const [locationError, setLocationError] = useState(false);
   const [toggleMapView, setToggleMapView] = useState(true);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
-
-        setUserCoordinates({ lat, lng });
+        setUserCoordinates({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        });
       },
-      (err) => {
-        console.error("Geolocation error:", err);
-        setLocationError(true); // NEW: handle user declining
+      () => {
+        setLocationError(true);
       },
-      {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 0,
-      }
+      { enableHighAccuracy: true, timeout: 10000 }
     );
   }, []);
 
-  const fetchListingsByLocation = async () => {
-    if (!userCoordinates)
-      return { listings: [], totalPages: 1, totalCount: 0, page: 1 };
-
-    const coords = `${userCoordinates.lat},${userCoordinates.lng}`;
-    const res = await apiRequest.get("/listings/by-location", {
-      params: { location: coords, page, limit },
-    });
-
-    // Return the full response so we have pagination info
-    return res.data;
+  const variants = {
+    open: {
+      x: 0,
+      transition: { type: "spring", stiffness: 80, damping: 18, mass: 0.5 },
+    },
+    closed: {
+      x: 100,
+      transition: { type: "spring", stiffness: 80, damping: 18, mass: 0.5 },
+    },
   };
 
   const nextPage = () => {
     if (page < totalPages) {
-      // Ensure we don't go beyond total pages
       setPage((prev) => prev + 1);
     }
   };
   const prevPage = () => {
     if (page > 1) {
-      // Ensure we don't go below page 1
       setPage((prev) => prev - 1);
     }
   };
 
-  const fetchListings = async () => {
-    const res = await apiRequest.get("/listings/", {
-      params: { page, limit },
-    });
-    return res.data;
-  };
+  const coords =
+    userCoordinates && `${userCoordinates.lat},${userCoordinates.lng}`;
 
   const {
-    data = { listings: [], totalPages: 1, totalCount: 0, page: 1 },
+    data = { listings: [], totalPages: 1, totalCount: 0 },
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["listings", userCoordinates, locationError, page, limit],
-    queryFn:
-      locationError || !userCoordinates
-        ? fetchListings
-        : fetchListingsByLocation,
+    queryKey: ["listings", coords, locationError, page, limit],
+    queryFn: () => {
+      if (locationError || !coords) {
+        return fetchListings({ page, limit });
+      }
+      return fetchListingsByLocation({ coords, page, limit });
+    },
     enabled: true,
+    staleTime: 1000 * 60 * 2,
   });
 
-  const { listings, totalPages, totalCount } = data;
+  const { listings, totalPages } = data;
 
   if (isLoading) {
     return (
@@ -150,11 +133,11 @@ const Hub = () => {
   return (
     <Wrapper>
       <div
-        className={`w-full my-20 ${
+        className={`w-full ${
           toggleMapView ? "lg:w-3/5 xl:w-7/12" : "w-full"
-        }  overflow-y-auto p-6`}
+        }  overflow-y-auto px-6`}
       >
-        <div>
+        <div className="px-2 pb-2">
           <ListingSearch categories={categories} />
           <button
             onClick={() => setToggleMapView((prev) => !prev)}
@@ -180,7 +163,7 @@ const Hub = () => {
             />
           ))}
         </div>
-        <div className="flex mx-auto bg-prussianBlue dark:text-ghost text-white space-x-6 w-full justify-center my-6 ">
+        <div className="flex mx-auto bg-prussianBlue dark:text-ghost text-white space-x-6 w-full justify-center mt-auto ">
           <button type="button" onClick={() => prevPage()}>
             <span className="sr-only">Previous Page</span>
             <FaChevronLeft />
