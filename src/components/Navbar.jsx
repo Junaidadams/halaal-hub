@@ -87,7 +87,7 @@ const Navbar = () => {
       </ul>
       {/* Signed in menu desktop */}
       {currentUser ? (
-        <div className="z-20 hidden md:flex flex-col mt-2 right-2 top-0">
+        <div className="z-20 hidden md:flex flex-col  right-2 top-0">
           <button
             onClick={() => setMiniMenuIsOpen(!miniMenuIsOpen)}
             className="shadow-lg bg-space-cadet py-2 px-3 rounded-full flex text-ghost dark:text-black bg-richBlack dark:bg-ghost z-20 font-semibold"

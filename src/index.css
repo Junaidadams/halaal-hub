@@ -3,3 +3,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.leaflet-popup-content-wrapper {
+  background: #f8fafc;
+  color: #1d2d44;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
+}
+
+.leaflet-popup-tip {
+  background: #f8fafc;
+}
+
+.leaflet-popup-content {
+  font-family: inherit;
+}

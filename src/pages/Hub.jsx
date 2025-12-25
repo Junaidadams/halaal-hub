@@ -141,7 +141,7 @@ const Hub = () => {
           <ListingSearch categories={categories} />
           <button
             onClick={() => setToggleMapView((prev) => !prev)}
-            className="bg-prussianBlue hidden lg:flex text-white px-4 py-2 text-sm rounded-md shadow hover:bg-opacity-90 transition"
+            className="bg-mainDark text-mainLight dark:bg-mainLight hidden lg:flex dark:text-mainDark px-4 py-2 text-sm rounded-md shadow hover:bg-opacity-90 transition"
           >
             {toggleMapView ? "Hide Map" : "Show Map"}
           </button>

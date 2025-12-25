@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { FaLocationDot } from "react-icons/fa6";
 import { useState } from "react";
 
-import ListingTile from "./ListingTile";
+import ListingTileAlt from "./ListingTileAlt";
 import SearchControl from "./SearchControl";
 import { renderToStaticMarkup } from "react-dom/server";
 import { RiMapPinUserFill } from "react-icons/ri";
@@ -66,8 +66,8 @@ const MapView = ({ listings, coordinates, selectedListing }) => {
         className="h-full w-full z-0"
       >
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="&copy; OpenStreetMap contributors"
+          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+          attribution="&copy; OpenStreetMap & CARTO"
         />
 
         {/* User location */}
@@ -104,7 +104,7 @@ const MapView = ({ listings, coordinates, selectedListing }) => {
             }
           >
             <Popup>
-              <ListingTile listing={item} />
+              <ListingTileAlt listing={item} />
             </Popup>
           </Marker>
         ))}

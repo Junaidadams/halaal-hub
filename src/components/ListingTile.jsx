@@ -76,6 +76,9 @@ const ListingTile = ({ listing, setSelectedListing, selectedListing }) => {
           <p className="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">
             {listing.category}
           </p>
+          <p className="absolute bottom-2 left-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">
+            Open Until 17:00
+          </p>
         </div>
         <div className="p-4">
           <h2 className="text-lg dark:text-richBlack font-bold font-poppins">
