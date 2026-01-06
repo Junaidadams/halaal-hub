@@ -17,7 +17,7 @@ export default {
         paynesGrey: "#3E5C76",
         eerieBlack: "#172D2D",
         mainLight: "#F5F5F5",
-        mainDark: "#172D2D",
+        mainDark: "#111827",
       },
     },
   },

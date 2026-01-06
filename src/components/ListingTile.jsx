@@ -5,9 +5,11 @@ import Stars from "./Stars";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
-import apiRequest from "../../lib/apiRequest";
+
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { getListingStatus } from "../../lib/utilFunctions/utils";
+import apiRequest from "../../lib/apiRequest";
 
 const ListingTile = ({ listing, setSelectedListing, selectedListing }) => {
   const { currentUser, updateUser } = useContext(AuthContext);
@@ -18,6 +20,7 @@ const ListingTile = ({ listing, setSelectedListing, selectedListing }) => {
   );
 
   const [saving, setSaving] = useState(false);
+  const { status, label } = getListingStatus(listing.openingHours);
 
   const handleToggleSave = async () => {
     if (!currentUser) {
@@ -64,7 +67,17 @@ const ListingTile = ({ listing, setSelectedListing, selectedListing }) => {
   };
 
   return (
-    <div className="bg-[#ededed] dark:bg-mainLight flex flex-col shadow-md rounded-t-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-">
+    <div
+      className="bg-[#ededed] dark:bg-mainLight flex flex-col shadow-md rounded-t-md dark:shadow-2xl mb-4 md:mx-2 hover:shadow-"
+      style={
+        status === "CLOSED"
+          ? {
+              filter: " grayscale(100%)",
+              backgroundColor: "#f0f0f0",
+            }
+          : {}
+      }
+    >
       <Link to={`/listing/${listing.id}`}>
         <div className="relative">
           <img
@@ -77,7 +90,7 @@ const ListingTile = ({ listing, setSelectedListing, selectedListing }) => {
             {listing.category}
           </p>
           <p className="absolute bottom-2 left-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">
-            Open Until 17:00
+            {label}
           </p>
         </div>
         <div className="p-4">
@@ -93,28 +106,15 @@ const ListingTile = ({ listing, setSelectedListing, selectedListing }) => {
           <p className="text-base text-richBlack font-semibold my-3">
             {listing.description}
           </p>
-          <p className="text-xs text-prussianBlue mt-4">📍 {listing.address}</p>
+          <p className="text-xs text-gray-900 mt-4">📍 {listing.address}</p>
         </div>
       </Link>
       <div className="justify-between flex p-4 mt-auto">
         <div>
-          {/* <a
-            href={`https://www.google.com/maps?q=${encodeURIComponent(
-              listing.address
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-ghost text-xs mt-2 inline-block bg-prussianBlue p-2 "
-          >
-            <button className="flex flex-row">
-              <SiGooglemaps className="my-auto mr-1" />
-              <span className="m-auto">Google maps</span>
-            </button>
-          </a> */}
           <button
             type="button"
             onClick={() => setSelectedListing(listing)}
-            className="text-ghost text-xs mt-2 inline-block bg-prussianBlue p-2 "
+            className="text-ghost text-xs mt-2 inline-block bg-gray-900 p-2 "
           >
             Show on Map
             <SiGooglemaps className="inline ml-1" />
@@ -126,7 +126,7 @@ const ListingTile = ({ listing, setSelectedListing, selectedListing }) => {
             whileTap={{ scale: 0.9 }}
             onClick={handleToggleSave}
             disabled={saving}
-            className="text-xl dark:text-prussianBlue"
+            className="text-xl dark:text-gray-900"
           >
             {isSaved ? <FaBookmark /> : <FaRegBookmark />}
           </motion.button>

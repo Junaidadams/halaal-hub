@@ -163,7 +163,7 @@ const Hub = () => {
             />
           ))}
         </div>
-        <div className="flex mx-auto bg-prussianBlue dark:text-ghost text-white space-x-6 w-full justify-center mt-auto ">
+        <div className="flex mx-auto bg-mainDark dark:text-ghost text-white space-x-6 w-full justify-center mt-auto ">
           <button type="button" onClick={() => prevPage()}>
             <span className="sr-only">Previous Page</span>
             <FaChevronLeft />
@@ -180,7 +180,7 @@ const Hub = () => {
               value={limit}
               type=""
               onChange={(e) => setLimit(Number(e.target.value))}
-              className="bg-prussianBlue text-white px-4 py-2 rounded shadow hover:bg-opacity-90 transition focus:outline-none focus:ring-0"
+              className="bg-mainDark text-white px-4 py-2 rounded shadow hover:bg-opacity-90 transition focus:outline-none focus:ring-0"
             >
               <option value={10}>10 per page</option>
               <option value={20}>20 per page</option>

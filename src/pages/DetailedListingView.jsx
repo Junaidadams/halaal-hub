@@ -9,32 +9,39 @@ import { FaStar } from "react-icons/fa6";
 import ShareButton from "../components/ShareButton";
 import Wrapper from "../components/util/Wrapper";
 import BackButton from "../components/util/BackButton";
+import { getListingStatus } from "../../lib/utilFunctions/utils";
+import { fetchListingById } from "../../lib/queries/listings";
 
 const fetchListings = async () => {
   const res = await axios.get("/data/listings.json");
   return res.data;
 };
 
+const capitalizeWord = (str) =>
+  str
+    ? str.toLowerCase().charAt(0).toUpperCase() + str.toLowerCase().slice(1)
+    : "";
+
 const DetailedListingView = () => {
   const { id } = useParams();
 
   const {
-    data: listings,
+    data: listing,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["listings"],
-    queryFn: fetchListings,
+    queryKey: ["listing", id],
+    queryFn: () => fetchListingById(id),
+    enabled: !!id,
+    staleTime: 1000 * 60 * 5,
   });
 
   if (isLoading) return <div className="p-6">Loading listing...</div>;
   if (error) return <div className="p-6">Error loading listing.</div>;
-
-  const listing = listings.find(
-    (item) => item.id.toString() === id || item.slug === id
-  );
-
   if (!listing) return <div className="p-6">Listing not found</div>;
+
+  const { status, label } = getListingStatus(listing.openingHours);
+  console.log(listing.openingHours);
 
   return (
     <Wrapper>
@@ -103,6 +110,26 @@ const DetailedListingView = () => {
             {listing.detailedDescription}
           </p>
         </div>
+        <div className=" p-4">
+          <h3 className="font-poppins font-semibold text-lg py-2 tracking-widest">
+            Operating Hours
+          </h3>
+          <ul>
+            {listing.openingHours.map((day) => (
+              <li key={day.id}>
+                <span className=""> {capitalizeWord(day.day)}</span> -{" "}
+                {day.opensAt != null ? (
+                  <span>
+                    {day.opensAt}-{day.closesAt}
+                  </span>
+                ) : (
+                  "Closed"
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <div className=" p-4">
           <h3 className="font-poppins font-semibold text-lg py-2 tracking-widest">
             Contact Information
