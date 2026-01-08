@@ -90,7 +90,7 @@ const Navbar = () => {
         <div className="z-20 hidden md:flex flex-col  right-2 top-0">
           <button
             onClick={() => setMiniMenuIsOpen(!miniMenuIsOpen)}
-            className="shadow-lg bg-space-cadet py-2 px-3 rounded-full flex text-ghost dark:text-black bg-richBlack dark:bg-ghost z-20 font-semibold"
+            className="shadow-lg bg-space-cadet py-2 px-3 rounded-sm flex text-ghost dark:text-black bg-richBlack dark:bg-ghost z-20 font-semibold"
           >
             <div className="my-auto mr-2 text-white dark:text-richBlack">
               {miniMenuIsOpen ? <RxChevronUp /> : <RxChevronDown />}

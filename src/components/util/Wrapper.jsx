@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const Wrapper = ({ children }) => {
   return (
-    <div className="flex min-h-screen bg-mainLight dark:bg-mainDark">
+    <div className="flex min-h-screen bg-mainLight dark:bg-[#2b292e]">
       {children}
     </div>
   );
